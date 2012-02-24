@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ACL 2010 Conference</title>
+<link rel="stylesheet" rev="stylesheet" href="standard.css">
+</head>
+<body>
+<center>
+<!-- TEMP ***
+<a href="http://acl2010.org/"><img src="acl2010-logo.gif" border=0 alt="ACL 2010 logo">
+<img src="acl2010-logo.jpg" border=0 alt="ACL 2010 logo"></a>
+*** TEMP -->
+<a href="http://acl2010.org/">
+<table><tr>
+<td><img src="acl2010-logo.gif" border=0 alt="ACL 2010 logo"></td>
+<td><img src="acl2010-logo.gif" border=0 alt="ACL 2010 logo"></td>
+<td><img src="acl2010-logo.gif" border=0 alt="ACL 2010 logo"></td>
+<td><img src="acl2010-logo.gif" border=0 alt="ACL 2010 logo"></td>
+<td><img src="acl2010-logo.gif" border=0 alt="ACL 2010 logo"></td>
+</tr></table>
+</a>
+
+<P>
+<br>
+<h1>48th Annual Meeting of the Association for Computational Linguistics
+
+<p>July 11 - July 16, 2010<br>
+Uppsala University<br>
+Uppsala, Sweden<br>
+<a href="http://acl2010.org/">http://acl2010.org/</a></p>
+
+<p>
+<table cellspacing="0" cellpadding="5" border="0" class="bg1">
+<tr><td>&nbsp;&nbsp;&nbsp;</td><td align=center><a href="ACL/index.html">Main Conference</a></td>                        <td><a href="ACL/ACL-2010-1.pdf">Vol.1</a>|<a href="ACL/ACL-2010-2.pdf">Vol.2</a></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td><td align=center><a href="Short/index.html">Short Papers</a></td>         <td><a href="Short/Short-2010.pdf">pdf</a></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td><td align=center><a href="SRW/index.html">Student Research Workshop</a></td>          <td><a href="SRW/SRW-2010.pdf">pdf</a></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td><td align=center><a href="Demos/index.html">Demos</a></td>          <td><a href="Demos/Demos-2010.pdf">pdf</a></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td><td align=center><a href="Tutorials/index.html">Tutorials</a></td>     			         <td><a href="Tutorials/Tutorials-2010.pdf">pdf</a></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td><td align=center><a href="authors.html">Author Index</a></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td><td align=center><a href="ACL-2010-with-workshops.bib">Bibliography (BibTeX)</a></td></tr>
+</table>
+
+
+<p>
+<br>
+<h1>Workshops and Associated Events</h1>
+<p>
+
+<table cellspacing="0" cellpadding="5" border="0" class="bg1">
+<tr><td align="left">WS01: <a href="SemEval/index.html">SemEval: 5th International Workshop on Semantic Evaluations (SemEval-2010)</a></td>          <td><a href="SemEval/SemEval-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS02: <a href="WMT/index.html">WMT: Joint Fifth Workshop on Statistical Machine Translation and MetricsMATR (WMT-2010)</a></td>          <td><a href="WMT/WMT-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS03: <a href="LAW/index.html">LAW: Fourth Linguistic Annotation Workshop (LAW IV)</a></td>          <td><a href="LAW/LAW-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS04: <a href="BioNLP/index.html">BioNLP: 2010 Workshop on Biomedical Natural Language Processing (BioNLP 2010)</a></td>          <td><a href="BioNLP/BioNLP-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS05: <a href="CMCL/index.html">CMCL: 2010 Workshop on Cognitive Modeling and Computational Linguistics (CMCL 2010)</a></td>          <td><a href="CMCL/CMCL-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS06: <a href="NLPLING/index.html">NLPLING: 2010 Workshop on NLP and Linguistics: Finding the Common Ground (NLPLING 2010)</a></td>          <td><a href="NLPLING/NLPLING-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS07: <a href="SIGMORPHON/index.html">SIGMORPHON: 11th Meeting of the ACL SIGMORPHON (SIGMORPHON 2010)</a></td>          <td><a href="SIGMORPHON/SIGMORPHON-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS08: <a href="TextGraphs/index.html">TextGraphs: 2010 Workshop on Graph-based Methods for Natural Language Processing (TextGraphs-5)</a></td>          <td><a href="TextGraphs/TextGraphs-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS09: <a href="NEWS/index.html">NEWS: 2010 Named Entities Workshop (NEWS 2010)</a></td>          <td><a href="NEWS/NEWS-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS10: <a href="ATANLP/index.html">ATANLP: 2010 Workshop on Applications of Tree Automata in Natural Language Processing (ATANLP-2010)</a></td>          <td><a href="ATANLP/ATANLP-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS11: <a href="DANLP/index.html">DANLP: 2010 Workshop on Domain Adaptation for Natural Language Processing (DANLP-2010)</a></td>          <td><a href="DANLP/DANLP-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS12: <a href="CDS/index.html">CDS: 2010 Workshop on Companionable Dialogue Systems (CDS-2010)</a></td>          <td><a href="CDS/CDS-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">WS13: <a href="GEMS/index.html">GEMS: 2010 Workshop on GEometrical Models of Natural Language Semantics (GEMS-2010)</a></td>          <td><a href="GEMS/GEMS-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">CoNLL-M: <a href="CoNLL/index.html">Fourteenth Conference on Computational Natural Language Learning (CoNLL-2010)</a></td>          <td><a href="CoNLL/CoNLL-2010.pdf">pdf</a></td></tr>
+<tr><td align="left">CoNLL-T: <a href="CoNLL-ST/index.html">Fourteenth Conference on Computational Natural Language Learning: Shared Task (CoNLL-ST-2010)</a></td>          <td><a href="CoNLL-ST/CoNLL-ST-2010.pdf">pdf</a></td></tr>
+</table>
+
+<p><br><br>Published and distributed by the Association for Computational Linguistics<br>
+<a href="http://www.aclweb.org">http://www.aclweb.org/</a><br>
+&copy; 2010 Association for Computational Linguistics</p>
+
+ISBN: 978-1-932432-69-5 / 1-932432-69-8
+
+<p>
+<p>
+<table cellspacing="0" cellpadding="5" border="0" class="bg1"><tr><td>
+<p>Publication Chairs:
+<p>
+Jing-Shin Chang (National Chi Nan University, Taiwan; jshin@csie.ncnu.edu.tw)
+<br>Philipp Koehn (University of Edinburgh, UK; pkoehn@inf.ed.ac.uk)
+</td></tr></table>
+</center>
+<p>&nbsp;<br>
+</body>
+</html>

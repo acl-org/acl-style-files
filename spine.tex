@@ -1,0 +1,44 @@
+
+%%% I think this will work well for spine text 
+%%% (the proceedings are quite thin, so any larger
+%%%  type size will be too big.)
+
+
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc} 
+\usepackage{times}
+\setlength\textwidth{9in}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\noindent
+\hspace{-0.7in}
+\Large
+%
+%
+%%% Default Template:
+ACL 2010
+\hfill
+Proceedings of the Conference Volume 1
+\hfill
+%June 30, 2005 %%% do not forget to edit the date
+%July 22, 2006 %%% do not forget to edit the date
+%2-7 August 2009 %%% do not forget to edit the date
+11-16 July 2009 %%% do not forget to edit the date
+
+
+%%% If you have an organization behind the workshop,
+%%% change the format to:
+%%%
+%%% SIGIUM 
+%%% \hfill
+%%% Important Unresolved Matters
+%%% \hfill
+%%% June 30, 2005
+
+%%% Compile with:
+%%% dvips -t landscape spine.dvi -o spine.ps
+
+\end{document}
