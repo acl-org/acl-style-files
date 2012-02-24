@@ -1,0 +1,44 @@
+% *** THIS FILE IS NO LONGER USED ***
+% ACL proceedings through 2004 used this to generate an author index.
+% We now use the standard latex method, which has a somewhat different
+% look (not necessarily preferable) and makes hyperlinks easy.
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage{times}
+
+% for Letter size
+
+\setlength\topmargin{0.2cm} \setlength\oddsidemargin{-0cm}
+\setlength\textheight{22cm} \setlength\textwidth{15.8cm}
+\setlength\columnsep{0.25in}  \newlength\titlebox \setlength\titlebox{2.00in}
+\setlength\headheight{5pt}   \setlength\headsep{0pt}
+\setlength\footskip{1.0cm}
+\setlength\leftmargin{0.0in}
+\pagestyle{plain}
+
+% for A4 size
+
+%\special{papersize=21cm, 29.7cm}
+%\pdfpageheight\paperheight
+%\pdfpagewidth\paperwidth
+%\setlength\topmargin{-5mm} \setlength\oddsidemargin{-0cm}
+%\setlength\textheight{24.7cm} \setlength\textwidth{16cm}
+%\setlength\columnsep{0.6cm}  \newlength\titlebox \setlength\titlebox{2.00in}
+%\setlength\headheight{5pt}   \setlength\headsep{0pt}
+%\setlength\footskip{1.9cm}
+%\setlength\leftmargin{0.0in}
+%\pagestyle{plain}
+
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{2ex}
+
+\pagenumbering{roman}
+
+\begin{document}
+
+\begin{center}
+  {\Large \bf Author Index}
+\end{center}
+

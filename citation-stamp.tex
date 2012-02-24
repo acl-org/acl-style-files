@@ -1,0 +1,13 @@
+\newcommand{\citeinfo}[2]{
+  \AddToShipoutPicture{%
+    \setlength{\unitlength}{1mm}
+%%% EDIT WORKSHOP CHAIRS AND WORKSHOP TITLE %%%%%%%%%%%%%%%%%%%%%%%%%%
+   % \put(105,17){\makebox(0,0){\footnotesize {\em Proceedings of the 5th Workshop on Important Unresolved Matters}, 
+   %	\ifthenelse{\equal{#1}{#2}}{page #1}{pages #1--#2},}}
+    \put(105,11){\makebox(0,0){\footnotesize {\em Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics}, 
+	\ifthenelse{\equal{#1}{#2}}{page #1}{pages #1--#2},}}
+    %\put(105,14){\makebox(0,0){\footnotesize Ann Arbor, June 2005. \copyright 2005 Association for Computational Linguistics}}
+    %\put(105,8){\makebox(0,0){\footnotesize Sydney, July 2006. \copyright 2006 Association for Computational Linguistics}}
+     \put(105,8){\makebox(0,0){\footnotesize Uppsala, Sweden, 11-16 July 2010. \copyright 2010 Association for Computational Linguistics}}
+  }
+}
