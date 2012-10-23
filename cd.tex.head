@@ -1,5 +1,6 @@
 \documentclass[11pt,oneside]{book}
 \usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} % fonts to encode unicode
 \usepackage{draftflag}
 \usepackage{times}
 \usepackage{fullpage}
