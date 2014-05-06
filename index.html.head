@@ -54,9 +54,8 @@
 <table cellspacing="0" cellpadding="5" border="1">
 
 		<tr class="bg1">
-			<td valign="top"><a href="pdf/<XXX ABBREV>000.pdf">pdf</a></td>
-			<!--<td valign="top"><a href="ps/<XXX ABBREV>000.ps">ps</a></td>-->
-			<td valign="top"><a href="bib/<XXX ABBREV>000.bib">bib</a></td>
-			<td valign="top"><a href="pdf/<XXX ABBREV>000.pdf"><b>Front matter<b></a></td>
+			<td valign="top"><a href="pdf/<XXX ABBREV>000.pdf"><b>Front matter<b></a>
+[<a href="pdf/<XXX ABBREV>000.pdf">pdf</a>] [<a href="bib/<XXX ABBREV>000.bib">bib</a>]
+</td>
 			<td valign="top">pages</td>
 		</tr>
