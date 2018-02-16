@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,11 +10,10 @@
 <center>
 <table cellspacing="0" cellpadding="0" border="0">
 	<tr>
-                <td colspan="3"><a href="index.html">ACL 2010 Proceedings Home</a> | <a href="http://acl2010.org">ACL 2010 WEBSITE</a> | <a href="http://www.aclweb.org/">ACL WEBSITE</a></td>
+                <td colspan="3"><a href="index.html">ACL 2017 Proceedings Home</a> | <a href="http://acl2017.org">ACL 2017 WEBSITE</a> | <a href="http://www.aclweb.org/">ACL WEBSITE</a></td>
 	</tr>
-
-
 </table>
+
 <br><br>
 
 <h2><XXX TITLE></h2>
