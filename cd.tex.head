@@ -33,7 +33,7 @@
 \setlength\textheight{24.7cm} \setlength\textwidth{16cm}
 \setlength\columnsep{0.6cm}  \newlength\titlebox \setlength\titlebox{2.00in}
 \setlength\headheight{5pt}   \setlength\headsep{0pt}
-\setlength\footskip{1.2cm}
+\setlength\footskip{0.8cm}
 \setlength\leftmargin{0.0in}
 \pagestyle{plain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
