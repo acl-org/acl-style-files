@@ -194,14 +194,8 @@
 % Abstract}\vspace{0.5ex}\begin{quote}}{\par\end{quote}\vskip 1ex}
 
 % Resizing figure and table captions - SL
-\newcommand{\figcapfont}{\rm}
-\newcommand{\tabcapfont}{\rm}
-\renewcommand{\fnum@figure}{\figcapfont Figure \thefigure}
-\renewcommand{\fnum@table}{\tabcapfont Table \thetable}
-\renewcommand{\figcapfont}{\@setsize\normalsize{12pt}\xpt\@xpt}
-\renewcommand{\tabcapfont}{\@setsize\normalsize{12pt}\xpt\@xpt}	
 % Support for interacting with the caption, subfigure, and subcaption packages - SL
-\usepackage{caption}
+\RequirePackage{caption}
 \DeclareCaptionFont{10pt}{\fontsize{10pt}{12pt}\selectfont}
 \captionsetup{font=10pt}
 
