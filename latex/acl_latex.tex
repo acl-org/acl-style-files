@@ -60,22 +60,17 @@
   Affiliation / Address line 3 \\
   \texttt{email@domain} \\}
 
-\date{}
-
 \begin{document}
 \maketitle
 \begin{abstract}
-This document contains the instructions for preparing a manuscript for the proceedings of ACL conferences.
+This document is a supplement to the general instructions for *ACL authors. It contains instructions for using the \LaTeX{} style files for ACL conferences. 
 The document itself conforms to its own specifications, and is therefore an example of what your manuscript should look like.
 These instructions should be used both for papers submitted for review and for final versions of accepted papers.
-Authors are asked to conform to all the directions reported in this document.
 \end{abstract}
 
 \section{Introduction}
 
-The following instructions are directed to authors of papers submitted for review to ACL 2020 (hereafter, ``review version'') or accepted for publication in its proceedings (hereafter, ``final version'').
-
-General formatting instructions are found at \url{http://acl-org.github.io/ACLPUB/docs/formatting.md}. This document contains additional instructions for users of \LaTeX{} and the \LaTeX{} style files.
+These instructions are for authors submitting papers to *ACL conferences using \LaTeX. They are not self-contained. All authors must follow the general instructions for *ACL proceedings,\footnote{\url{http://acl-org.github.io/ACLPUB/docs/formatting.html}} and this document contains additional instructions for the \LaTeX{} style files.
 
 The templates include the \LaTeX{} source of this document (\texttt{acl.tex}),
 the \LaTeX{} style file used to format it (\texttt{acl.sty}),
@@ -83,7 +78,20 @@ an ACL bibliography style (\texttt{acl\_natbib.bst}),
 an example bibliography (\texttt{custom.bib}),
 and the bibliography for the ACL Anthology (\texttt{anthology.bib}).
 
-To load the style file in the review version, put the following in the preamble:
+\section{Engines}
+
+To produce a PDF file, pdf\LaTeX{} is strongly recommended (over original \LaTeX{} plus dvips+ps2pdf or dvipdf). Xe\LaTeX{} also produces PDF files, and is especially suitable for text in non-Latin scripts.
+
+\section{Preamble}
+
+The first line of the file must be
+\begin{quote}
+\begin{verbatim}
+\documentclass[11pt]{article}
+\end{verbatim}
+\end{quote}
+
+To load the style file in the review version:
 \begin{quote}
 \begin{verbatim}
 \usepackage[review]{acl}
@@ -96,15 +104,6 @@ For the final version, omit the \verb|review| option:
 \end{verbatim}
 \end{quote}
 
-\section{Formatting Instructions}
-
-\subsection{File Format}
-\label{sect:pdf}
-
-To produce a PDF file, we recommend using pdf\LaTeX.
-
-\subsection{Fonts}
-
 To use Times Roman, put the following in the preamble:
 \begin{quote}
 \begin{verbatim}
@@ -113,16 +112,19 @@ To use Times Roman, put the following in the preamble:
 \end{quote}
 (Alternatives like txfonts or newtx are also acceptable.)
 
-\subsection{Title and Authors}
-\label{ssec:title-authors}
+Please see the \LaTeX{} source of this document for comments on other packages that may be useful.
 
-By default, the box containing the title and author names is set to the minimum of 5cm. If you need more space, include the following in the preamble:
+Set the title and author using \verb|\title| and \verb|\author|. Within the author list, format multiple authors using \verb|\and| and \verb|\And| and \verb|\AND|; please see the \LaTeX{} source for examples.
+
+By default, the box containing the title and author names is set to the minimum of 5 cm. If you need more space, include the following in the preamble:
 \begin{quote}
 \begin{verbatim}
 \setlength\titlebox{<dim>}
 \end{verbatim}
 \end{quote}
-where \verb|<dim>| is replaced with a length. Do not set this length smaller than 5cm.
+where \verb|<dim>| is replaced with a length. Do not set this length smaller than 5 cm.
+
+\section{Document Body}
 
 \subsection{Footnotes}
 
@@ -223,14 +225,20 @@ To include both the Anthology and your own .bib file, use the following instead 
 \end{verbatim}
 \end{quote}
 
-Unicode cannot be used in Bib\TeX{} entries, and some ways of typing special characters can disrupt Bib\TeX's alphabetization. The recommended way of typing special characters is shown in Table~\ref{tab:accents}.
-
-Please ensure that you use Bib\TeX{} records that contain DOI or URLs for any of the ACL materials that you reference.
-If the Bib\TeX{} file contains DOI fields, the paper title in the references section will appear as a hyperlink to the DOI, using the hyperref \LaTeX{} package.
+Please see Section~\ref{sec:bibtex} for information on preparing Bib\TeX{} files.
 
 \subsection{Appendices}
 
 Use \verb|\appendix| before any appendix section to switch the section numbering over to letters. See Appendix~\ref{sec:appendix} for an example.
+
+\section{Bib\TeX{} Files}
+\label{sec:bibtex}
+
+Unicode cannot be used in Bib\TeX{} entries, and some ways of typing special characters can disrupt Bib\TeX's alphabetization. The recommended way of typing special characters is shown in Table~\ref{tab:accents}.
+
+Please ensure that Bib\TeX{} records contain DOIs or URLs when possible, and for all the ACL materials that you reference.
+Use the \verb|doi| field for DOIs and the \verb|url| field for URLs.
+If a Bib\TeX{} entry has a URL or DOI field, the paper title in the references section will appear as a hyperlink to the paper, using the hyperref \LaTeX{} package.
 
 \section*{Acknowledgements}
 
