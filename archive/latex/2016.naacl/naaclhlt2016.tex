@@ -1,0 +1,445 @@
+%
+% File naaclhlt2016.tex
+%
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage{naaclhlt2016}
+\usepackage{times}
+\usepackage{latexsym}
+
+\naaclfinalcopy % Uncomment this line for the final submission
+\def\naaclpaperid{***} %  Enter the naacl Paper ID here
+
+% To expand the titlebox for more authors, uncomment
+% below and set accordingly.
+% \addtolength\titlebox{.5in}    
+
+\newcommand\BibTeX{B{\sc ib}\TeX}
+
+
+\title{Instructions for NAACL HLT 2016 Proceedings\Thanks{This
+    document has been adapted from the instructions for earlier ACL
+    and NAACL proceedings, including those for 
+    NAACL HLT15 by Matt Post and Adam Lopez,
+    NAACL HLT12 by Nizar Habash and William Schuler,
+    NAACL HLT10 by Claudia Leacock and Richard Wicentowski,
+    NAACL HLT09 by Joakim Nivre and Noah Smith, 
+    for ACL05 by Hwee Tou Ng and Kemal Oflazer,
+    for ACL02 by Eugene Charniak and Dekang Lin, and earlier ACL and
+    EACL formats.  Those versions were written by several people,
+    including John Chen, Henry S. Thompson and Donald Walker.
+    Additional elements were taken from the formatting instructions of
+    the {\em International Joint Conference on Artificial Intelligence}
+    and the {\em Conference on Computer Vision and Pattern Recognition}.}}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+% If the title and author information does not fit in the area allocated,
+% place \setlength\titlebox{<new height>} right after
+% at the top, where <new height> can be something larger than 2.25in
+\author{Margaret Mitchell \and Adam Lopez\\
+  {\tt naacl-pub-chairs@googlegroups.com}}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+ This document contains instructions for preparing NAACL HLT 2016 submissions and camera-ready
+  manuscripts.  The document itself conforms
+  to its own specifications, and is therefore an example of what
+  your manuscript should look like.  Papers are required to conform to
+  all the directions reported in this document.  
+By using the provided \LaTeX\ and \BibTeX\ styles ({\small\tt naaclhlt2016.sty}, {\small\tt naaclhlt2016.bst}), the required formatting will be enabled by default.
+\end{abstract}
+
+\section{Introduction}
+
+The following instructions are directed to authors of papers submitted to and accepted
+for publication in the NAACL HLT 2016 proceedings.  All authors are required
+to adhere to these specifications. Authors are required to provide 
+a Portable Document Format (PDF) version of
+their papers.  The proceedings will be printed on US-Letter paper.
+Authors from countries where access to word-processing systems is
+limited should contact the publication chairs as soon as possible.
+ Grayscale readability of all figures and
+graphics will be encouraged for all accepted papers
+(Section \ref{ssec:accessibility}).  
+
+Submitted and camera-ready formatting is similar,
+  however, the submitted paper should have:
+\begin{enumerate} 
+\item Author-identifying information removed
+\item A `ruler' on the left and right margins
+\item Page numbers 
+\item A confidentiality header.  
+\end{enumerate}
+In contrast, the camera-ready {\bf should  not have} a ruler, page numbers, nor a confidentiality header.  By uncommenting {\small\verb|\naaclfinalcopy|} at the top of this 
+ document, it will compile to produce an example of the camera-ready formatting; by leaving it commented out, the document will be anonymized for initial submission.  Authors should place this command after the {\small\verb|\usepackage|} declarations when preparing their camera-ready manuscript with the NAACL HLT 2016 style.
+
+
+\section{General Instructions}
+
+Manuscripts must be in two-column format.  Exceptions to the
+two-column format include the title, as well as the 
+authors' names and complete
+addresses (only in the final version, not in the version submitted for review), 
+which must be centered at the top of the first page (see
+the guidelines in Subsection~\ref{ssec:first}), and any full-width
+figures or tables.  Type single-spaced.  Do not number the pages 
+in the camera-ready version.
+Start all pages directly under the top margin.  See the guidelines
+later regarding formatting the first page.
+
+The maximum length of a manuscript is eight (8) pages for the main
+conference, printed single-sided, plus two (2) pages for references
+(see Section~\ref{sec:length} for additional information on the
+maximum number of pages). 
+
+By uncommenting {\small\verb|\naaclfinalcopy|} at the top of this 
+ document, it will compile to produce an example of the camera-ready formatting; by leaving it commented out, the document will be anonymized for initial submission.  When you first create your submission on softconf, please fill in your submitted paper ID where {\small\verb|***|} appears in the {\small\verb|\def\naaclpaperid{***}|} definition at the top.
+
+The review process is double-blind, so do not include any author information (names, addresses) when submitting a paper for review.  
+However, you should maintain space for names and addresses so that they will fit in the final (accepted) version.  The NAACL HLT 2016 \LaTeX\ style will create a titlebox space of 2.5in for you when {\small\verb|\naaclfinalcopy|} is commented out.  
+
+\subsection{The Ruler}
+The NAACL HLT 2016 style defines a printed ruler which should be present in the
+version submitted for review.  The ruler is provided in order that
+reviewers may comment on particular lines in the paper without
+circumlocution.  If you are preparing a document without the provided
+style files, please arrange for an equivalent ruler to
+appear on the final output pages.  The presence or absence of the ruler
+should not change the appearance of any other content on the page.  The
+camera ready copy should not contain a ruler. (\LaTeX\ users may uncomment
+the {\small\verb|\naaclfinalcopy|} command in the document preamble.)  
+
+Reviewers:
+note that the ruler measurements do not align well with lines in the paper
+--- this turns out to be very difficult to do well when the paper contains
+many figures and equations, and, when done, looks ugly.  Just use fractional
+references (e.g., the first line on this page is at mark $096.5$), although in most cases one would
+expect that the approximate location will be adequate.
+
+\subsection{Electronically-available resources}
+
+NAACL HLT provides this description in \LaTeX2e{} ({\small\tt naaclhlt2016.tex}) and PDF
+format ({\small\tt naaclhlt2016.pdf}), along with the \LaTeX2e{} style file used to
+format it ({\small\tt naaclhlt2016.sty}) and an ACL bibliography style ({\small\tt naaclhlt2016.bst})
+and example bibliography ({\small\tt naaclhlt2016.bib}).
+These files are all available at
+{\small\tt naacl.org/naacl-hlt-2016}.  A Microsoft Word
+template file ({\small\tt naaclhlt2016.dot}) is also available at the same URL. We
+strongly recommend the use of these style files, which have been
+appropriately tailored for the NAACL HLT 2016 proceedings.
+
+\subsection{Format of Electronic Manuscript}
+\label{sect:pdf}
+
+For the production of the electronic manuscript, you must use Adobe's
+Portable Document Format (PDF). This format can be generated from
+postscript files: on Unix systems, you can use {\small\tt ps2pdf} for this
+purpose; under Microsoft Windows, you can use Adobe's Distiller, or
+if you have cygwin installed, you can use {\small\tt dvipdf} or
+{\small\tt ps2pdf}.  Note 
+that some word processing programs generate PDF that may not include
+all the necessary fonts (esp.\ tree diagrams, symbols). When you print
+or create the PDF file, there is usually an option in your printer
+setup to include none, all, or just non-standard fonts.  Please make
+sure that you select the option of including ALL the fonts.  {\em
+  Before sending it, test your {\/\em PDF} by printing it from a
+  computer different from the one where it was created}. Moreover,
+some word processors may generate very large postscript/PDF files,
+where each page is rendered as an image. Such images may reproduce
+poorly.  In this case, try alternative ways to obtain the postscript
+and/or PDF.  One way on some systems is to install a driver for a
+postscript printer, send your document to the printer specifying
+``Output to a file'', then convert the file to PDF.
+
+For reasons of uniformity, Adobe's {\bf Times Roman} font should be
+used. In \LaTeX2e{} this is accomplished by putting
+\small
+\begin{verbatim}
+\usepackage{times}
+\usepackage{latexsym}
+\end{verbatim}
+\normalsize
+in the preamble.
+Additionally, it is of utmost importance to specify the {\bf
+  US-Letter format} (8.5in $\times$ 11in) when formatting the paper.
+When working with {\small\tt dvips}, for instance, one should specify {\small\tt -t letter}.
+
+Print-outs of the PDF file on US-Letter paper should be identical to the
+hardcopy version.  If you cannot meet the above requirements about the
+production of your electronic submission, please contact the
+publication chairs above  as soon as possible.
+
+\subsection{Layout}
+\label{ssec:layout}
+
+Format manuscripts with two columns to a page, following the manner in which these
+instructions are formatted. The exact dimensions for a page on US-Letter paper are:
+
+\begin{itemize}
+\item Left and right margins: 1 inch
+\item Top margin: 1 inch
+\item Bottom margin: 1 inch
+\item Column width: 3.15 inches
+\item Column height: 9 inches
+\item Gap between columns: 0.2 inches
+\end{itemize}
+
+\noindent Papers should not be submitted on any other paper size. Exceptionally,
+authors for whom it is \emph{impossible} to format on US-Letter paper 
+may format for \emph{A4} paper. In this case, they should keep the \emph{top}
+and \emph{left} margins as given above, use the same column width,
+height and gap, and modify the bottom and right margins as necessary.
+Note that the text will no longer be centered.
+
+\subsection{The First Page}
+\label{ssec:first}
+
+Center the title, author name(s) and affiliation(s) across both
+columns (or, in the case of initial submission, space for the names). 
+Do not use footnotes for affiliations.  
+Use the two-column format only when you begin the abstract.
+
+{\bf Title}: Place the title centered at the top of the first page, in
+a 15 point bold font.  (For a complete guide to font sizes and styles, see Table~\ref{font-table}.)
+Long titles should be typed on two lines without
+a blank line intervening. Approximately, put the title at 1in from the
+top of the page, followed by a blank line, then the author name(s),
+and the affiliation(s) on the following line.  Do not use only initials
+for given names (middle initials are allowed). Do not format surnames
+in all capitals (e.g., ``Mitchell,'' not ``MITCHELL'').  The affiliation should
+contain the author's complete address, and if possible, an electronic
+mail address. Leave about 0.75in between the affiliation and the body
+of the first page.
+
+{\bf Abstract}: Type the abstract at the beginning of the first
+column.  The width of the abstract text should be smaller than the
+width of the columns for the text in the body of the paper by about
+0.25in on each side.  Center the word {\bf Abstract} in a 12 point
+bold font above the body of the abstract. The abstract should be a
+concise summary of the general thesis and conclusions of the paper.
+It should be no longer than 200 words.  The abstract text should be in 10 point font.
+
+\begin{table}
+\centering
+\small
+\begin{tabular}{cc}
+\begin{tabular}{|l|l|}
+\hline
+{\bf Command} & {\bf Output}\\\hline
+\verb|{\"a}| & {\"a} \\
+\verb|{\^e}| & {\^e} \\
+\verb|{\`i}| & {\`i} \\ 
+\verb|{\.I}| & {\.I} \\ 
+\verb|{\o}| & {\o} \\
+\verb|{\'u}| & {\'u}  \\ 
+\verb|{\aa}| & {\aa}  \\\hline
+\end{tabular} & 
+\begin{tabular}{|l|l|}
+\hline
+{\bf Command} & {\bf  Output}\\\hline
+\verb|{\c c}| & {\c c} \\ 
+\verb|{\u g}| & {\u g} \\ 
+\verb|{\l}| & {\l} \\ 
+\verb|{\~n}| & {\~n} \\ 
+\verb|{\H o}| & {\H o} \\ 
+\verb|{\v r}| & {\v r} \\ 
+\verb|{\ss}| & {\ss} \\\hline
+\end{tabular}
+\end{tabular}
+\caption{Example commands for accented characters, to be used in, e.g., \BibTeX\ names.}\label{tab:accents}
+\end{table}
+
+{\bf Text}: Begin typing the main body of the text immediately after
+the abstract, observing the two-column format as shown in 
+the present document.  Do not include page numbers in the camera-ready manuscript.  
+
+{\bf Indent} when starting a new paragraph. For reasons of uniformity,
+use Adobe's {\bf Times Roman} fonts, with 11 points for text and 
+subsection headings, 12 points for section headings and 15 points for
+the title.  If Times Roman is unavailable, use {\bf Computer Modern
+  Roman} (\LaTeX2e{}'s default; see section \ref{sect:pdf} above).
+Note that the latter is about 10\% less dense than Adobe's Times Roman
+font.
+
+\subsection{Sections}
+
+{\bf Headings}: Type and label section and subsection headings in the
+style shown on the present document.  Use numbered sections (Arabic
+numerals) in order to facilitate cross references. Number subsections
+with the section number and the subsection number separated by a dot,
+in Arabic numerals. 
+
+{\bf Citations}: Citations within the text appear
+in parentheses as~\cite{Gusfield:97} or, if the author's name appears in
+the text itself, as Gusfield~\shortcite{Gusfield:97}.  Using the provided \LaTeX\ style, the former is accomplished using
+{\small\verb|\cite|} and the latter with {\small\verb|\shortcite|} or {\small\verb|\newcite|}.  Collapse multiple citations as in~\cite{Gusfield:97,Aho:72}; this is accomplished with the provided style using commas within the {\small\verb|\cite|} command, e.g., {\small\verb|\cite{Gusfield:97,Aho:72}|}.  
+Append lowercase letters to the year in cases of ambiguities.  
+Treat double authors as in~\cite{Aho:72}, but write as 
+in~\cite{Chandra:81} when more than two authors are involved.  
+
+\textbf{References}:  We recommend
+including references in a separate~{\small\texttt .bib} file, and include an example file 
+in this release ({\small\tt naalhlt2016.bib}).  Some commands
+for names with accents are provided for convenience in Table \ref{tab:accents}.  
+References stored in the separate~{\small\tt .bib} file are inserted into the document using the following commands:
+
+\small
+\begin{verbatim}
+\bibliography{naaclhlt2016}
+\bibliographystyle{naaclhlt2016}
+\end{verbatim}
+\normalsize 
+
+References should appear under the heading {\bf References} at the 
+end of the document, but before any Appendices, unless the appendices contain references.  
+Arrange the references alphabetically
+by first author, rather than by order of occurrence in the text.  %This behavior is provided by default in the provided \BibTeX\ style ({\small\tt naaclhlt2016.bst}). 
+Provide as complete a reference as possible, using a consistent format,
+such as the one for {\em Computational Linguistics\/} or the one in the 
+{\em Publication Manual of the American 
+Psychological Association\/}~\cite{APA:83}.  Authors' full names rather than initials are preferred.  You may use
+{\bf standard} abbreviations for conferences\footnote{\scriptsize {\tt https://en.wikipedia.org/wiki/ \\ \-\hspace{.75cm} List\_of\_computer\_science\_conference\_acronyms}} and journals\footnote{\tt http://www.abbreviations.com/jas.php}.
+
+
+
+
+{\bf Appendices}: Appendices, if any, directly follow the text and the
+references (but see above).  Letter them in sequence and provide an
+informative title: {\bf Appendix A. Title of Appendix}.
+
+\textbf{Acknowledgment} sections should go as a last (unnumbered) section immediately
+before the references.  
+
+
+\subsection{Footnotes}
+
+{\bf Footnotes}: Put footnotes at the bottom of the page. They may
+be numbered or referred to by asterisks or other
+symbols.\footnote{This is how a footnote should appear.} Footnotes
+should be separated from the text by a line.\footnote{Note the
+line separating the footnotes from the text.}  Footnotes should be in 9 point font.
+
+\subsection{Graphics}
+
+{\bf Illustrations}: Place figures, tables, and photographs in the
+paper near where they are first discussed, rather than at the end, if
+possible.  Wide illustrations may run across both columns and should be placed at
+the top of a page. Color illustrations are discouraged, unless you have verified that 
+they will be understandable when printed in black ink. 
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|rl|}
+\hline \bf Type of Text & \bf Font Size & \bf Style \\ \hline
+paper title & 15 pt & bold \\
+author names & 12 pt & bold \\
+author affiliation & 12 pt & \\
+the word ``Abstract'' & 12 pt & bold \\
+section titles & 12 pt & bold \\
+document text & 11 pt  &\\
+abstract text & 10 pt & \\
+captions & 9 pt & \\
+caption label & 9 pt & bold \\
+bibliography & 10 pt & \\
+footnotes & 9 pt & \\
+\hline
+\end{tabular}
+\caption{\label{font-table} Font guide.}
+\end{table}
+
+{\bf Captions}: Provide a caption for every illustration; number each one
+sequentially in the form:  ``{\bf Figure 1:} Figure caption.'', ``{\bf Table 1:} Table caption.''  Type the captions of the figures and 
+tables below the body, using 9 point text.  Table and Figure labels should be bold-faced.
+
+\subsection{Accessibility}
+\label{ssec:accessibility}
+
+In an effort to accommodate the color-blind (as well as those printing
+to paper), grayscale readability for all accepted papers will be
+encouraged.  Color is not forbidden, but authors should ensure that
+tables and figures do not rely solely on color to convey critical
+distinctions.
+
+\section{Length of Submission}
+\label{sec:length}
+
+The NAACL HLT 2016 main conference accepts submissions of long papers and short papers.  Long papers may consist of up to eight (8) pages of content, plus unlimited pages for references. Upon acceptance, final versions of long papers will be given one additional page (up to 9 pages with unlimited pages for references) so that reviewers' comments can be taken into account.  Short papers may consist of up to four (4) pages of content, plus unlimited pages for references. Upon acceptance, short papers will be given five (5) pages in the proceedings and unlimited pages for references.  For both long and short papers, all illustrations and appendices must be accommodated within these page limits, observing the formatting instructions given in the present document.  Papers that do not conform to the specified length and formatting requirements are subject to be rejected without review.
+
+
+\section{Double-blind review process}
+\label{sec:blind}
+
+As the reviewing will be blind, the paper must not include the
+authors' names and affiliations.  Furthermore, self-references that
+reveal the author's identity, e.g., ``We previously showed (Smith,
+1991) ...'' must be avoided. Instead, use citations such as ``Smith
+previously showed (Smith, 1991) ...'' Papers that do not conform to
+these requirements will be rejected without review. In addition,
+please do not post your submissions on the web until after the
+review process is complete (in special cases this is permitted: see 
+the multiple submission policy below).
+
+We will reject without review any papers that do not follow the
+official style guidelines, anonymity conditions and page limits.
+
+\section{Multiple Submission Policy}
+
+Papers that have been or will be submitted to other meetings or
+publications must indicate this at submission time. Authors of
+papers accepted for presentation at NAACL HLT 2016 must notify the
+program chairs by the camera-ready deadline as to whether the paper
+will be presented. All accepted papers must be presented at the
+conference to appear in the proceedings. We will not accept for
+publication or presentation papers that overlap significantly in
+content or results with papers that will be (or have been) published
+elsewhere.
+
+Preprint servers such as arXiv.org and ACL-related workshops that
+do not have published proceedings in the ACL Anthology are not
+considered archival for purposes of submission. Authors must state
+in the online submission form the name of the workshop or preprint
+server and title of the non-archival version.  The submitted version
+should be suitably anonymized and not contain references to the
+prior non-archival version. Reviewers will be told: ``The author(s)
+have notified us that there exists a non-archival previous version
+of this paper with significantly overlapping text. We have approved
+submission under these circumstances, but to preserve the spirit
+of blind review, the current submission does not reference the
+non-archival version.'' Reviewers are free to do what they like with
+this information.
+
+Authors submitting more than one paper to NAACL HLT must ensure
+that submissions do not overlap significantly ($>25\%$) with each other
+in content or results. Authors should not submit short and long
+versions of papers with substantial overlap in their original
+contributions.
+
+\section*{Acknowledgments}
+
+Do not number the acknowledgment section.
+
+\bibliography{naaclhlt2016}
+\bibliographystyle{naaclhlt2016}
+
+
+\end{document}
