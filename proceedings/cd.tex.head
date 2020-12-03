@@ -1,0 +1,46 @@
+\documentclass[11pt,oneside]{book}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} % fonts to encode unicode
+\usepackage{draftflag}
+\usepackage{times}
+\usepackage{fullpage}
+\usepackage{ifthen}
+\newcounter{DOIcounter}
+
+\usepackage{pdfpages}   % can also use [draft] option
+\usepackage{hyperref}   % hyperlinked table of contents, etc.
+\hypersetup{plainpages=false,  % point to papers, not preface
+            pdfpagemode=none,
+            colorlinks=true,
+            unicode=true,
+            pdftitle={__PDFTITLE__},
+            pdfauthor={__PDFAUTHOR__},
+            pdfsubject={__PDFSUBJECT__}
+}
+  % no bookmark pane in this case
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% for A4 size
+
+\setlength{\paperwidth}{21cm}   % A4
+\setlength{\paperheight}{29.7cm}% A4
+
+\special{papersize=21cm,29.7cm}
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+\setlength\topmargin{-5mm} \setlength\oddsidemargin{-0cm}
+\setlength\textheight{24.7cm} \setlength\textwidth{16cm}
+\setlength\columnsep{0.6cm}  \newlength\titlebox \setlength\titlebox{2.00in}
+\setlength\headheight{5pt}   \setlength\headsep{0pt}
+\setlength\footskip{0.8cm}
+\setlength\leftmargin{0.0in}
+\pagestyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{citation-stamp}
+
+\begin{document}
+\thispagestyle{plain}
+\pagenumbering{arabic}
+\includepdfset{pages=-,clip,noautoscale,pagecommand={\thispagestyle{plain}}}

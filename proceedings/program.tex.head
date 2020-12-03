@@ -1,0 +1,12 @@
+\addcontentsline{toc}{chapter}{Program}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{2ex}
+\renewcommand{\baselinestretch}{0.87}
+
+\begin{center}
+{\Large \bf
+  Conference Program
+}
+\end{center}
+\vspace{3mm}
+\begin{tabular}{p{20mm}p{128mm}}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--  EDIT FROM HERE -->
+<title><XXX BOOKTITLE></title>
+<!--  EDIT TO HERE -->
+<link rel="stylesheet" rev="stylesheet" href="../standard.css">
+</head>
+<body bgcolor="white">
+<center>
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td colspan="3"><a href="index.html">ACL 2020 Proceedings Home</a> | <a href="https://acl2020.org/">ACL 2020 WEBSITE</a> | <a href="http://www.aclweb.org/">ACL WEBSITE</a></td>
+  </tr>
+</table>
+<br>
+
+<h2><XXX BOOKTITLE></h2>
+<p><b>Chairs</b><br>
+<XXX CHAIRS>
+</p>
+<table cellspacing="0" cellpadding="5" border="1">
+  <tr class="bg1">
+    <td><table cellspacing="0" cellpadding="5" border="0">
+        <tr align=center>
+          <td><b><a href="<XXX ABBREV>-<XXX YEAR>.pdf">Full proceedings volume</a> (PDF)</b></td>
+        </tr>
+        <tr align=center>
+          <td><a href="program.html">Schedule</a> and <a href="authors.html">author index</a> (HTML)</td>
+        </tr>
+        <tr align=center>
+          <td><a href="<XXX ABBREV>-<XXX YEAR>.bib">Bibliography</a> (BibTeX)</td>
+        </tr>
+        <tr align=center>
+          <td><a href="<XXX URL>">Live website</a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<br></br>
+
+<table cellspacing="0" cellpadding="5" border="1">
+  <tr class="bg1">
+    <td valign="top"><a href="pdf/<XXX ABBREV>000.pdf">pdf</a></td>
+    <td valign="top"><a href="bib/<XXX ABBREV>000.bib">bib</a></td>
+    <td valign="top"><a href="pdf/<XXX ABBREV>000.pdf"><b>Front matter<b></a></td>
+    <td valign="top">pages</td>
+  </tr>
