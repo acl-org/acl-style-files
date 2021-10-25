@@ -203,13 +203,12 @@ You can use the command \verb|\citealp| (alternative cite without parentheses) t
 
 \subsection{References}
 
-\nocite{Ando2005,borschinger-johnson-2011-particle,andrew2007scalable,rasooli-tetrault-2015,goodman-etal-2016-noise,harper-2014-learning}
+\nocite{Ando2005,andrew2007scalable,rasooli-tetrault-2015}
 
 The \LaTeX{} and Bib\TeX{} style files provided roughly follow the American Psychological Association format.
 If your own bib file is named \texttt{custom.bib}, then placing the following before any appendices in your \LaTeX{} file will generate the references section for you:
 \begin{quote}
 \begin{verbatim}
-\bibliographystyle{acl_natbib}
 \bibliography{custom}
 \end{verbatim}
 \end{quote}
@@ -218,7 +217,6 @@ You can obtain the complete ACL Anthology as a Bib\TeX{} file from \url{https://
 To include both the Anthology and your own .bib file, use the following instead of the above.
 \begin{quote}
 \begin{verbatim}
-\bibliographystyle{acl_natbib}
 \bibliography{anthology,custom}
 \end{verbatim}
 \end{quote}
@@ -261,7 +259,6 @@ Additional elements were taken from the formatting instructions of the \emph{Int
 
 % Entries for the entire Anthology, followed by custom entries
 \bibliography{anthology,custom}
-\bibliographystyle{acl_natbib}
 
 \appendix
 
