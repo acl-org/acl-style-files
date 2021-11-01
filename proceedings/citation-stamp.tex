@@ -8,11 +8,4 @@
     \put(105,13){\makebox(0,0){\footnotesize {\em Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics},
 	\ifthenelse{\equal{#1}{#2}}{page #1}{pages #1--#2}}}
      \put(105,10){\makebox(0,0){\footnotesize July 5--10, 2020. \copyright 2020 Association for Computational Linguistics}}
-
-%%%% Edit for DOI URL, if any.  Otherewise comment it out. %%%%%%%%%%%%%%%%%%%%%%%%%
-\put(105,6){\makebox(0,0){\footnotesize
-\stepcounter{DOIcounter}\urlstyle{rm}
-\url{https://doi.org/10.26615/978-954-452-056-4_\ifnum\value{DOIcounter}<10 00\else \ifnum\value{DOIcounter}<100 0\fi\fi\arabic{DOIcounter}}}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 }}
