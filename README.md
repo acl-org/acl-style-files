@@ -17,14 +17,14 @@ repository:
 Please follow the paper formatting guidelines general to *ACL
 conferences:
 
-- [https://acl-org.github.io/ACLPUB/formatting.html](Paper formatting guidelines)
+- [Paper formatting guidelines](https://acl-org.github.io/ACLPUB/formatting.html)
 
 Authors may not modify these style files or use templates designed for
 other conferences.
 
 ## Instructions for publications chairs
 
-To adapt them for your conference, please fork this repository and
+To adapt the style files for your conference, please fork this repository and
 make necessary changes. Minimally, you'll need to update the name of
 the conference and rename the files.
 
