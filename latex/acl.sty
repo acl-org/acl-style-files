@@ -138,6 +138,7 @@
     \end{tabular}}
 
 % Mostly taken from deproc.
+\AtBeginDocument{
 \def\maketitle{\par
  \begingroup
    \def\thefootnote{\fnsymbol{footnote}}
@@ -164,6 +165,7 @@
     \hfil\hfil\egroup}
   \vskip 0.3in plus 2fil minus 0.1in
 }}
+}
 
 % margins and font size for abstract
 \renewenvironment{abstract}%
