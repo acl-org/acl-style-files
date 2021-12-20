@@ -6,13 +6,18 @@ conferences.
 ## Instructions for authors
 
 Paper submissions to *ACL conferences must use the official ACL style
-templates, which are available as an [Overleaf
-template](https://www.overleaf.com/read/crtcwgxzjskr) and in this
-repository:
+templates.
 
-- LaTeX style files are in the `latex` subdirectory. Please see
-  `latex/acl_latex.tex` for an example.
-- The Microsoft Word template is in `word/acl.docx`.
+The LaTeX style files are available
+
+- as an [Overleaf template](https://www.overleaf.com/read/crtcwgxzjskr)
+- in this repository, in the `latex` subdirectory
+- as a [.zip file](https://github.com/acl-org/acl-style-files/archive/refs/tags/2021-12.zip)
+- as a [.tar.gz file](https://github.com/acl-org/acl-style-files/archive/refs/tags/2021-12.tar.gz).
+
+Please see `latex/acl_latex.tex` for an example.
+
+The Microsoft Word template is available in this repository at [`word/acl.docx`](https://github.com/acl-org/acl-style-files/blob/master/word/acl.docx).
 
 Please follow the paper formatting guidelines general to *ACL
 conferences:
