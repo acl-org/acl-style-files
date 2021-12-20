@@ -11,11 +11,11 @@ templates.
 The LaTeX style files are available
 
 - as an [Overleaf template](https://www.overleaf.com/read/crtcwgxzjskr)
-- in this repository, in the `latex` subdirectory
+- in this repository, in the [`latex`](https://github.com/acl-org/acl-style-files/blob/master/latex) subdirectory
 - as a [.zip file](https://github.com/acl-org/acl-style-files/archive/refs/tags/2021-12.zip)
 - as a [.tar.gz file](https://github.com/acl-org/acl-style-files/archive/refs/tags/2021-12.tar.gz).
 
-Please see `latex/acl_latex.tex` for an example.
+Please see [`latex/acl_latex.tex`](https://github.com/acl-org/acl-style-files/blob/master/latex/acl_latex.tex) for an example.
 
 The Microsoft Word template is available in this repository at [`word/acl.docx`](https://github.com/acl-org/acl-style-files/blob/master/word/acl.docx).
 
