@@ -1,6 +1,6 @@
 # *ACL Paper Styles
 
-This directory contains the latest LaTeX and Word templates for *ACL
+This directory contains the latest LaTeX, Word and LibreOffice templates for *ACL
 conferences.
 
 ## Instructions for authors
