@@ -20,10 +20,16 @@
 % This assumes your files are encoded as UTF8
 \usepackage[utf8]{inputenc}
 
-% This is not strictly necessary, and may be commented out,
-% but it will improve the layout of the manuscript,
+% This is not strictly necessary, and may be commented out.
+% However, it will improve the layout of the manuscript,
 % and will typically save some space.
 \usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+
 
 % If the title and author information does not fit in the area allocated, uncomment the following
 %
@@ -64,14 +70,13 @@
 \maketitle
 \begin{abstract}
 This document is a supplement to the general instructions for *ACL authors. It contains instructions for using the \LaTeX{} style files for ACL conferences. 
-The document itself conforms to its own specifications, and is therefore an example of what your manuscript should look like.
+The document itself conforms to its own specifications, and is, therefore, an example of what your manuscript should look like.
 These instructions should be used both for papers submitted for review and for final versions of accepted papers.
 \end{abstract}
 
 \section{Introduction}
 
-These instructions are for authors submitting papers to *ACL conferences using \LaTeX. They are not self-contained. All authors must follow the general instructions for *ACL proceedings,\footnote{\url{http://acl-org.github.io/ACLPUB/formatting.html}} and this document contains additional instructions for the \LaTeX{} style files.
-
+These instructions are for authors submitting papers to *ACL conferences using \LaTeX. They are not self-contained. All authors must follow the general instructions for *ACL proceedings,\footnote{\url{http://acl-org.github.io/ACLPUB/formatting.html}} as well as any guidelines set forth in the call for papers of the venue you are submitting to. This document contains additional instructions for the \LaTeX{} style files.
 The templates include the \LaTeX{} source of this document (\texttt{acl.tex}),
 the \LaTeX{} style file used to format it (\texttt{acl.sty}),
 an ACL bibliography style (\texttt{acl\_natbib.bst}),
@@ -82,7 +87,59 @@ and the bibliography for the ACL Anthology (\texttt{anthology.bib}).
 
 To produce a PDF file, pdf\LaTeX{} is strongly recommended (over original \LaTeX{} plus dvips+ps2pdf or dvipdf). Xe\LaTeX{} also produces PDF files, and is especially suitable for text in non-Latin scripts.
 
+\begin{table}
+\centering
+\begin{tabular}{lc}
+\hline
+\textbf{Command} & \textbf{Output}\\
+\hline
+\verb|{\"a}| & {\"a} \\
+\verb|{\^e}| & {\^e} \\
+\verb|{\`i}| & {\`i} \\ 
+\verb|{\.I}| & {\.I} \\ 
+\verb|{\o}| & {\o} \\
+\verb|{\'u}| & {\'u}  \\ 
+\verb|{\aa}| & {\aa}  \\\hline
+\end{tabular}
+\begin{tabular}{lc}
+\hline
+\textbf{Command} & \textbf{Output}\\
+\hline
+\verb|{\c c}| & {\c c} \\ 
+\verb|{\u g}| & {\u g} \\ 
+\verb|{\l}| & {\l} \\ 
+\verb|{\~n}| & {\~n} \\ 
+\verb|{\H o}| & {\H o} \\ 
+\verb|{\v r}| & {\v r} \\ 
+\verb|{\ss}| & {\ss} \\
+\hline
+\end{tabular}
+\caption{Example commands for accented characters, to be used in, \emph{e.g.}, Bib\TeX{} entries.}
+\label{tab:accents}
+\end{table}
+
 \section{Preamble}
+
+\begin{table*}
+\centering
+\begin{tabular}{lll}
+\hline
+\textbf{Output} & \textbf{natbib command} & \textbf{Old ACL-style command}\\
+\hline
+\citep{ct1965} & \verb|\citep| & \verb|\cite| \\
+\citealp{ct1965} & \verb|\citealp| & no equivalent \\
+\citet{ct1965} & \verb|\citet| & \verb|\newcite| \\
+\citeyearpar{ct1965} & \verb|\citeyearpar| & \verb|\shortcite| \\
+\citeposs{ct1965} & \verb|\citeposs| & no equivalent \\
+\citep[FFT;][]{ct1965} &  \verb|\citep[FFT;][]| & no equivalent\\
+\hline
+\end{tabular}
+\caption{\label{citation-guide}
+Citation commands supported by the style file.
+The style is based on the natbib package and supports all natbib citation commands.
+It also supports commands defined in previous ACL style files for compatibility.
+}
+\end{table*}
 
 The first line of the file must be
 \begin{quote}
@@ -135,37 +192,6 @@ Footnotes are inserted with the \verb|\footnote| command.\footnote{This is a foo
 See Table~\ref{tab:accents} for an example of a table and its caption.
 \textbf{Do not override the default caption sizes.}
 
-\begin{table}
-\centering
-\begin{tabular}{lc}
-\hline
-\textbf{Command} & \textbf{Output}\\
-\hline
-\verb|{\"a}| & {\"a} \\
-\verb|{\^e}| & {\^e} \\
-\verb|{\`i}| & {\`i} \\ 
-\verb|{\.I}| & {\.I} \\ 
-\verb|{\o}| & {\o} \\
-\verb|{\'u}| & {\'u}  \\ 
-\verb|{\aa}| & {\aa}  \\\hline
-\end{tabular}
-\begin{tabular}{lc}
-\hline
-\textbf{Command} & \textbf{Output}\\
-\hline
-\verb|{\c c}| & {\c c} \\ 
-\verb|{\u g}| & {\u g} \\ 
-\verb|{\l}| & {\l} \\ 
-\verb|{\~n}| & {\~n} \\ 
-\verb|{\H o}| & {\H o} \\ 
-\verb|{\v r}| & {\v r} \\ 
-\verb|{\ss}| & {\ss} \\
-\hline
-\end{tabular}
-\caption{Example commands for accented characters, to be used in, \emph{e.g.}, Bib\TeX{} entries.}
-\label{tab:accents}
-\end{table}
-
 \subsection{Hyperlinks}
 
 Users of older versions of \LaTeX{} may encounter the following error during compilation: 
@@ -176,25 +202,6 @@ This happens when pdf\LaTeX{} is used and a citation splits across a page bounda
 
 \subsection{Citations}
 
-\begin{table*}
-\centering
-\begin{tabular}{lll}
-\hline
-\textbf{Output} & \textbf{natbib command} & \textbf{Old ACL-style command}\\
-\hline
-\citep{Gusfield:97} & \verb|\citep| & \verb|\cite| \\
-\citealp{Gusfield:97} & \verb|\citealp| & no equivalent \\
-\citet{Gusfield:97} & \verb|\citet| & \verb|\newcite| \\
-\citeyearpar{Gusfield:97} & \verb|\citeyearpar| & \verb|\shortcite| \\
-\hline
-\end{tabular}
-\caption{\label{citation-guide}
-Citation commands supported by the style file.
-The style is based on the natbib package and supports all natbib citation commands.
-It also supports commands defined in previous ACL style files for compatibility.
-}
-\end{table*}
-
 Table~\ref{citation-guide} shows the syntax supported by the style files.
 We encourage you to use the natbib styles.
 You can use the command \verb|\citet| (cite in text) to get ``author (year)'' citations, like this citation to a paper by \citet{Gusfield:97}.
@@ -203,12 +210,13 @@ You can use the command \verb|\citealp| (alternative cite without parentheses) t
 
 \subsection{References}
 
-\nocite{Ando2005,andrew2007scalable,rasooli-tetrault-2015}
+\nocite{Ando2005,augenstein-etal-2016-stance,andrew2007scalable,rasooli-tetrault-2015,goodman-etal-2016-noise,harper-2014-learning}
 
 The \LaTeX{} and Bib\TeX{} style files provided roughly follow the American Psychological Association format.
 If your own bib file is named \texttt{custom.bib}, then placing the following before any appendices in your \LaTeX{} file will generate the references section for you:
 \begin{quote}
 \begin{verbatim}
+\bibliographystyle{acl_natbib}
 \bibliography{custom}
 \end{verbatim}
 \end{quote}
@@ -217,6 +225,7 @@ You can obtain the complete ACL Anthology as a Bib\TeX{} file from \url{https://
 To include both the Anthology and your own .bib file, use the following instead of the above.
 \begin{quote}
 \begin{verbatim}
+\bibliographystyle{acl_natbib}
 \bibliography{anthology,custom}
 \end{verbatim}
 \end{quote}
@@ -236,11 +245,23 @@ Please ensure that Bib\TeX{} records contain DOIs or URLs when possible, and for
 Use the \verb|doi| field for DOIs and the \verb|url| field for URLs.
 If a Bib\TeX{} entry has a URL or DOI field, the paper title in the references section will appear as a hyperlink to the paper, using the hyperref \LaTeX{} package.
 
-\section*{Acknowledgements}
+\section*{Limitations}
+ACL 2023 requires all submissions to have a section titled ``Limitations'', for discussing the limitations of the paper as a complement to the discussion of strengths in the main text. This section should occur after the conclusion, but before the references. It will not count towards the page limit.
+The discussion of limitations is mandatory. Papers without a limitation section will be desk-rejected without review.
 
-This document has been adapted
-by Steven Bethard, Ryan Cotterell and Rui Yan
-from the instructions for earlier ACL and NAACL proceedings, including those for 
+While we are open to different types of limitations, just mentioning that a set of results have been shown for English only probably does not reflect what we expect. 
+Mentioning that the method works mostly for languages with limited morphology, like English, is a much better alternative.
+In addition, limitations such as low scalability to long text, the requirement of large GPU resources, or other things that inspire crucial further investigation are welcome.
+
+\section*{Ethics Statement}
+Scientific work published at ACL 2023 must comply with the ACL Ethics Policy.\footnote{\url{https://www.aclweb.org/portal/content/acl-code-ethics}} We encourage all authors to include an explicit ethics statement on the broader impact of the work, or other ethical considerations after the conclusion but before the references. The ethics statement will not count toward the page limit (8 pages for long, 4 pages for short papers).
+
+\section*{Acknowledgements}
+This document has been adapted by Jonathan K. Kummerfeld from the style files used for earlier ACL, EMNLP and NAACL proceedings, including those for
+ACL 2023 by Jordan Boyd-Graber, Naoaki Okazaki, and Anna Rogers,
+EACL 2023 by Isabelle Augenstein and Andreas Vlachos,
+EMNLP 2022 by Yue Zhang, Ryan Cotterell and Lea Frermann,
+ACL 2020 by Steven Bethard, Ryan Cotterell and Rui Yan,
 ACL 2019 by Douwe Kiela and Ivan Vuli\'{c},
 NAACL 2019 by Stephanie Lukin and Alla Roskovskaya, 
 ACL 2018 by Shay Cohen, Kevin Gimpel, and Wei Lu, 
@@ -259,12 +280,13 @@ Additional elements were taken from the formatting instructions of the \emph{Int
 
 % Entries for the entire Anthology, followed by custom entries
 \bibliography{anthology,custom}
+\bibliographystyle{acl_natbib}
 
 \appendix
 
 \section{Example Appendix}
 \label{sec:appendix}
 
-This is an appendix.
+This is a section in the appendix.
 
 \end{document}
