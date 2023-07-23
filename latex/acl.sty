@@ -28,20 +28,6 @@
 
 \usepackage{xcolor}	
 
-\ifacl@hyperref
-  \PassOptionsToPackage{breaklinks}{hyperref}
-  \RequirePackage{hyperref}
-  % make links dark blue
-  \definecolor{darkblue}{rgb}{0, 0, 0.5}
-  \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
-\else
-  % This definition is used if the hyperref package is not loaded.
-  % It provides a backup, no-op definiton of \href.
-  % This is necessary because \href command is used in the acl_natbib.bst file.
-  \def\href#1#2{{#2}}
-  \usepackage{url}
-\fi
-
 \ifacl@finalcopy
   % Hack to ignore these commands, which review mode puts into the .aux file.
   \newcommand{\@LN@col}[1]{}
@@ -124,7 +110,7 @@
 \newlength\titlebox 
 \setlength\titlebox{5cm}
 
-\flushbottom \twocolumn \sloppy
+\twocolumn \sloppy
 
 % We're never going to need a table of contents, so just flush it to
 % save space --- suggested by drstrip@sandia-2
@@ -152,6 +138,7 @@
     \end{tabular}}
 
 % Mostly taken from deproc.
+\AtBeginDocument{
 \def\maketitle{\par
  \begingroup
    \def\thefootnote{\fnsymbol{footnote}}
@@ -178,6 +165,7 @@
     \hfil\hfil\egroup}
   \vskip 0.3in plus 2fil minus 0.1in
 }}
+}
 
 % margins and font size for abstract
 \renewenvironment{abstract}%
@@ -205,10 +193,10 @@
 % \cite, \newcite, and \shortcite for compatibility with older ACL .sty files
 \renewcommand\cite{\citep}	% to get "(Author Year)" with natbib    
 \newcommand\shortcite{\citeyearpar}% to get "(Year)" with natbib    
-\newcommand\newcite{\citet}	% to get "Author (Year)" with natbib    
+\newcommand\newcite{\citet}	% to get "Author (Year)" with natbib
+\newcommand{\citeposs}[1]{\citeauthor{#1}'s (\citeyear{#1})} % to get "Author's (Year)"
 
-\newcommand{\citeposs}[1]{\citeauthor{#1}'s (\citeyear{#1})}
-
+\bibliographystyle{acl_natbib}
 
 % Bibliography
 
@@ -311,3 +299,18 @@
 \def\LARGE{\@setsize\LARGE{20pt}\xviipt\@xviipt}
 \def\huge{\@setsize\huge{23pt}\xxpt\@xxpt}
 \def\Huge{\@setsize\Huge{28pt}\xxvpt\@xxvpt}
+
+% The hyperref manual (section 9) says hyperref should be loaded after natbib
+\ifacl@hyperref
+  \PassOptionsToPackage{breaklinks}{hyperref}
+  \RequirePackage{hyperref}
+  % make links dark blue
+  \definecolor{darkblue}{rgb}{0, 0, 0.5}
+  \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
+\else
+  % This definition is used if the hyperref package is not loaded.
+  % It provides a backup, no-op definiton of \href.
+  % This is necessary because \href command is used in the acl_natbib.bst file.
+  \def\href#1#2{{#2}}
+  \usepackage{url}
+\fi
