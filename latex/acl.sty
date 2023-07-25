@@ -99,18 +99,21 @@
 \PassOptionsToPackage{
   a4paper,
   top=2.21573cm,left=2.54cm,
-  textheight=24.7cm,textwidth=16.0cm,
+  textheight=704.60031pt, % 51 * \baselineskip + \topskip
+  textwidth=16.0cm,
   headheight=0.17573cm,headsep=0cm
 }{geometry}
 \fi
-\PassOptionsToPackage{a4paper,margin=2.5cm}{geometry}
+\PassOptionsToPackage{a4paper,margin=2.5cm,heightrounded=true}{geometry}
 \RequirePackage{geometry}
 
 \setlength\columnsep{0.6cm}  
 \newlength\titlebox 
-\setlength\titlebox{5cm}
+\setlength\titlebox{11\baselineskip}
+% \titlebox should be a multiple of \baselineskip so that
+% column height remaining fits an exact number of lines of text
 
-\twocolumn \sloppy
+\flushbottom \twocolumn \sloppy
 
 % We're never going to need a table of contents, so just flush it to
 % save space --- suggested by drstrip@sandia-2
