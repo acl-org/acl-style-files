@@ -1,7 +1,7 @@
 % This is the LaTex style file for *ACL.
 % The official sources can be found at
 %
-%     https://github.com/acl-org/ACLPUB/
+%     https://github.com/acl-org/acl-style-files/
 %
 % This package is activated by adding
 %
@@ -24,23 +24,9 @@
 \ExecuteOptions{hyperref} % default is to use hyperref
 \ProcessOptions\relax
 
-\typeout{Conference Style for ACL 2020}
+\typeout{Conference Style for ACL}
 
 \usepackage{xcolor}	
-
-\ifacl@hyperref
-  \PassOptionsToPackage{breaklinks}{hyperref}
-  \RequirePackage{hyperref}
-  % make links dark blue
-  \definecolor{darkblue}{rgb}{0, 0, 0.5}
-  \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
-\else
-  % This definition is used if the hyperref package is not loaded.
-  % It provides a backup, no-op definiton of \href.
-  % This is necessary because \href command is used in the acl_natbib.bst file.
-  \def\href#1#2{{#2}}
-  \usepackage{url}
-\fi
 
 \ifacl@finalcopy
   % Hack to ignore these commands, which review mode puts into the .aux file.
@@ -113,16 +99,19 @@
 \PassOptionsToPackage{
   a4paper,
   top=2.21573cm,left=2.54cm,
-  textheight=24.7cm,textwidth=16.0cm,
+  textheight=704.60031pt, % 51 * \baselineskip + \topskip
+  textwidth=16.0cm,
   headheight=0.17573cm,headsep=0cm
 }{geometry}
 \fi
-\PassOptionsToPackage{a4paper,margin=2.5cm}{geometry}
+\PassOptionsToPackage{a4paper,margin=2.5cm,heightrounded=true}{geometry}
 \RequirePackage{geometry}
 
 \setlength\columnsep{0.6cm}  
 \newlength\titlebox 
-\setlength\titlebox{5cm}
+\setlength\titlebox{11\baselineskip}
+% \titlebox should be a multiple of \baselineskip so that
+% column height remaining fits an exact number of lines of text
 
 \flushbottom \twocolumn \sloppy
 
@@ -152,6 +141,7 @@
     \end{tabular}}
 
 % Mostly taken from deproc.
+\AtBeginDocument{
 \def\maketitle{\par
  \begingroup
    \def\thefootnote{\fnsymbol{footnote}}
@@ -178,6 +168,7 @@
     \hfil\hfil\egroup}
   \vskip 0.3in plus 2fil minus 0.1in
 }}
+}
 
 % margins and font size for abstract
 \renewenvironment{abstract}%
@@ -205,7 +196,10 @@
 % \cite, \newcite, and \shortcite for compatibility with older ACL .sty files
 \renewcommand\cite{\citep}	% to get "(Author Year)" with natbib    
 \newcommand\shortcite{\citeyearpar}% to get "(Year)" with natbib    
-\newcommand\newcite{\citet}	% to get "Author (Year)" with natbib    
+\newcommand\newcite{\citet}	% to get "Author (Year)" with natbib
+\newcommand{\citeposs}[1]{\citeauthor{#1}'s (\citeyear{#1})} % to get "Author's (Year)"
+
+\bibliographystyle{acl_natbib}
 
 % Bibliography
 
@@ -308,3 +302,18 @@
 \def\LARGE{\@setsize\LARGE{20pt}\xviipt\@xviipt}
 \def\huge{\@setsize\huge{23pt}\xxpt\@xxpt}
 \def\Huge{\@setsize\Huge{28pt}\xxvpt\@xxvpt}
+
+% The hyperref manual (section 9) says hyperref should be loaded after natbib
+\ifacl@hyperref
+  \PassOptionsToPackage{breaklinks}{hyperref}
+  \RequirePackage{hyperref}
+  % make links dark blue
+  \definecolor{darkblue}{rgb}{0, 0, 0.5}
+  \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
+\else
+  % This definition is used if the hyperref package is not loaded.
+  % It provides a backup, no-op definiton of \href.
+  % This is necessary because \href command is used in the acl_natbib.bst file.
+  \def\href#1#2{{#2}}
+  \usepackage{url}
+\fi
