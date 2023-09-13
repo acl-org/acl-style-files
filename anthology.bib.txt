@@ -1,0 +1,8 @@
+% Please download the latest anthology.bib from the following URL:
+%
+%     http://aclweb.org/anthology/anthology.bib
+%
+% From the command line, this can be done with curl or wget. 
+%
+% If you are using Overleaf, go to "New File -> From External URL".
+% You will then be able to use it directly, and to periodically update it by clicking Overleaf's convenient "refresh" button.
