@@ -185,12 +185,13 @@ This happens when pdf\LaTeX{} is used and a citation splits across a page bounda
 \centering
 \begin{tabular}{lll}
 \hline
-\textbf{Output} & \textbf{natbib command} & \textbf{Old ACL-style command}\\
+\textbf{Output} & \textbf{natbib command} & \textbf{ACL only command}\\
 \hline
-\citep{Gusfield:97} & \verb|\citep| & \verb|\cite| \\
-\citealp{Gusfield:97} & \verb|\citealp| & no equivalent \\
-\citet{Gusfield:97} & \verb|\citet| & \verb|\newcite| \\
-\citeyearpar{Gusfield:97} & \verb|\citeyearpar| & \verb|\shortcite| \\
+\citep{Gusfield:97} & \verb|\citep| &  \\
+\citealp{Gusfield:97} & \verb|\citealp| & \\
+\citet{Gusfield:97} & \verb|\citet| &  \\
+  \citeyearpar{Gusfield:97} & \verb|\citeyearpar| &  \\
+  \citeposs{Gusfield:97}	&	& \verb|\citeposs|\\
 \hline
 \end{tabular}
 \caption{\label{citation-guide}
@@ -205,6 +206,10 @@ We encourage you to use the natbib styles.
 You can use the command \verb|\citet| (cite in text) to get ``author (year)'' citations, like this citation to a paper by \citet{Gusfield:97}.
 You can use the command \verb|\citep| (cite in parentheses) to get ``(author, year)'' citations \citep{Gusfield:97}.
 You can use the command \verb|\citealp| (alternative cite without parentheses) to get ``author, year'' citations, which is useful for using citations within parentheses (e.g. \citealp{Gusfield:97}).
+
+A possessive citation can be made with the command \verb|\citeposs|.
+This is not a standard natbib command, so it is generally not compatible
+with other style files.
 
 \subsection{References}
 
