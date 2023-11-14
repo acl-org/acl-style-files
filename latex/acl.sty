@@ -128,7 +128,7 @@
 
 %% Title and Authors %%
 
-\newcommand{\Thanks}[1]{\thanks{\ #1}}
+\let\Thanks\thanks % \Thanks and \thanks used to be different, but keep this for backwards compatibility.
 
 \newcommand\outauthor{
     \begin{tabular}[t]{c}
@@ -145,7 +145,6 @@
 \def\maketitle{\par
  \begingroup
    \def\thefootnote{\fnsymbol{footnote}}
-   \def\@makefnmark{\hbox to 0pt{$^{\@thefnmark}$\hss}}
    \twocolumn[\@maketitle] \@thanks
  \endgroup
  \setcounter{footnote}{0}
