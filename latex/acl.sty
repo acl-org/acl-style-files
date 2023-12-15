@@ -12,8 +12,10 @@
 %    \usepackage[review]{acl}
 
 \newif\ifacl@finalcopy
-\DeclareOption{final}{\acl@finalcopytrue}
-\DeclareOption{review}{\acl@finalcopyfalse}
+\newif\ifacl@preprint
+\DeclareOption{final}{\acl@finalcopytrue\acl@preprintfalse}
+\DeclareOption{review}{\acl@finalcopyfalse\acl@preprintfalse}
+\DeclareOption{preprint}{\acl@finalcopytrue\acl@preprinttrue}
 \ExecuteOptions{final} % final copy is the default
 
 % include hyperref, unless user specifies nohyperref option like this:
@@ -120,10 +122,14 @@
 \def\addcontentsline#1#2#3{}
 
 \ifacl@finalcopy
+  \ifacl@preprint
+    \pagenumbering{arabic}
+  \else
     \thispagestyle{empty}        
     \pagestyle{empty}
+  \fi
 \else
-    \pagenumbering{arabic}
+  \pagenumbering{arabic}
 \fi
 
 %% Title and Authors %%
