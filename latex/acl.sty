@@ -123,15 +123,11 @@
 % save space --- suggested by drstrip@sandia-2
 \def\addcontentsline#1#2#3{}
 
-\ifacl@finalcopy
-  \ifacl@preprint
+\ifacl@pagenumbers
     \pagenumbering{arabic}
-  \else
+\else
     \thispagestyle{empty}        
     \pagestyle{empty}
-  \fi
-\else
-  \pagenumbering{arabic}
 \fi
 
 %% Title and Authors %%
