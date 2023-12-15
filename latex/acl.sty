@@ -12,10 +12,12 @@
 %    \usepackage[review]{acl}
 
 \newif\ifacl@finalcopy
-\newif\ifacl@preprint
-\DeclareOption{final}{\acl@finalcopytrue\acl@preprintfalse}
-\DeclareOption{review}{\acl@finalcopyfalse\acl@preprintfalse}
-\DeclareOption{preprint}{\acl@finalcopytrue\acl@preprinttrue}
+\newif\ifacl@anonymize
+\newif\ifacl@linenumbers
+\newif\ifacl@pagenumbers
+\DeclareOption{final}{\acl@finalcopytrue\acl@anonymizefalse\acl@linenumbersfalse\acl@pagenumbersfalse}
+\DeclareOption{review}{\acl@finalcopyfalse\acl@anonymizetrue\acl@linenumberstrue\acl@pagenumberstrue}
+\DeclareOption{preprint}{\acl@finalcopytrue\acl@anonymizefalse\acl@linenumbersfalse\acl@pagenumberstrue}
 \ExecuteOptions{final} % final copy is the default
 
 % include hyperref, unless user specifies nohyperref option like this:
@@ -30,11 +32,7 @@
 
 \usepackage{xcolor}	
 
-\ifacl@finalcopy
-  % Hack to ignore these commands, which review mode puts into the .aux file.
-  \newcommand{\@LN@col}[1]{}
-  \newcommand{\@LN}[2]{}
-\else
+\ifacl@linenumbers
   % Add draft line numbering via the lineno package
   % https://texblog.org/2012/02/08/adding-line-numbers-to-documents/
   \usepackage[switch,mathlines]{lineno}
@@ -95,6 +93,10 @@
     \linenomathpatchAMS{alignat}%
     \linenomathpatchAMS{flalign}%
   }
+\else
+  % Hack to ignore these commands, which review mode puts into the .aux file.
+  \newcommand{\@LN@col}[1]{}
+  \newcommand{\@LN}[2]{}
 \fi
 
 \iffalse
@@ -121,29 +123,24 @@
 % save space --- suggested by drstrip@sandia-2
 \def\addcontentsline#1#2#3{}
 
-\ifacl@finalcopy
-  \ifacl@preprint
+\ifacl@pagenumbers
     \pagenumbering{arabic}
-  \else
+\else
     \thispagestyle{empty}        
     \pagestyle{empty}
-  \fi
-\else
-  \pagenumbering{arabic}
 \fi
 
 %% Title and Authors %%
 
 \let\Thanks\thanks % \Thanks and \thanks used to be different, but keep this for backwards compatibility.
 
-\newcommand\outauthor{
+\newcommand\outauthor{%
     \begin{tabular}[t]{c}
-    \ifacl@finalcopy
-	     \bf\@author
-	\else 
-		% Avoiding common accidental de-anonymization issue. --MM
+    \ifacl@anonymize
         \bf Anonymous ACL submission
-	\fi
+    \else 
+        \bf\@author
+    \fi
     \end{tabular}}
 
 % Mostly taken from deproc.
