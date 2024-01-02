@@ -492,7 +492,7 @@ FUNCTION {emphasize}
     { "\emph{" swap$ * "}" * }
   if$
 }
-FUNCTION {tie.or.space.prefix}
+FUNCTION {tie.or.space.prefix}  % puts ~ before preceeding part if it is of length <3
 { duplicate$ text.length$ #3 <
     { "~" }
     { " " }
@@ -623,6 +623,11 @@ MACRO {toois} {"ACM Transactions on Office Information Systems"}
 MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 
 MACRO {tcs} {"Theoretical Computer Science"}
+
+% bibinfo.check avoids acting on missing fields while bibinfo.warn will
+% issue a warning message if a missing field is detected. Prior to calling
+% the bibinfo functions, the user should push the field value and then its
+% name string, in that order.
 FUNCTION {bibinfo.check}
 { swap$
   duplicate$ missing$
