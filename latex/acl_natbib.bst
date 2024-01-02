@@ -224,6 +224,8 @@ ENTRY
     volume
     year
     eprint % urlbst
+    eprinttype % = archivePrefix
+    archivePrefix
     doi % urlbst
     pubmed % urlbst
     url % urlbst
@@ -1278,6 +1280,45 @@ FUNCTION {format.eprint}
   if$
 }
 
+FUNCTION {archiveprefix.or.eprinttype}
+{
+  archiveprefix empty$
+  {
+    eprinttype empty$
+      { "" }
+      { eprinttype }
+    if$
+  }
+  { archiveprefix }
+  if$
+}
+
+FUNCTION {output.eprint}
+{
+  eprint empty$
+    {
+      publisher field.or.null "arXiv" =
+        { publisher " preprint" * }
+        { "" }
+      if$
+      emphasize
+    }
+    {
+      archiveprefix.or.eprinttype empty$
+        { "" }
+        {
+          journal empty$
+            { archiveprefix.or.eprinttype " preprint" * }
+            { archiveprefix.or.eprinttype }
+          if$
+        }
+      if$
+      emphasize output
+      archiveprefix.or.eprinttype ":" * eprint *
+    }
+  if$
+}
+
 FUNCTION {format.doi}
 { doi empty$
     { "" }
@@ -1613,6 +1654,8 @@ FUNCTION {misc}
   format.title output
   new.block
   howpublished "howpublished" bibinfo.check output
+  new.block
+  output.eprint output
   new.block
   format.note output
   fin.entry
