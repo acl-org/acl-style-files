@@ -1285,12 +1285,12 @@ FUNCTION {format.eprint}
   if$
 }
 
-FUNCTION {archiveprefix.or.eprinttype}
+FUNCTION {archiveprefix.or.eprinttype} % holder for eprinttype with archiveprefix precedence
 {
   archiveprefix empty$
   {
     eprinttype empty$
-      { "" }
+      { "" } % not using 'skip$ to reduce errors like "nothing to pop from stack"
       { eprinttype }
     if$
   }
@@ -1301,25 +1301,25 @@ FUNCTION {archiveprefix.or.eprinttype}
 FUNCTION {output.eprint}
 {
   eprint empty$
-    {
-      publisher field.or.null "arXiv" =
-        { publisher " preprint" * }
-        { "" }
+    {% if eprint field is empty
+      publisher field.or.null "arXiv" = % field.or.null here helps when no publisher field in the record
+        { publisher " preprint" * } % add " preprint" to publisher with idea that publisher is the name of the preprint server
+        { "" } % if publisher != "arXiv" then empty output
       if$
-      emphasize
+      emphasize % no output function after emphasize beacuse nothing goes after this
     }
     {
       archiveprefix.or.eprinttype empty$
-        { "" }
+        { "" } % not using 'skip$ to reduce errors like "nothing to pop from stack"
         {
-          journal empty$
-            { archiveprefix.or.eprinttype " preprint" * }
-            { archiveprefix.or.eprinttype }
+          journal empty$ % check for journal means nothing for arxiv preprints but may help in future improvements of this function or usage within other types
+            { archiveprefix.or.eprinttype " preprint" * } % add " preprint" to eprinttype with idea that eprinttype is the name of the preprint server
+            { archiveprefix.or.eprinttype } % if jout=rnal not empty just output eprinttype
           if$
         }
       if$
-      emphasize output
-      archiveprefix.or.eprinttype ":" * eprint *
+      emphasize output % emphasize what we formed before, setting output as a border to subblock going after with comma delimiter
+      archiveprefix.or.eprinttype ":" * eprint * % subblock with eprinttype and eprint number
     }
   if$
 }
