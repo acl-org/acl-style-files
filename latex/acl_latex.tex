@@ -73,7 +73,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-This document is a supplement to the general instructions for *ACL authors. It contains instructions for using the \LaTeX{} style files for ACL conferences. 
+This document is a supplement to the general instructions for *ACL authors. It contains instructions for using the \LaTeX{} style files for ACL conferences.
 The document itself conforms to its own specifications, and is therefore an example of what your manuscript should look like.
 These instructions should be used both for papers submitted for review and for final versions of accepted papers.
 \end{abstract}
@@ -146,34 +146,34 @@ See Table~\ref{tab:accents} for an example of a table and its caption.
 \textbf{Do not override the default caption sizes.}
 
 \begin{table}
-\centering
-\begin{tabular}{lc}
-\hline
-\textbf{Command} & \textbf{Output}\\
-\hline
-\verb|{\"a}| & {\"a} \\
-\verb|{\^e}| & {\^e} \\
-\verb|{\`i}| & {\`i} \\ 
-\verb|{\.I}| & {\.I} \\ 
-\verb|{\o}| & {\o} \\
-\verb|{\'u}| & {\'u}  \\ 
-\verb|{\aa}| & {\aa}  \\\hline
-\end{tabular}
-\begin{tabular}{lc}
-\hline
-\textbf{Command} & \textbf{Output}\\
-\hline
-\verb|{\c c}| & {\c c} \\ 
-\verb|{\u g}| & {\u g} \\ 
-\verb|{\l}| & {\l} \\ 
-\verb|{\~n}| & {\~n} \\ 
-\verb|{\H o}| & {\H o} \\ 
-\verb|{\v r}| & {\v r} \\ 
-\verb|{\ss}| & {\ss} \\
-\hline
-\end{tabular}
-\caption{Example commands for accented characters, to be used in, \emph{e.g.}, Bib\TeX{} entries.}
-\label{tab:accents}
+  \centering
+  \begin{tabular}{lc}
+    \hline
+    \textbf{Command} & \textbf{Output} \\
+    \hline
+    \verb|{\"a}|     & {\"a}           \\
+    \verb|{\^e}|     & {\^e}           \\
+    \verb|{\`i}|     & {\`i}           \\
+    \verb|{\.I}|     & {\.I}           \\
+    \verb|{\o}|      & {\o}            \\
+    \verb|{\'u}|     & {\'u}           \\
+    \verb|{\aa}|     & {\aa}           \\\hline
+  \end{tabular}
+  \begin{tabular}{lc}
+    \hline
+    \textbf{Command} & \textbf{Output} \\
+    \hline
+    \verb|{\c c}|    & {\c c}          \\
+    \verb|{\u g}|    & {\u g}          \\
+    \verb|{\l}|      & {\l}            \\
+    \verb|{\~n}|     & {\~n}           \\
+    \verb|{\H o}|    & {\H o}          \\
+    \verb|{\v r}|    & {\v r}          \\
+    \verb|{\ss}|     & {\ss}           \\
+    \hline
+  \end{tabular}
+  \caption{Example commands for accented characters, to be used in, \emph{e.g.}, Bib\TeX{} entries.}
+  \label{tab:accents}
 \end{table}
 
 As much as possible, fonts in figures should conform
@@ -188,23 +188,23 @@ You must include it explicitly in the \LaTeX{} preamble (after the
 \verb|\usepackage{graphicx}|.
 
 \begin{figure}[t]
-\includegraphics[width=\columnwidth]{example-image-golden}
-\caption{A figure with a caption that runs for more than one line.
-Example image is usually available through the \texttt{mwe} package
-without even mentioning it in the preamble.}
-\label{fig:experiments}
+  \includegraphics[width=\columnwidth]{example-image-golden}
+  \caption{A figure with a caption that runs for more than one line.
+    Example image is usually available through the \texttt{mwe} package
+    without even mentioning it in the preamble.}
+  \label{fig:experiments}
 \end{figure}
 
 \begin{figure*}[t]
-\includegraphics[width=0.48\linewidth]{example-image-a} \hfill
-\includegraphics[width=0.48\linewidth]{example-image-b}
-\caption {A minimal working example to demonstrate how to place
-two images side-by-side.}
+  \includegraphics[width=0.48\linewidth]{example-image-a} \hfill
+  \includegraphics[width=0.48\linewidth]{example-image-b}
+  \caption {A minimal working example to demonstrate how to place
+    two images side-by-side.}
 \end{figure*}
 
 \subsection{Hyperlinks}
 
-Users of older versions of \LaTeX{} may encounter the following error during compilation: 
+Users of older versions of \LaTeX{} may encounter the following error during compilation:
 \begin{quote}
 \verb|\pdfendlink| ended up in different nesting level than \verb|\pdfstartlink|.
 \end{quote}
@@ -213,23 +213,23 @@ This happens when pdf\LaTeX{} is used and a citation splits across a page bounda
 \subsection{Citations}
 
 \begin{table*}
-\centering
-\begin{tabular}{lll}
-\hline
-\textbf{Output} & \textbf{natbib command} & \textbf{ACL only command}\\
-\hline
-\citep{Gusfield:97} & \verb|\citep| &  \\
-\citealp{Gusfield:97} & \verb|\citealp| & \\
-\citet{Gusfield:97} & \verb|\citet| &  \\
-  \citeyearpar{Gusfield:97} & \verb|\citeyearpar| &  \\
-  \citeposs{Gusfield:97}	&	& \verb|\citeposs|\\
-\hline
-\end{tabular}
-\caption{\label{citation-guide}
-Citation commands supported by the style file.
-The style is based on the natbib package and supports all natbib citation commands.
-It also supports commands defined in previous ACL style files for compatibility.
-}
+  \centering
+  \begin{tabular}{lll}
+    \hline
+    \textbf{Output}           & \textbf{natbib command} & \textbf{ACL only command} \\
+    \hline
+    \citep{Gusfield:97}       & \verb|\citep|           &                           \\
+    \citealp{Gusfield:97}     & \verb|\citealp|         &                           \\
+    \citet{Gusfield:97}       & \verb|\citet|           &                           \\
+    \citeyearpar{Gusfield:97} & \verb|\citeyearpar|     &                           \\
+    \citeposs{Gusfield:97}    &                         & \verb|\citeposs|          \\
+    \hline
+  \end{tabular}
+  \caption{\label{citation-guide}
+    Citation commands supported by the style file.
+    The style is based on the natbib package and supports all natbib citation commands.
+    It also supports commands defined in previous ACL style files for compatibility.
+  }
 \end{table*}
 
 Table~\ref{citation-guide} shows the syntax supported by the style files.
@@ -268,8 +268,8 @@ Please see Section~\ref{sec:bibtex} for information on preparing Bib\TeX{} files
 
 An example equation is shown below:
 \begin{equation}
-\label{eq:example}
-A = \pi r^2
+  \label{eq:example}
+  A = \pi r^2
 \end{equation}
 
 Labels for equation numbers, sections, subsections, figures and tables
@@ -295,19 +295,19 @@ If a Bib\TeX{} entry has a URL or DOI field, the paper title in the references s
 
 This document has been adapted
 by Steven Bethard, Ryan Cotterell and Rui Yan
-from the instructions for earlier ACL and NAACL proceedings, including those for 
+from the instructions for earlier ACL and NAACL proceedings, including those for
 ACL 2019 by Douwe Kiela and Ivan Vuli\'{c},
-NAACL 2019 by Stephanie Lukin and Alla Roskovskaya, 
-ACL 2018 by Shay Cohen, Kevin Gimpel, and Wei Lu, 
+NAACL 2019 by Stephanie Lukin and Alla Roskovskaya,
+ACL 2018 by Shay Cohen, Kevin Gimpel, and Wei Lu,
 NAACL 2018 by Margaret Mitchell and Stephanie Lukin,
 Bib\TeX{} suggestions for (NA)ACL 2017/2018 from Jason Eisner,
-ACL 2017 by Dan Gildea and Min-Yen Kan, 
-NAACL 2017 by Margaret Mitchell, 
-ACL 2012 by Maggie Li and Michael White, 
-ACL 2010 by Jing-Shin Chang and Philipp Koehn, 
-ACL 2008 by Johanna D. Moore, Simone Teufel, James Allan, and Sadaoki Furui, 
-ACL 2005 by Hwee Tou Ng and Kemal Oflazer, 
-ACL 2002 by Eugene Charniak and Dekang Lin, 
+ACL 2017 by Dan Gildea and Min-Yen Kan,
+NAACL 2017 by Margaret Mitchell,
+ACL 2012 by Maggie Li and Michael White,
+ACL 2010 by Jing-Shin Chang and Philipp Koehn,
+ACL 2008 by Johanna D. Moore, Simone Teufel, James Allan, and Sadaoki Furui,
+ACL 2005 by Hwee Tou Ng and Kemal Oflazer,
+ACL 2002 by Eugene Charniak and Dekang Lin,
 and earlier ACL and EACL formats written by several people, including
 John Chen, Henry S. Thompson and Donald Walker.
 Additional elements were taken from the formatting instructions of the \emph{International Joint Conference on Artificial Intelligence} and the \emph{Conference on Computer Vision and Pattern Recognition}.
