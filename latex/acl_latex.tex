@@ -31,6 +31,10 @@
 % the typewriter font.
 \usepackage{inconsolata}
 
+%Including images in your LaTeX document requires adding
+%additional package(s)
+\usepackage{graphicx}
+
 % If the title and author information does not fit in the area allocated, uncomment the following
 %
 %\setlength\titlebox{<dim>}
@@ -171,6 +175,32 @@ See Table~\ref{tab:accents} for an example of a table and its caption.
 \caption{Example commands for accented characters, to be used in, \emph{e.g.}, Bib\TeX{} entries.}
 \label{tab:accents}
 \end{table}
+
+As much as possible, fonts in figures should conform
+to the document fonts. See Figure~\ref{fig:experiments} for an example of a figure and its caption.
+
+Using the \verb|graphicx| package graphics files can be included within figure
+environment at an appropriate point within the text.
+The \verb|graphicx| package supports various optional arguments to control the
+appearance of the figure.
+You must include it explicitly in the \LaTeX{} preamble (after the
+\verb|\documentclass| declaration and before \verb|\begin{document}|) using
+\verb|\usepackage{graphicx}|.
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{example-image-golden}
+\caption{A figure with a caption that runs for more than one line.
+Example image is usually available through the \texttt{mwe} package
+without even mentioning it in the preamble.}
+\label{fig:experiments}
+\end{figure}
+
+\begin{figure*}[t]
+\includegraphics[width=0.48\linewidth]{example-image-a} \hfill
+\includegraphics[width=0.48\linewidth]{example-image-b}
+\caption {A minimal working example to demonstrate how to place
+two images side-by-side.}
+\end{figure*}
 
 \subsection{Hyperlinks}
 
