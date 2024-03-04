@@ -10,7 +10,7 @@ templates.
 
 The LaTeX style files are available
 
-- as an [Overleaf template](https://www.overleaf.com/read/crtcwgxzjskr)
+- as an [Overleaf template](https://www.overleaf.com/latex/templates/association-for-computational-linguistics-acl-conference/jvxskxpnznfj)
 - in this repository, in the [`latex`](https://github.com/acl-org/acl-style-files/blob/master/latex) subdirectory
 - as a [.zip file](https://github.com/acl-org/acl-style-files/archive/refs/heads/master.zip)
 
@@ -42,3 +42,12 @@ page of the anonymized version. This is no longer needed, because it
 is now possible to do this stamping automatically within
 START. Currently, the way to do this is for the program chair to email
 support@softconf.com and request it.
+
+## Instructions for making changes to style files
+
+- merge pull request in github, or push to github
+- git pull from github to a local repository
+- then, git push from your local repository to overleaf project 
+    - Overleaf project is https://www.overleaf.com/project/5f64f1fb97c4c50001b60549
+    - Overleaf git url is https://git.overleaf.com/5f64f1fb97c4c50001b60549
+- then, click "Submit" and then "Sumbit as Template" in overleaf in order to ask overleaf to update the overleaf template from the overleaf project 
