@@ -1232,6 +1232,45 @@ FUNCTION {format.organization.address}
 { organization "organization" bibinfo.check format.org.or.pub
 }
 
+FUNCTION {archiveprefix.or.eprinttype} % holder for eprinttype with archiveprefix precedence
+{
+  archiveprefix empty$
+  {
+    eprinttype empty$
+      { "" } % not using 'skip$ to reduce errors like "nothing to pop from stack"
+      { eprinttype }
+    if$
+  }
+  { archiveprefix }
+  if$
+}
+
+FUNCTION {output.eprint} % this is only used with the @misc record type (common for arXiv and other preprint server bibtex records)
+{
+  eprint empty$
+    {% if eprint field is empty
+      publisher field.or.null "arXiv" = % field.or.null here helps when no publisher field in the record
+        { publisher " preprint" * } % add " preprint" to publisher with the idea that publisher is the name of the preprint server
+        { "" } % if publisher != "arXiv" then empty output
+      if$
+      emphasize % no output function after emphasize because nothing goes after this
+    }
+    {% if eprint field is not empty
+      archiveprefix.or.eprinttype empty$
+        { "" } % not using 'skip$ to reduce errors like "nothing to pop from stack"
+        {% if archiveprefix or eprinttype fields are not empty
+          journal empty$
+            { "Preprint" } % if journal field is empty: output just "Preprint" emphasized like a journal name
+            { journal } % if journal field is not empty, output it (takes precedence)
+          if$
+          emphasize output % emphasize what we formed before, setting output as a border to the subblock that follows with the comma delimiter
+          archiveprefix.or.eprinttype ":" * eprint * % subblock with eprinttype and eprint number
+        }
+      if$
+    }
+  if$
+}
+
 % urlbst...
 % Functions for making hypertext links.
 % In all cases, the stack has (link-text href-url)
@@ -1282,45 +1321,6 @@ FUNCTION {format.eprint}
 { eprint empty$
     { "" }
     { eprintprefix eprint * eprinturl eprint * make.href }
-  if$
-}
-
-FUNCTION {archiveprefix.or.eprinttype} % holder for eprinttype with archiveprefix precedence
-{
-  archiveprefix empty$
-  {
-    eprinttype empty$
-      { "" } % not using 'skip$ to reduce errors like "nothing to pop from stack"
-      { eprinttype }
-    if$
-  }
-  { archiveprefix }
-  if$
-}
-
-FUNCTION {output.eprint} % this is only used with the @misc record type (common for arXiv and other preprint server bibtex records)
-{
-  eprint empty$
-    {% if eprint field is empty
-      publisher field.or.null "arXiv" = % field.or.null here helps when no publisher field in the record
-        { publisher " preprint" * } % add " preprint" to publisher with the idea that publisher is the name of the preprint server
-        { "" } % if publisher != "arXiv" then empty output
-      if$
-      emphasize % no output function after emphasize because nothing goes after this
-    }
-    {% if eprint field is not empty
-      archiveprefix.or.eprinttype empty$
-        { "" } % not using 'skip$ to reduce errors like "nothing to pop from stack"
-        {% if archiveprefix or eprinttype fields are not empty
-          journal empty$
-            { "preprint" } % if journal field is empty: output just "preprint" emphasized like a journal name
-            { journal } % if journal field is not empty, output it (takes precedence)
-          if$
-          emphasize output % emphasize what we formed before, setting output as a border to the subblock that follows with the comma delimiter
-          archiveprefix.or.eprinttype ":" * eprint * % subblock with eprinttype and eprint number
-        }
-      if$
-    }
   if$
 }
 
