@@ -1,13 +1,3 @@
-%%% Modification of BibTeX style file acl_natbib_nourl.bst
-%%% ... by urlbst, version 0.7 (marked with "% urlbst")
-%%% See <http://purl.org/nxg/dist/urlbst>
-%%% Added webpage entry type, and url and lastchecked fields.
-%%% Added eprint support.
-%%% Added DOI support.
-%%% Added PUBMED support.
-%%% Added hyperref support.
-%%% Original headers follow...
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % BibTeX style file acl_natbib_nourl.bst
@@ -15,7 +5,7 @@
 % intended as input to urlbst script
 % $ ./urlbst --hyperref --inlinelinks acl_natbib_nourl.bst > acl_natbib.bst
 %
-% adapted from compling.bst 
+% adapted from compling.bst
 % in order to mimic the style files for ACL conferences prior to 2017
 % by making the following three changes:
 % - for @incollection, page numbers now follow volume title.
@@ -32,112 +22,115 @@
 % - sort "van Noord" under "v" not "N"
 %   this is what previous ACL style files did and is pretty standard
 % Dan Gildea 2019/04/12
+%
+% - improve arXiv preprint formatting
+% Leonid Sinev 2024/03/07
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % BibTeX style file compling.bst
 %
 % Intended for the journal Computational Linguistics (ACL/MIT Press)
-% Created by Ron Artstein on 2005/08/22 
+% Created by Ron Artstein on 2005/08/22
 % For use with <natbib.sty> for author-year citations.
 %
-% I created this file in order to allow submissions to the journal 
+% I created this file in order to allow submissions to the journal
 % Computational Linguistics using the <natbib> package for author-year
-% citations, which offers a lot more flexibility than <fullname>, CL's 
+% citations, which offers a lot more flexibility than <fullname>, CL's
 % official citation package. This file adheres strictly to the official
 % style guide available from the MIT Press:
 %
 % http://mitpress.mit.edu/journals/coli/compling_style.pdf
 %
-% This includes all the various quirks of the style guide, for example: 
+% This includes all the various quirks of the style guide, for example:
 % - a chapter from a monograph (@inbook) has no page numbers.
 % - an article from an edited volume (@incollection) has page numbers
 %   after the publisher and address.
-% - an article from a proceedings volume (@inproceedings) has page 
+% - an article from a proceedings volume (@inproceedings) has page
 %   numbers before the publisher and address.
 %
-% Where the style guide was inconsistent or not specific enough I 
-% looked at actual published articles and exercised my own judgment. 
+% Where the style guide was inconsistent or not specific enough I
+% looked at actual published articles and exercised my own judgment.
 % I noticed two inconsistencies in the style guide:
 %
-% - The style guide gives one example of an article from an edited 
-%   volume with the editor's name spelled out in full, and another 
-%   with the editors' names abbreviated. I chose to accept the first 
-%   one as correct, since the style guide generally shuns abbreviations, 
-%   and editors' names are also spelled out in some recently published 
+% - The style guide gives one example of an article from an edited
+%   volume with the editor's name spelled out in full, and another
+%   with the editors' names abbreviated. I chose to accept the first
+%   one as correct, since the style guide generally shuns abbreviations,
+%   and editors' names are also spelled out in some recently published
 %   articles.
 %
-% - The style guide gives one example of a reference where the word 
-%   "and" between two authors is preceded by a comma. This is most 
-%   likely a typo, since in all other cases with just two authors or 
+% - The style guide gives one example of a reference where the word
+%   "and" between two authors is preceded by a comma. This is most
+%   likely a typo, since in all other cases with just two authors or
 %   editors there is no comma before the word "and".
 %
 % One case where the style guide is not being specific is the placement
-% of the edition number, for which no example is given. I chose to put 
+% of the edition number, for which no example is given. I chose to put
 % it immediately after the title, which I (subjectively) find natural,
 % and is also the place of the edition in a few recently published
 % articles.
 %
 % This file correctly reproduces all of the examples in the official
 % style guide, except for the two inconsistencies noted above. I even
-% managed to get it to correctly format the proceedings example which 
-% has an organization, a publisher, and two addresses (the conference 
-% location and the publisher's address), though I cheated a bit by 
-% putting the conference location and month as part of the title field; 
+% managed to get it to correctly format the proceedings example which
+% has an organization, a publisher, and two addresses (the conference
+% location and the publisher's address), though I cheated a bit by
+% putting the conference location and month as part of the title field;
 % I feel that in this case the conference location and month can be
-% considered as part of the title, and that adding a location field 
-% is not justified. Note also that a location field is not standard, 
-% so entries made with this field would not port nicely to other styles. 
-% However, if authors feel that there's a need for a location field 
+% considered as part of the title, and that adding a location field
+% is not justified. Note also that a location field is not standard,
+% so entries made with this field would not port nicely to other styles.
+% However, if authors feel that there's a need for a location field
 % then tell me and I'll see what I can do.
 %
-% The file also produces to my satisfaction all the bibliographical 
-% entries in my recent (joint) submission to CL (this was the original 
+% The file also produces to my satisfaction all the bibliographical
+% entries in my recent (joint) submission to CL (this was the original
 % motivation for creating the file). I also tested it by running it
 % on a larger set of entries and eyeballing the results. There may of
 % course still be errors, especially with combinations of fields that
-% are not that common, or with cross-references (which I seldom use). 
-% If you find such errors please write to me. 
-% 
-% I hope people find this file useful. Please email me with comments 
+% are not that common, or with cross-references (which I seldom use).
+% If you find such errors please write to me.
+%
+% I hope people find this file useful. Please email me with comments
 % and suggestions.
-% 
+%
 % Ron Artstein
 % artstein [at] essex.ac.uk
 % August 22, 2005.
 %
 % Some technical notes.
 %
-% This file is based on a file generated with the package <custom-bib> 
-% by Patrick W. Daly (see selected options below), which was then 
+% This file is based on a file generated with the package <custom-bib>
+% by Patrick W. Daly (see selected options below), which was then
 % manually customized to conform with certain CL requirements which
-% cannot be met by <custom-bib>. Departures from the generated file 
+% cannot be met by <custom-bib>. Departures from the generated file
 % include:
 %
-% Function inbook: moved publisher and address to the end; moved 
-% edition after title; replaced function format.chapter.pages by 
+% Function inbook: moved publisher and address to the end; moved
+% edition after title; replaced function format.chapter.pages by
 % new function format.chapter to output chapter without pages.
-% 
+%
 % Function inproceedings: moved publisher and address to the end;
-% replaced function format.in.ed.booktitle by new function 
-% format.in.booktitle to output the proceedings title without 
+% replaced function format.in.ed.booktitle by new function
+% format.in.booktitle to output the proceedings title without
 % the editor.
-% 
+%
 % Functions book, incollection, manual: moved edition after title.
 %
-% Function mastersthesis: formatted title as for articles (unlike 
+% Function mastersthesis: formatted title as for articles (unlike
 % phdthesis which is formatted as book) and added month.
-% 
-% Function proceedings: added new.sentence between organization and 
+%
+% Function proceedings: added new.sentence between organization and
 % publisher when both are present.
-% 
+%
 % Function format.lab.names: modified so that it gives all the
 % authors' surnames for in-text citations for one, two and three
 % authors and only uses "et. al" for works with four authors or more
-% (thanks to Ken Shan for convincing me to go through the trouble of 
+% (thanks to Ken Shan for convincing me to go through the trouble of
 % modifying this function rather than using unreliable hacks).
 %
-% Changes: 
+% Changes:
 %
 % 2006-10-27: Changed function reverse.pass so that the extra label is
 % enclosed in parentheses when the year field ends in an uppercase or
@@ -156,7 +149,7 @@
 %% merlin.mbs  (with options: `ay,nat,vonx,nm-revv1,jnrlst,keyxyr,blkyear,dt-beg,yr-per,note-yr,num-xser,pre-pub,xedn,nfss')
 %% ----------------------------------------
 %% *** Intended for the journal Computational Linguistics ***
-%% 
+%%
 %% Copyright 1994-2002 Patrick W Daly
  % ===============================================================
  % IMPORTANT NOTICE:
@@ -223,76 +216,21 @@ ENTRY
     type
     volume
     year
-    eprint % urlbst
+    eprint
     eprinttype % = archivePrefix
     archivePrefix
-    doi % urlbst
-    pubmed % urlbst
-    url % urlbst
-    lastchecked % urlbst
   }
   {}
   { label extra.label sort.label short.list }
 INTEGERS { output.state before.all mid.sentence after.sentence after.block }
-% urlbst...
-% urlbst constants and state variables
-STRINGS { urlintro
-  eprinturl eprintprefix doiprefix doiurl pubmedprefix pubmedurl
-  citedstring onlinestring linktextstring
-  openinlinelink closeinlinelink }
-INTEGERS { hrefform inlinelinks makeinlinelink
-  addeprints adddoiresolver addpubmedresolver }
-FUNCTION {init.urlbst.variables}
-{
-  % The following constants may be adjusted by hand, if desired
-
-  % The first set allow you to enable or disable certain functionality.
-  #1 'addeprints :=         % 0=no eprints; 1=include eprints
-  #1 'adddoiresolver :=     % 0=no DOI resolver; 1=include it
-  #1 'addpubmedresolver :=     % 0=no PUBMED resolver; 1=include it
-  #2 'hrefform :=           % 0=no crossrefs; 1=hypertex xrefs; 2=hyperref refs
-  #1 'inlinelinks :=        % 0=URLs explicit; 1=URLs attached to titles
-
-  % String constants, which you _might_ want to tweak.
-  "URL: " 'urlintro := % prefix before URL; typically "Available from:" or "URL":
-  "online" 'onlinestring := % indication that resource is online; typically "online"
-  "cited " 'citedstring := % indicator of citation date; typically "cited "
-  "[link]" 'linktextstring := % dummy link text; typically "[link]"
-  "http://arxiv.org/abs/" 'eprinturl := % prefix to make URL from eprint ref
-  "arXiv:" 'eprintprefix := % text prefix printed before eprint ref; typically "arXiv:"
-  "https://doi.org/" 'doiurl := % prefix to make URL from DOI
-  "doi:" 'doiprefix :=      % text prefix printed before DOI ref; typically "doi:"
-  "http://www.ncbi.nlm.nih.gov/pubmed/" 'pubmedurl := % prefix to make URL from PUBMED
-  "PMID:" 'pubmedprefix :=      % text prefix printed before PUBMED ref; typically "PMID:"
-
-  % The following are internal state variables, not configuration constants,
-  % so they shouldn't be fiddled with.
-  #0 'makeinlinelink :=     % state variable managed by possibly.setup.inlinelink
-  "" 'openinlinelink :=     % ditto
-  "" 'closeinlinelink :=    % ditto
-}
-INTEGERS { 
-  bracket.state
-  outside.brackets
-  open.brackets
-  within.brackets
-  close.brackets
-}
-% ...urlbst to here
 FUNCTION {init.state.consts}
-{ #0 'outside.brackets := % urlbst...
-  #1 'open.brackets :=
-  #2 'within.brackets :=
-  #3 'close.brackets := % ...urlbst to here
-
-  #0 'before.all :=
+{ #0 'before.all :=
   #1 'mid.sentence :=
   #2 'after.sentence :=
   #3 'after.block :=
 }
 STRINGS { s t}
-% urlbst
-FUNCTION {output.nonnull.original}
+FUNCTION {output.nonnull}
 { 's :=
   output.state mid.sentence =
     { ", " * write$ }
@@ -312,107 +250,6 @@ FUNCTION {output.nonnull.original}
   if$
   s
 }
-
-% urlbst...
-% The following three functions are for handling inlinelink.  They wrap
-% a block of text which is potentially output with write$ by multiple
-% other functions, so we don't know the content a priori.
-% They communicate between each other using the variables makeinlinelink
-% (which is true if a link should be made), and closeinlinelink (which holds
-% the string which should close any current link.  They can be called
-% at any time, but start.inlinelink will be a no-op unless something has
-% previously set makeinlinelink true, and the two ...end.inlinelink functions
-% will only do their stuff if start.inlinelink has previously set
-% closeinlinelink to be non-empty.
-% (thanks to 'ijvm' for suggested code here)
-FUNCTION {uand}
-{ 'skip$ { pop$ #0 } if$ } % 'and' (which isn't defined at this point in the file)
-FUNCTION {possibly.setup.inlinelink}
-{ makeinlinelink hrefform #0 > uand
-    { doi empty$ adddoiresolver uand
-        { pubmed empty$ addpubmedresolver uand
-            { eprint empty$ addeprints uand
-                { url empty$
-                    { "" }
-                    { url }
-                  if$ }
-                { eprinturl eprint * }
-              if$ }
-            { pubmedurl pubmed * }
-          if$ }
-        { doiurl doi * }
-      if$
-      % an appropriately-formatted URL is now on the stack
-      hrefform #1 = % hypertex
-        { "\special {html:<a href=" quote$ * swap$ * quote$ * "> }{" * 'openinlinelink :=
-          "\special {html:</a>}" 'closeinlinelink := }
-        { "\href {" swap$ * "} {" * 'openinlinelink := % hrefform=#2 -- hyperref
-          % the space between "} {" matters: a URL of just the right length can cause "\% newline em"
-          "}" 'closeinlinelink := }
-      if$
-      #0 'makeinlinelink :=
-      }
-    'skip$
-  if$ % makeinlinelink
-}
-FUNCTION {add.inlinelink}
-{ openinlinelink empty$
-    'skip$
-    { openinlinelink swap$ * closeinlinelink *
-      "" 'openinlinelink :=
-      }
-  if$
-}
-FUNCTION {output.nonnull}
-{ % Save the thing we've been asked to output
-  's :=
-  % If the bracket-state is close.brackets, then add a close-bracket to
-  % what is currently at the top of the stack, and set bracket.state
-  % to outside.brackets
-  bracket.state close.brackets =
-    { "]" *
-      outside.brackets 'bracket.state :=
-    }
-    'skip$
-  if$
-  bracket.state outside.brackets =
-    { % We're outside all brackets -- this is the normal situation.
-      % Write out what's currently at the top of the stack, using the
-      % original output.nonnull function.
-      s
-      add.inlinelink
-      output.nonnull.original % invoke the original output.nonnull
-    }
-    { % Still in brackets.  Add open-bracket or (continuation) comma, add the
-      % new text (in s) to the top of the stack, and move to the close-brackets
-      % state, ready for next time (unless inbrackets resets it).  If we come
-      % into this branch, then output.state is carefully undisturbed.
-      bracket.state open.brackets =
-        { " [" * }
-        { ", " * } % bracket.state will be within.brackets
-      if$ 
-      s * 
-      close.brackets 'bracket.state :=
-    }
-  if$
-}
-
-% Call this function just before adding something which should be presented in 
-% brackets.  bracket.state is handled specially within output.nonnull.
-FUNCTION {inbrackets}
-{ bracket.state close.brackets =
-    { within.brackets 'bracket.state := } % reset the state: not open nor closed
-    { open.brackets 'bracket.state := }
-  if$
-}
-
-FUNCTION {format.lastchecked}
-{ lastchecked empty$
-    { "" }
-    { inbrackets citedstring lastchecked * }
-  if$
-}
-% ...urlbst to here
 FUNCTION {output}
 { duplicate$ empty$
     'pop$
@@ -426,7 +263,7 @@ FUNCTION {output.check}
     'output.nonnull
   if$
 }
-FUNCTION {fin.entry.original} % urlbst (renamed from fin.entry, so it can be wrapped below)
+FUNCTION {fin.entry}
 { add.period$
   write$
   newline$
@@ -492,7 +329,7 @@ FUNCTION {emphasize}
     { "\emph{" swap$ * "}" * }
   if$
 }
-FUNCTION {tie.or.space.prefix}  % puts ~ before the preceding part if it is of length <3
+FUNCTION {tie.or.space.prefix} % puts ~ before the preceding part if it is of length <3
 { duplicate$ text.length$ #3 <
     { "~" }
     { " " }
@@ -679,7 +516,7 @@ FUNCTION {format.names}
     { s nameptr
       duplicate$ #1 >
         { "{ff~}{vv~}{ll}{, jj}" }
-        { "{ff~}{vv~}{ll}{, jj}" }	% first name first for first author 
+        { "{ff~}{vv~}{ll}{, jj}" }	% first name first for first author
 %        { "{vv~}{ll}{, ff}{, jj}" }	% last name first for first author
       if$
       format.name$
@@ -909,7 +746,7 @@ FUNCTION {make.full.names}
   if$
 }
 
-FUNCTION {output.bibitem.original} % urlbst (renamed from output.bibitem, so it can be wrapped below)
+FUNCTION {output.bibitem}
 { newline$
   "\bibitem[{" write$
   label write$
@@ -1271,188 +1108,12 @@ FUNCTION {output.eprint} % this is only used with the @misc record type (common 
   if$
 }
 
-% urlbst...
-% Functions for making hypertext links.
-% In all cases, the stack has (link-text href-url)
-%
-% make 'null' specials
-FUNCTION {make.href.null}
-{
-  pop$
-}
-% make hypertex specials
-FUNCTION {make.href.hypertex}
-{ 
-  "\special {html:<a href=" quote$ *
-  swap$ * quote$ * "> }" * swap$ *
-  "\special {html:</a>}" *
-}
-% make hyperref specials
-FUNCTION {make.href.hyperref}
-{ 
-  "\href {" swap$ * "} {\path{" * swap$ * "}}" *
-}
-FUNCTION {make.href}
-{ hrefform #2 =
-    'make.href.hyperref      % hrefform = 2
-    { hrefform #1 =
-        'make.href.hypertex  % hrefform = 1
-        'make.href.null      % hrefform = 0 (or anything else)
-      if$
-    }
-  if$
-}
-
-% If inlinelinks is true, then format.url should be a no-op, since it's
-% (a) redundant, and (b) could end up as a link-within-a-link.
-FUNCTION {format.url}
-{ inlinelinks #1 = url empty$ or
-   { "" }
-   { hrefform #1 =
-       { % special case -- add HyperTeX specials
-         urlintro "\url{" url * "}" * url make.href.hypertex * }
-       { urlintro "\url{" * url * "}" * }
-     if$
-   }
-  if$
-}
-
-FUNCTION {format.eprint}
-{ eprint empty$
-    { "" }
-    { eprintprefix eprint * eprinturl eprint * make.href }
-  if$
-}
-
-FUNCTION {format.doi}
-{ doi empty$
-    { "" }
-    { doiprefix doi * doiurl doi * make.href }
-  if$
-}
-
-FUNCTION {format.pubmed}
-{ pubmed empty$
-    { "" }
-    { pubmedprefix pubmed * pubmedurl pubmed * make.href }
-  if$
-}
-
-% Output a URL.  We can't use the more normal idiom (something like
-% `format.url output'), because the `inbrackets' within
-% format.lastchecked applies to everything between calls to `output',
-% so that `format.url format.lastchecked * output' ends up with both
-% the URL and the lastchecked in brackets.
-FUNCTION {output.url}
-{ url empty$
-    'skip$ 
-    { new.block 
-      format.url output
-      format.lastchecked output 
-    }
-  if$
-}
-
-FUNCTION {output.web.refs}
-{
-  new.block
-  inlinelinks
-    'skip$ % links were inline -- don't repeat them
-    {
-      output.url
-      addeprints eprint empty$ not and
-        { format.eprint output.nonnull }
-        'skip$
-      if$
-      adddoiresolver doi empty$ not and
-        { format.doi output.nonnull }
-        'skip$
-      if$
-      addpubmedresolver pubmed empty$ not and
-        { format.pubmed output.nonnull }
-        'skip$
-      if$
-    }
-  if$
-}
-
-% Wrapper for output.bibitem.original.
-% If the URL field is not empty, set makeinlinelink to be true,
-% so that an inline link will be started at the next opportunity
-FUNCTION {output.bibitem}
-{ outside.brackets 'bracket.state :=
-  output.bibitem.original
-  inlinelinks url empty$ not doi empty$ not or pubmed empty$ not or eprint empty$ not or and
-    { #1 'makeinlinelink := }
-    { #0 'makeinlinelink := }
-  if$
-}
-
-% Wrapper for fin.entry.original
-FUNCTION {fin.entry}
-{ output.web.refs  % urlbst
-  makeinlinelink       % ooops, it appears we didn't have a title for inlinelink
-    { possibly.setup.inlinelink % add some artificial link text here, as a fallback
-      linktextstring output.nonnull }
-    'skip$
-  if$
-  bracket.state close.brackets = % urlbst
-    { "]" * }
-    'skip$
-  if$
-  fin.entry.original
-}
-
-% Webpage entry type.
-% Title and url fields required;
-% author, note, year, month, and lastchecked fields optional
-% See references 
-%   ISO 690-2 http://www.nlc-bnc.ca/iso/tc46sc9/standard/690-2e.htm
-%   http://www.classroom.net/classroom/CitingNetResources.html
-%   http://neal.ctstateu.edu/history/cite.html
-%   http://www.cas.usf.edu/english/walker/mla.html
-% for citation formats for web pages.
-FUNCTION {webpage}
-{ output.bibitem
-  author empty$
-    { editor empty$
-        'skip$  % author and editor both optional
-        { format.editors output.nonnull }
-      if$
-    }
-    { editor empty$
-        { format.authors output.nonnull }
-        { "can't use both author and editor fields in " cite$ * warning$ }
-      if$
-    }
-  if$
-  new.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$
-  format.title "title" output.check
-  inbrackets onlinestring output
-  new.block
-  year empty$
-    'skip$
-    { format.date "year" output.check }
-  if$
-  % We don't need to output the URL details ('lastchecked' and 'url'),
-  % because fin.entry does that for us, using output.web.refs.  The only
-  % reason we would want to put them here is if we were to decide that
-  % they should go in front of the rather miscellaneous information in 'note'.
-  new.block
-  note output
-  fin.entry
-}
-% ...urlbst to here
-
-
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.title "title" output.check
   new.block
   crossref missing$
@@ -1461,7 +1122,7 @@ FUNCTION {article}
       "journal" bibinfo.check
       emphasize
       "journal" output.check
-      possibly.setup.inlinelink format.vol.num.pages output% urlbst
+      format.vol.num.pages output
     }
     { format.article.crossref output.nonnull
       format.pages output
@@ -1486,7 +1147,6 @@ FUNCTION {book}
   if$
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.btitle "title" output.check
   format.edition output
   crossref missing$
@@ -1511,7 +1171,6 @@ FUNCTION {booklet}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.title "title" output.check
   new.block
   howpublished "howpublished" bibinfo.check output
@@ -1536,7 +1195,6 @@ FUNCTION {inbook}
   if$
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.btitle "title" output.check
   format.edition output
   crossref missing$
@@ -1565,7 +1223,6 @@ FUNCTION {incollection}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.title "title" output.check
   new.block
   crossref missing$
@@ -1591,7 +1248,6 @@ FUNCTION {inproceedings}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.title "title" output.check
   new.block
   crossref missing$
@@ -1619,7 +1275,6 @@ FUNCTION {manual}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.btitle "title" output.check
   format.edition output
   organization address new.block.checkb
@@ -1636,7 +1291,6 @@ FUNCTION {mastersthesis}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.title
   "title" output.check
   new.block
@@ -1655,7 +1309,6 @@ FUNCTION {misc}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.title output
   new.block
   howpublished "howpublished" bibinfo.check output
@@ -1671,7 +1324,6 @@ FUNCTION {phdthesis}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.btitle
   "title" output.check
   new.block
@@ -1689,7 +1341,6 @@ FUNCTION {proceedings}
   editor format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.btitle "title" output.check
   format.bvolume output
   format.number.series output
@@ -1712,7 +1363,6 @@ FUNCTION {techreport}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.title
   "title" output.check
   new.block
@@ -1730,7 +1380,6 @@ FUNCTION {unpublished}
   author format.key output
   format.date "year" output.check
   date.block
-  title empty$ 'skip$ 'possibly.setup.inlinelink if$ % urlbst
   format.title "title" output.check
   new.block
   format.note "note" output.check
@@ -1976,7 +1625,7 @@ FUNCTION {reverse.pass}
   extra.label
   duplicate$ empty$
     'skip$
-    { year field.or.null #-1 #1 substring$ chr.to.int$ #65 < 
+    { year field.or.null #-1 #1 substring$ chr.to.int$ #65 <
       { "{\natexlab{" swap$ * "}}" * }
       { "{(\natexlab{" swap$ * "})}" * }
     if$ }
@@ -2014,7 +1663,6 @@ FUNCTION {begin.bib}
   write$ newline$
 }
 EXECUTE {begin.bib}
-EXECUTE {init.urlbst.variables} % urlbst
 EXECUTE {init.state.consts}
 ITERATE {call.type$}
 FUNCTION {end.bib}
