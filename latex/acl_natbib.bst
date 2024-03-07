@@ -492,7 +492,7 @@ FUNCTION {emphasize}
     { "\emph{" swap$ * "}" * }
   if$
 }
-FUNCTION {tie.or.space.prefix}  % puts ~ before preceeding part if it is of length <3
+FUNCTION {tie.or.space.prefix}  % puts ~ before the preceding part if it is of length <3
 { duplicate$ text.length$ #3 <
     { "~" }
     { " " }
@@ -1303,22 +1303,22 @@ FUNCTION {output.eprint}
   eprint empty$
     {% if eprint field is empty
       publisher field.or.null "arXiv" = % field.or.null here helps when no publisher field in the record
-        { publisher " preprint" * } % add " preprint" to publisher with idea that publisher is the name of the preprint server
+        { publisher " preprint" * } % add " preprint" to publisher with the idea that publisher is the name of the preprint server
         { "" } % if publisher != "arXiv" then empty output
       if$
-      emphasize % no output function after emphasize beacuse nothing goes after this
+      emphasize % no output function after emphasize because nothing goes after this
     }
     {
       archiveprefix.or.eprinttype empty$
         { "" } % not using 'skip$ to reduce errors like "nothing to pop from stack"
         {
           journal empty$ % check for journal means nothing for arxiv preprints but may help in future improvements of this function or usage within other types
-            { archiveprefix.or.eprinttype " preprint" * } % add " preprint" to eprinttype with idea that eprinttype is the name of the preprint server
-            { archiveprefix.or.eprinttype } % if jout=rnal not empty just output eprinttype
+            { archiveprefix.or.eprinttype " preprint" * } % add " preprint" to eprinttype with the idea that eprinttype is the name of the preprint server
+            { archiveprefix.or.eprinttype } % if journal not empty just output eprinttype
           if$
         }
       if$
-      emphasize output % emphasize what we formed before, setting output as a border to subblock going after with comma delimiter
+      emphasize output % emphasize what we formed before, setting output as a border to the subblock that follows with the comma delimiter
       archiveprefix.or.eprinttype ":" * eprint * % subblock with eprinttype and eprint number
     }
   if$
