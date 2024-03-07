@@ -1,6 +1,9 @@
 %%% Modification of BibTeX style file acl_natbib_nourl.bst
-%%% ... by urlbst, version 0.7 (marked with "% urlbst")
-%%% See <http://purl.org/nxg/dist/urlbst>
+%%% ... by urlbst, version 0.9.1 (marked with "% urlbst")
+%%% See <https://purl.org/nxg/dist/urlbst> and repository <https://heptapod.host/nxg/urlbst>
+%%% Modifications Copyright 2002–23, Norman Gray,
+%%% and distributed under the terms of the LPPL; see README for discussion.
+%%%
 %%% Added webpage entry type, and url and lastchecked fields.
 %%% Added eprint support.
 %%% Added DOI support.
@@ -15,7 +18,7 @@
 % intended as input to urlbst script
 % $ ./urlbst --hyperref --inlinelinks acl_natbib_nourl.bst > acl_natbib.bst
 %
-% adapted from compling.bst 
+% adapted from compling.bst
 % in order to mimic the style files for ACL conferences prior to 2017
 % by making the following three changes:
 % - for @incollection, page numbers now follow volume title.
@@ -32,112 +35,115 @@
 % - sort "van Noord" under "v" not "N"
 %   this is what previous ACL style files did and is pretty standard
 % Dan Gildea 2019/04/12
+%
+% - improve arXiv preprint formatting
+% Leonid Sinev 2024/03/07
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % BibTeX style file compling.bst
 %
 % Intended for the journal Computational Linguistics (ACL/MIT Press)
-% Created by Ron Artstein on 2005/08/22 
+% Created by Ron Artstein on 2005/08/22
 % For use with <natbib.sty> for author-year citations.
 %
-% I created this file in order to allow submissions to the journal 
+% I created this file in order to allow submissions to the journal
 % Computational Linguistics using the <natbib> package for author-year
-% citations, which offers a lot more flexibility than <fullname>, CL's 
+% citations, which offers a lot more flexibility than <fullname>, CL's
 % official citation package. This file adheres strictly to the official
 % style guide available from the MIT Press:
 %
 % http://mitpress.mit.edu/journals/coli/compling_style.pdf
 %
-% This includes all the various quirks of the style guide, for example: 
+% This includes all the various quirks of the style guide, for example:
 % - a chapter from a monograph (@inbook) has no page numbers.
 % - an article from an edited volume (@incollection) has page numbers
 %   after the publisher and address.
-% - an article from a proceedings volume (@inproceedings) has page 
+% - an article from a proceedings volume (@inproceedings) has page
 %   numbers before the publisher and address.
 %
-% Where the style guide was inconsistent or not specific enough I 
-% looked at actual published articles and exercised my own judgment. 
+% Where the style guide was inconsistent or not specific enough I
+% looked at actual published articles and exercised my own judgment.
 % I noticed two inconsistencies in the style guide:
 %
-% - The style guide gives one example of an article from an edited 
-%   volume with the editor's name spelled out in full, and another 
-%   with the editors' names abbreviated. I chose to accept the first 
-%   one as correct, since the style guide generally shuns abbreviations, 
-%   and editors' names are also spelled out in some recently published 
+% - The style guide gives one example of an article from an edited
+%   volume with the editor's name spelled out in full, and another
+%   with the editors' names abbreviated. I chose to accept the first
+%   one as correct, since the style guide generally shuns abbreviations,
+%   and editors' names are also spelled out in some recently published
 %   articles.
 %
-% - The style guide gives one example of a reference where the word 
-%   "and" between two authors is preceded by a comma. This is most 
-%   likely a typo, since in all other cases with just two authors or 
+% - The style guide gives one example of a reference where the word
+%   "and" between two authors is preceded by a comma. This is most
+%   likely a typo, since in all other cases with just two authors or
 %   editors there is no comma before the word "and".
 %
 % One case where the style guide is not being specific is the placement
-% of the edition number, for which no example is given. I chose to put 
+% of the edition number, for which no example is given. I chose to put
 % it immediately after the title, which I (subjectively) find natural,
 % and is also the place of the edition in a few recently published
 % articles.
 %
 % This file correctly reproduces all of the examples in the official
 % style guide, except for the two inconsistencies noted above. I even
-% managed to get it to correctly format the proceedings example which 
-% has an organization, a publisher, and two addresses (the conference 
-% location and the publisher's address), though I cheated a bit by 
-% putting the conference location and month as part of the title field; 
+% managed to get it to correctly format the proceedings example which
+% has an organization, a publisher, and two addresses (the conference
+% location and the publisher's address), though I cheated a bit by
+% putting the conference location and month as part of the title field;
 % I feel that in this case the conference location and month can be
-% considered as part of the title, and that adding a location field 
-% is not justified. Note also that a location field is not standard, 
-% so entries made with this field would not port nicely to other styles. 
-% However, if authors feel that there's a need for a location field 
+% considered as part of the title, and that adding a location field
+% is not justified. Note also that a location field is not standard,
+% so entries made with this field would not port nicely to other styles.
+% However, if authors feel that there's a need for a location field
 % then tell me and I'll see what I can do.
 %
-% The file also produces to my satisfaction all the bibliographical 
-% entries in my recent (joint) submission to CL (this was the original 
+% The file also produces to my satisfaction all the bibliographical
+% entries in my recent (joint) submission to CL (this was the original
 % motivation for creating the file). I also tested it by running it
 % on a larger set of entries and eyeballing the results. There may of
 % course still be errors, especially with combinations of fields that
-% are not that common, or with cross-references (which I seldom use). 
-% If you find such errors please write to me. 
-% 
-% I hope people find this file useful. Please email me with comments 
+% are not that common, or with cross-references (which I seldom use).
+% If you find such errors please write to me.
+%
+% I hope people find this file useful. Please email me with comments
 % and suggestions.
-% 
+%
 % Ron Artstein
 % artstein [at] essex.ac.uk
 % August 22, 2005.
 %
 % Some technical notes.
 %
-% This file is based on a file generated with the package <custom-bib> 
-% by Patrick W. Daly (see selected options below), which was then 
+% This file is based on a file generated with the package <custom-bib>
+% by Patrick W. Daly (see selected options below), which was then
 % manually customized to conform with certain CL requirements which
-% cannot be met by <custom-bib>. Departures from the generated file 
+% cannot be met by <custom-bib>. Departures from the generated file
 % include:
 %
-% Function inbook: moved publisher and address to the end; moved 
-% edition after title; replaced function format.chapter.pages by 
+% Function inbook: moved publisher and address to the end; moved
+% edition after title; replaced function format.chapter.pages by
 % new function format.chapter to output chapter without pages.
-% 
+%
 % Function inproceedings: moved publisher and address to the end;
-% replaced function format.in.ed.booktitle by new function 
-% format.in.booktitle to output the proceedings title without 
+% replaced function format.in.ed.booktitle by new function
+% format.in.booktitle to output the proceedings title without
 % the editor.
-% 
+%
 % Functions book, incollection, manual: moved edition after title.
 %
-% Function mastersthesis: formatted title as for articles (unlike 
+% Function mastersthesis: formatted title as for articles (unlike
 % phdthesis which is formatted as book) and added month.
-% 
-% Function proceedings: added new.sentence between organization and 
+%
+% Function proceedings: added new.sentence between organization and
 % publisher when both are present.
-% 
+%
 % Function format.lab.names: modified so that it gives all the
 % authors' surnames for in-text citations for one, two and three
 % authors and only uses "et. al" for works with four authors or more
-% (thanks to Ken Shan for convincing me to go through the trouble of 
+% (thanks to Ken Shan for convincing me to go through the trouble of
 % modifying this function rather than using unreliable hacks).
 %
-% Changes: 
+% Changes:
 %
 % 2006-10-27: Changed function reverse.pass so that the extra label is
 % enclosed in parentheses when the year field ends in an uppercase or
@@ -156,7 +162,7 @@
 %% merlin.mbs  (with options: `ay,nat,vonx,nm-revv1,jnrlst,keyxyr,blkyear,dt-beg,yr-per,note-yr,num-xser,pre-pub,xedn,nfss')
 %% ----------------------------------------
 %% *** Intended for the journal Computational Linguistics ***
-%% 
+%%
 %% Copyright 1994-2002 Patrick W Daly
  % ===============================================================
  % IMPORTANT NOTICE:
@@ -223,9 +229,9 @@ ENTRY
     type
     volume
     year
-    eprint % urlbst
     eprinttype % = archivePrefix
     archivePrefix
+    eprint % urlbst
     doi % urlbst
     pubmed % urlbst
     url % urlbst
@@ -240,30 +246,31 @@ STRINGS { urlintro
   eprinturl eprintprefix doiprefix doiurl pubmedprefix pubmedurl
   citedstring onlinestring linktextstring
   openinlinelink closeinlinelink }
-INTEGERS { hrefform inlinelinks makeinlinelink
-  addeprints adddoiresolver addpubmedresolver }
+INTEGERS { hrefform doiform inlinelinks makeinlinelink
+  addeprints adddoi addpubmed }
 FUNCTION {init.urlbst.variables}
 {
   % The following constants may be adjusted by hand, if desired
 
   % The first set allow you to enable or disable certain functionality.
-  #1 'addeprints :=         % 0=no eprints; 1=include eprints
-  #1 'adddoiresolver :=     % 0=no DOI resolver; 1=include it
-  #1 'addpubmedresolver :=     % 0=no PUBMED resolver; 1=include it
-  #2 'hrefform :=           % 0=no crossrefs; 1=hypertex xrefs; 2=hyperref refs
-  #1 'inlinelinks :=        % 0=URLs explicit; 1=URLs attached to titles
+  #0 'doiform :=	% 0=with href; 1=with \doi{}
+  #1 'adddoi :=	% 0=no DOI resolver; 1=include it
+  #1 'addeprints :=	% 0=no eprints; 1=include eprints
+  #1 'addpubmed :=	% 0=no PUBMED resolver; 1=include it
+  #2 'hrefform :=	% 0=no crossrefs; 1=hypertex hrefs; 2=hyperref hrefs
+  #1 'inlinelinks :=	% 0=URLs explicit; 1=URLs attached to titles
 
   % String constants, which you _might_ want to tweak.
-  "URL: " 'urlintro := % prefix before URL; typically "Available from:" or "URL":
-  "online" 'onlinestring := % indication that resource is online; typically "online"
-  "cited " 'citedstring := % indicator of citation date; typically "cited "
-  "[link]" 'linktextstring := % dummy link text; typically "[link]"
-  "http://arxiv.org/abs/" 'eprinturl := % prefix to make URL from eprint ref
-  "arXiv:" 'eprintprefix := % text prefix printed before eprint ref; typically "arXiv:"
-  "https://doi.org/" 'doiurl := % prefix to make URL from DOI
-  "doi:" 'doiprefix :=      % text prefix printed before DOI ref; typically "doi:"
-  "http://www.ncbi.nlm.nih.gov/pubmed/" 'pubmedurl := % prefix to make URL from PUBMED
-  "PMID:" 'pubmedprefix :=      % text prefix printed before PUBMED ref; typically "PMID:"
+  "arXiv:" 'eprintprefix :=	% text prefix printed before eprint ref
+  "cited " 'citedstring :=	% label in "lastchecked" remark
+  "https://doi.org/" 'doiurl :=	% prefix to make URL from DOI
+  "https://arxiv.org/abs/" 'eprinturl :=	% prefix to make URL from eprint ref
+  "[link]" 'linktextstring :=	% anonymous link text
+  "URL: " 'urlintro :=	% text prefix before URL
+  "PMID:" 'pubmedprefix :=	% text prefix printed before PUBMED ref
+  "online" 'onlinestring :=	% label that a resource is online
+  "doi:" 'doiprefix :=	% printed text to introduce DOI
+  "http://www.ncbi.nlm.nih.gov/pubmed/" 'pubmedurl :=	% prefix to make URL from PUBMED
 
   % The following are internal state variables, not configuration constants,
   % so they shouldn't be fiddled with.
@@ -271,7 +278,7 @@ FUNCTION {init.urlbst.variables}
   "" 'openinlinelink :=     % ditto
   "" 'closeinlinelink :=    % ditto
 }
-INTEGERS { 
+INTEGERS {
   bracket.state
   outside.brackets
   open.brackets
@@ -314,6 +321,19 @@ FUNCTION {output.nonnull.original}
 }
 
 % urlbst...
+% Minimal DOI parsing.
+% Given a DOI on the stack, check whether it starts with 'doiurl' or not.
+% In either case, leave on the stack first a DOI with, and then a DOI without, the URL prefix.
+FUNCTION {parse.doi}
+{
+  #1 doiurl text.length$ substring$
+  doiurl =
+    { doi
+      doi doiurl text.length$ #1 + #999 substring$ }
+    { doiurl doi *
+      doi }
+  if$
+}
 % The following three functions are for handling inlinelink.  They wrap
 % a block of text which is potentially output with write$ by multiple
 % other functions, so we don't know the content a priori.
@@ -329,8 +349,8 @@ FUNCTION {uand}
 { 'skip$ { pop$ #0 } if$ } % 'and' (which isn't defined at this point in the file)
 FUNCTION {possibly.setup.inlinelink}
 { makeinlinelink hrefform #0 > uand
-    { doi empty$ adddoiresolver uand
-        { pubmed empty$ addpubmedresolver uand
+    { doi empty$ adddoi uand
+        { pubmed empty$ addpubmed uand
             { eprint empty$ addeprints uand
                 { url empty$
                     { "" }
@@ -340,7 +360,12 @@ FUNCTION {possibly.setup.inlinelink}
               if$ }
             { pubmedurl pubmed * }
           if$ }
-        { doiurl doi * }
+%        { doiurl doi * }
+        { doi empty$
+            { "XXX" }
+            { doi parse.doi pop$ }
+          if$
+        }
       if$
       % an appropriately-formatted URL is now on the stack
       hrefform #1 = % hypertex
@@ -390,14 +415,14 @@ FUNCTION {output.nonnull}
       bracket.state open.brackets =
         { " [" * }
         { ", " * } % bracket.state will be within.brackets
-      if$ 
-      s * 
+      if$
+      s *
       close.brackets 'bracket.state :=
     }
   if$
 }
 
-% Call this function just before adding something which should be presented in 
+% Call this function just before adding something which should be presented in
 % brackets.  bracket.state is handled specially within output.nonnull.
 FUNCTION {inbrackets}
 { bracket.state close.brackets =
@@ -492,7 +517,7 @@ FUNCTION {emphasize}
     { "\emph{" swap$ * "}" * }
   if$
 }
-FUNCTION {tie.or.space.prefix}  % puts ~ before the preceding part if it is of length <3
+FUNCTION {tie.or.space.prefix} % puts ~ before the preceding part if it is of length <3
 { duplicate$ text.length$ #3 <
     { "~" }
     { " " }
@@ -679,7 +704,7 @@ FUNCTION {format.names}
     { s nameptr
       duplicate$ #1 >
         { "{ff~}{vv~}{ll}{, jj}" }
-        { "{ff~}{vv~}{ll}{, jj}" }	% first name first for first author 
+        { "{ff~}{vv~}{ll}{, jj}" }	% first name first for first author
 %        { "{vv~}{ll}{, ff}{, jj}" }	% last name first for first author
       if$
       format.name$
@@ -1282,14 +1307,14 @@ FUNCTION {make.href.null}
 }
 % make hypertex specials
 FUNCTION {make.href.hypertex}
-{ 
+{
   "\special {html:<a href=" quote$ *
   swap$ * quote$ * "> }" * swap$ *
   "\special {html:</a>}" *
 }
 % make hyperref specials
 FUNCTION {make.href.hyperref}
-{ 
+{
   "\href {" swap$ * "} {\path{" * swap$ * "}}" *
 }
 FUNCTION {make.href}
@@ -1316,7 +1341,6 @@ FUNCTION {format.url}
    }
   if$
 }
-
 FUNCTION {format.eprint}
 { eprint empty$
     { "" }
@@ -1327,7 +1351,13 @@ FUNCTION {format.eprint}
 FUNCTION {format.doi}
 { doi empty$
     { "" }
-    { doiprefix doi * doiurl doi * make.href }
+    { doi parse.doi % leaves "https://doi.org/DOI" DOI on the stack
+      's := 't :=
+      doiform #1 =
+        { "\doi{" s * "}" * }
+        { doiprefix s * t make.href }
+      if$
+    }
   if$
 }
 
@@ -1345,10 +1375,10 @@ FUNCTION {format.pubmed}
 % the URL and the lastchecked in brackets.
 FUNCTION {output.url}
 { url empty$
-    'skip$ 
-    { new.block 
+    'skip$
+    { new.block
       format.url output
-      format.lastchecked output 
+      format.lastchecked output
     }
   if$
 }
@@ -1358,17 +1388,27 @@ FUNCTION {output.web.refs}
   new.block
   inlinelinks
     'skip$ % links were inline -- don't repeat them
-    {
-      output.url
+    { % If the generated DOI will be the same as the URL,
+      % then don't print the URL (thanks to Joseph Wright
+      % for (the original version of) this code,
+      % at http://tex.stackexchange.com/questions/5660)
+      adddoi
+          doi empty$ { "X" } { doi parse.doi pop$ } if$ % DOI URL to be generated
+          url empty$ { "Y" } { url } if$          % the URL, or "Y" if empty
+          =                                       % are the strings equal?
+          and
+        'skip$
+        { output.url }
+      if$
       addeprints eprint empty$ not and
         { format.eprint output.nonnull }
         'skip$
       if$
-      adddoiresolver doi empty$ not and
+      adddoi doi empty$ not and
         { format.doi output.nonnull }
         'skip$
       if$
-      addpubmedresolver pubmed empty$ not and
+      addpubmed pubmed empty$ not and
         { format.pubmed output.nonnull }
         'skip$
       if$
@@ -1406,7 +1446,7 @@ FUNCTION {fin.entry}
 % Webpage entry type.
 % Title and url fields required;
 % author, note, year, month, and lastchecked fields optional
-% See references 
+% See references
 %   ISO 690-2 http://www.nlc-bnc.ca/iso/tc46sc9/standard/690-2e.htm
 %   http://www.classroom.net/classroom/CitingNetResources.html
 %   http://neal.ctstateu.edu/history/cite.html
@@ -1976,7 +2016,7 @@ FUNCTION {reverse.pass}
   extra.label
   duplicate$ empty$
     'skip$
-    { year field.or.null #-1 #1 substring$ chr.to.int$ #65 < 
+    { year field.or.null #-1 #1 substring$ chr.to.int$ #65 <
       { "{\natexlab{" swap$ * "}}" * }
       { "{(\natexlab{" swap$ * "})}" * }
     if$ }
