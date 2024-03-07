@@ -1298,7 +1298,7 @@ FUNCTION {archiveprefix.or.eprinttype} % holder for eprinttype with archiveprefi
   if$
 }
 
-FUNCTION {output.eprint}
+FUNCTION {output.eprint} % this is only used with the @misc record type (common for arXiv and other preprint server bibtex records)
 {
   eprint empty$
     {% if eprint field is empty
@@ -1308,18 +1308,18 @@ FUNCTION {output.eprint}
       if$
       emphasize % no output function after emphasize because nothing goes after this
     }
-    {
+    {% if eprint field is not empty
       archiveprefix.or.eprinttype empty$
         { "" } % not using 'skip$ to reduce errors like "nothing to pop from stack"
-        {
-          journal empty$ % check for journal means nothing for arxiv preprints but may help in future improvements of this function or usage within other types
-            { archiveprefix.or.eprinttype " preprint" * } % add " preprint" to eprinttype with the idea that eprinttype is the name of the preprint server
-            { archiveprefix.or.eprinttype } % if journal not empty just output eprinttype
+        {% if archiveprefix or eprinttype fields are not empty
+          journal empty$
+            { "preprint" } % if journal field is empty: output just "preprint" emphasized like a journal name
+            { journal } % if journal field is not empty, output it (takes precedence)
           if$
+          emphasize output % emphasize what we formed before, setting output as a border to the subblock that follows with the comma delimiter
+          archiveprefix.or.eprinttype ":" * eprint * % subblock with eprinttype and eprint number
         }
       if$
-      emphasize output % emphasize what we formed before, setting output as a border to the subblock that follows with the comma delimiter
-      archiveprefix.or.eprinttype ":" * eprint * % subblock with eprinttype and eprint number
     }
   if$
 }
