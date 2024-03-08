@@ -1051,12 +1051,13 @@ FUNCTION {mastersthesis}
   author format.key output
   format.date "year" output.check
   date.block
-  format.btitle
+  format.title
   "title" output.check
   new.block
   bbl.mthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
+  month "month" bibinfo.check output
   new.block
   format.note output
   fin.entry
