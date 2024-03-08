@@ -1125,6 +1125,7 @@ FUNCTION {proceedings}
   publisher empty$
     { format.organization.address output }
     { organization "organization" bibinfo.check output
+      new.sentence
       format.publisher.address output
     }
   if$
