@@ -905,11 +905,11 @@ FUNCTION {book}
   format.date "year" output.check
   date.block
   format.btitle "title" output.check
+  format.edition output
   crossref missing$
     { format.bvolume output
       new.block
       format.number.series output
-      format.edition output
       new.sentence
       format.publisher.address output
     }
@@ -955,11 +955,11 @@ FUNCTION {inbook}
   format.btitle "title" output.check
   crossref missing$
     {
+      format.edition output
       format.bvolume output
       format.chapter.pages "chapter and pages" output.check
       new.block
       format.number.series output
-      format.edition output
       new.sentence
       format.publisher.address output
     }
@@ -984,9 +984,9 @@ FUNCTION {incollection}
   new.block
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
+      format.edition output
       format.bvolume output
       format.number.series output
-      format.edition output
       format.chapter.pages output
       new.sentence
       format.publisher.address output
@@ -1036,10 +1036,10 @@ FUNCTION {manual}
   format.date "year" output.check
   date.block
   format.btitle "title" output.check
+  format.edition output
   organization address new.block.checkb
   organization "organization" bibinfo.check output
   address "address" bibinfo.check output
-  format.edition output
   new.block
   format.note output
   fin.entry
