@@ -796,6 +796,13 @@ FUNCTION {format.booktitle}
   booktitle "booktitle" bibinfo.check
   emphasize
 }
+FUNCTION {format.in.booktitle}
+{ format.booktitle duplicate$ empty$ 'skip$
+    {
+      word.in swap$ *
+    }
+  if$
+}
 FUNCTION {format.in.ed.booktitle}
 { format.booktitle duplicate$ empty$ 'skip$
     {
@@ -1024,7 +1031,7 @@ FUNCTION {inproceedings}
   format.title "title" output.check
   new.block
   crossref missing$
-    { format.in.ed.booktitle "booktitle" output.check
+    { format.in.booktitle "booktitle" output.check
       format.bvolume output
       format.number.series output
       format.pages output
