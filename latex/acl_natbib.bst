@@ -755,6 +755,22 @@ FUNCTION {format.vol.num.pages}
   if$
 }
 
+FUNCTION {format.chapter}
+{ chapter empty$
+    'format.pages
+    { type empty$
+        { bbl.chapter }
+        { type "l" change.case$
+          "type" bibinfo.check
+        }
+      if$
+      chapter tie.or.space.prefix
+      "chapter" bibinfo.check
+      * *
+    }
+  if$
+}
+
 FUNCTION {format.chapter.pages}
 { chapter empty$
     'format.pages
@@ -957,14 +973,14 @@ FUNCTION {inbook}
     {
       format.edition output
       format.bvolume output
-      format.chapter.pages "chapter and pages" output.check
+      format.chapter "chapter" output.check
       new.block
       format.number.series output
       new.sentence
       format.publisher.address output
     }
     {
-      format.chapter.pages "chapter and pages" output.check
+      format.chapter "chapter" output.check
       new.block
       format.book.crossref output.nonnull
     }
