@@ -1035,13 +1035,10 @@ FUNCTION {inproceedings}
       format.bvolume output
       format.number.series output
       format.pages output
+      address "address" bibinfo.check output
       new.sentence
-      publisher empty$
-        { format.organization.address output }
-        { organization "organization" bibinfo.check output
-          format.publisher.address output
-        }
-      if$
+      organization "organization" bibinfo.check output
+      publisher "publisher" bibinfo.check output
     }
     { format.incoll.inproc.crossref output.nonnull
       format.pages output
