@@ -1436,7 +1436,10 @@ FUNCTION {reverse.pass}
   extra.label
   duplicate$ empty$
     'skip$
-    { "{\natexlab{" swap$ * "}}" * }
+    { year field.or.null #-1 #1 substring$ chr.to.int$ #65 < 
+      { "{\natexlab{" swap$ * "}}" * }
+      { "{(\natexlab{" swap$ * "})}" * }
+    if$ }
   if$
   'extra.label :=
   label extra.label * 'label :=
