@@ -30,7 +30,7 @@
 
 \typeout{Conference Style for ACL}
 
-\usepackage{xcolor}	
+\usepackage{xcolor}
 
 \ifacl@linenumbers
   % Add draft line numbering via the lineno package
@@ -47,7 +47,7 @@
   \def\fillzeros[#1]#2{\cv@tmpc@=#2\relax\ifnum\cv@tmpc@<0\cv@tmpc@=-\cv@tmpc@\fi
     \cv@tmpc=1 %
     \loop\ifnum\cv@tmpc@<10 \else \divide\cv@tmpc@ by 10 \advance\cv@tmpc by 1 \fi
-       \ifnum\cv@tmpc@=10\relax\cv@tmpc@=11\relax\fi \ifnum\cv@tmpc@>10 \repeat
+      \ifnum\cv@tmpc@=10\relax\cv@tmpc@=11\relax\fi \ifnum\cv@tmpc@>10 \repeat
     \ifnum#2<0\advance\cv@tmpc1\relax-\fi
     \loop\ifnum\cv@tmpc<#1\relax0\advance\cv@tmpc1\relax\fi \ifnum\cv@tmpc<#1 \repeat
     \cv@tmpc@=#2\relax\ifnum\cv@tmpc@<0\cv@tmpc@=-\cv@tmpc@\fi \relax\the\cv@tmpc@}%
@@ -62,7 +62,7 @@
   % are numbered. Bug: multline has an extra line number.
   % https://tex.stackexchange.com/questions/461186/how-to-use-lineno-with-amsmath-align
   \usepackage{etoolbox} %% <- for \pretocmd, \apptocmd and \patchcmd
-  
+
   \newcommand*\linenomathpatch[1]{%
     \expandafter\pretocmd\csname #1\endcsname {\linenomath}{}{}%
     \expandafter\pretocmd\csname #1*\endcsname {\linenomath}{}{}%
@@ -75,7 +75,7 @@
     \expandafter\apptocmd\csname end#1\endcsname {\endlinenomath}{}{}%
     \expandafter\apptocmd\csname end#1*\endcsname {\endlinenomath}{}{}%
   }
-  
+
   %% Definition of \linenomathAMS depends on whether the mathlines option is provided
   \expandafter\ifx\linenomath\linenomathWithnumbers
     \let\linenomathAMS\linenomathWithnumbers
@@ -97,22 +97,14 @@
   % Hack to ignore these commands, which review mode puts into the .aux file.
   \newcommand{\@LN@col}[1]{}
   \newcommand{\@LN}[2]{}
+  \newcommand{\nolinenumbers}{}
 \fi
 
-\iffalse
-\PassOptionsToPackage{
-  a4paper,
-  top=2.21573cm,left=2.54cm,
-  textheight=704.60031pt, % 51 * \baselineskip + \topskip
-  textwidth=16.0cm,
-  headheight=0.17573cm,headsep=0cm
-}{geometry}
-\fi
 \PassOptionsToPackage{a4paper,margin=2.5cm,heightrounded=true}{geometry}
 \RequirePackage{geometry}
 
-\setlength\columnsep{0.6cm}  
-\newlength\titlebox 
+\setlength\columnsep{0.6cm}
+\newlength\titlebox
 \setlength\titlebox{11\baselineskip}
 % \titlebox should be a multiple of \baselineskip so that
 % column height remaining fits an exact number of lines of text
@@ -126,7 +118,7 @@
 \ifacl@pagenumbers
     \pagenumbering{arabic}
 \else
-    \thispagestyle{empty}        
+    \thispagestyle{empty}
     \pagestyle{empty}
 \fi
 
@@ -137,9 +129,9 @@
 \newcommand\outauthor{%
     \begin{tabular}[t]{c}
     \ifacl@anonymize
-        \bf Anonymous ACL submission
-    \else 
-        \bf\@author
+        \bfseries Anonymous ACL submission
+    \else
+        \bfseries\@author
     \fi
     \end{tabular}}
 
@@ -148,24 +140,26 @@
 \def\maketitle{\par
  \begingroup
    \def\thefootnote{\fnsymbol{footnote}}
-   \twocolumn[\@maketitle] \@thanks
+   \twocolumn[\@maketitle]
+   \@thanks
  \endgroup
  \setcounter{footnote}{0}
- \let\maketitle\relax \let\@maketitle\relax
+ \let\maketitle\relax
+ \let\@maketitle\relax
  \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
 \def\@maketitle{\vbox to \titlebox{\hsize\textwidth
  \linewidth\hsize \vskip 0.125in minus 0.125in \centering
- {\Large\bf \@title \par} \vskip 0.2in plus 1fil minus 0.1in
- {\def\and{\unskip\enspace{\rm and}\enspace}%
-  \def\And{\end{tabular}\hss \egroup \hskip 1in plus 2fil 
-           \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bf}%
+ {\Large\bfseries \@title \par} \vskip 0.2in plus 1fil minus 0.1in
+ {\def\and{\unskip\enspace{\rmfamily and}\enspace}%
+  \def\And{\end{tabular}\hss \egroup \hskip 1in plus 2fil
+           \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bfseries}%
   \def\AND{\end{tabular}\hss\egroup \hfil\hfil\egroup
           \vskip 0.25in plus 1fil minus 0.125in
            \hbox to \linewidth\bgroup\large \hfil\hfil
-             \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bf}
+             \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bfseries}
   \hbox to \linewidth\bgroup\large \hfil\hfil
-    \hbox to 0pt\bgroup\hss 
-	\outauthor
+    \hbox to 0pt\bgroup\hss
+  \outauthor
    \hss\egroup
     \hfil\hfil\egroup}
   \vskip 0.3in plus 2fil minus 0.1in
@@ -174,17 +168,14 @@
 
 % margins and font size for abstract
 \renewenvironment{abstract}%
-		 {\centerline{\large\bf Abstract}%
-		  \begin{list}{}%
-		     {\setlength{\rightmargin}{0.6cm}%
-		      \setlength{\leftmargin}{0.6cm}}%
-		   \item[]\ignorespaces%
-		   \@setsize\normalsize{12pt}\xpt\@xpt
-		   }%
-		 {\unskip\end{list}}
-  
-%\renewenvironment{abstract}{\centerline{\large\bf  
-% Abstract}\vspace{0.5ex}\begin{quote}}{\par\end{quote}\vskip 1ex}
+  {\begin{center}\nolinenumbers\large\textbf{\abstractname}\end{center}%
+    \begin{list}{}%
+      {\setlength{\rightmargin}{0.6cm}%
+        \setlength{\leftmargin}{0.6cm}}%
+      \item[]\ignorespaces%
+      \@setsize\normalsize{12pt}\xpt\@xpt
+  }%
+  {\unskip\end{list}}
 
 % Resizing figure and table captions - SL
 % Support for interacting with the caption, subfigure, and subcaption packages - SL
@@ -196,9 +187,9 @@
 % for citation commands in the .tex, authors can use:
 % \citep, \citet, and \citeyearpar for compatibility with natbib, or
 % \cite, \newcite, and \shortcite for compatibility with older ACL .sty files
-\renewcommand\cite{\citep}	% to get "(Author Year)" with natbib    
-\newcommand\shortcite{\citeyearpar}% to get "(Year)" with natbib    
-\newcommand\newcite{\citet}	% to get "Author (Year)" with natbib
+\renewcommand\cite{\citep}  % to get "(Author Year)" with natbib
+\newcommand\shortcite{\citeyearpar}% to get "(Year)" with natbib
+\newcommand\newcite{\citet} % to get "Author (Year)" with natbib
 \newcommand{\citeposs}[1]{\citeauthor{#1}'s (\citeyear{#1})} % to get "Author's (Year)"
 
 \bibliographystyle{acl_natbib}
@@ -241,16 +232,16 @@
 
 % sections with less space
 \def\section{\@startsection {section}{1}{\z@}{-2.0ex plus
-    -0.5ex minus -.2ex}{1.5ex plus 0.3ex minus .2ex}{\large\bf\raggedright}}
+    -0.5ex minus -.2ex}{1.5ex plus 0.3ex minus .2ex}{\large\bfseries\raggedright}}
 \def\subsection{\@startsection{subsection}{2}{\z@}{-1.8ex plus
-    -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\bf\raggedright}}
+    -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\bfseries\raggedright}}
 %% changed by KO to - values to get the initial parindent right
 \def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1.5ex plus
-   -0.5ex minus -.2ex}{0.5ex plus .2ex}{\normalsize\bf\raggedright}}
+   -0.5ex minus -.2ex}{0.5ex plus .2ex}{\normalsize\bfseries\raggedright}}
 \def\paragraph{\@startsection{paragraph}{4}{\z@}{1.5ex plus
-   0.5ex minus .2ex}{-1em}{\normalsize\bf}}
+   0.5ex minus .2ex}{-1em}{\normalsize\bfseries}}
 \def\subparagraph{\@startsection{subparagraph}{5}{\parindent}{1.5ex plus
-   0.5ex minus .2ex}{-1em}{\normalsize\bf}}
+   0.5ex minus .2ex}{-1em}{\normalsize\bfseries}}
 
 % Footnotes
 \footnotesep 6.65pt %
@@ -277,7 +268,7 @@
    \itemsep \parsep}
 \def\@listiii{\leftmargin\leftmarginiii
     \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
-    \topsep 1pt plus 0.5pt minus 0.5pt 
+    \topsep 1pt plus 0.5pt minus 0.5pt
     \parsep \z@ \partopsep 0.5pt plus 0pt minus 0.5pt
     \itemsep \topsep}
 \def\@listiv{\leftmargin\leftmarginiv
@@ -289,7 +280,7 @@
 
 \abovedisplayskip 7pt plus2pt minus5pt%
 \belowdisplayskip \abovedisplayskip
-\abovedisplayshortskip  0pt plus3pt%   
+\abovedisplayshortskip  0pt plus3pt%
 \belowdisplayshortskip  4pt plus3pt minus3pt%
 
 % Less leading in most fonts (due to the narrow columns)
