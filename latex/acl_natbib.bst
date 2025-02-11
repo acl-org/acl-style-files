@@ -64,6 +64,8 @@
  %   \citeyear{key} ==>>             1990
  %---------------------------------------------------------------------
 
+%% 2025 modified to truncate author lists of more than 20 authors
+
 ENTRY
   { address
     archivePrefix
@@ -569,6 +571,14 @@ FUNCTION {format.names}
       't :=
       nameptr #1 >
         {
+          nameptr #19	% truncate after 19 names
+          #1 + =
+          numnames #20	% if there are more than 20 names
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$		% end truncation of long list of names
           namesleft #1 >
             { ", " * t * }
             {
@@ -582,7 +592,9 @@ FUNCTION {format.names}
               if$
               t "others" =
                 {
-                  " " * bbl.etal *
+		  %%                 " " * bbl.etal *
+		  % compute the number of remaining authors
+		  " and " * numnames nameptr - #1 + int.to.str$ * " others" *
                 }
                 {
                   bbl.and
