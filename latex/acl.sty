@@ -52,7 +52,7 @@
     \loop\ifnum\cv@tmpc<#1\relax0\advance\cv@tmpc1\relax\fi \ifnum\cv@tmpc<#1 \repeat
     \cv@tmpc@=#2\relax\ifnum\cv@tmpc@<0\cv@tmpc@=-\cv@tmpc@\fi \relax\the\cv@tmpc@}%
   \renewcommand\thelinenumber{\fillzeros[3]{\arabic{linenumber}}}
-  \linenumbers
+  \AtBeginDocument{\linenumbers}
 
   \setlength{\linenumbersep}{1.6cm}
 
