@@ -65,6 +65,7 @@
  %---------------------------------------------------------------------
 
 %% 2025 modified to truncate author lists of more than 20 authors
+%% 2025 modified to explicitly cite the first two co-first authors
 
 ENTRY
   { address
