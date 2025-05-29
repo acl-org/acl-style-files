@@ -65,6 +65,7 @@
  %---------------------------------------------------------------------
 
 %% 2025 modified to truncate author lists of more than 20 authors
+%% 2025 modified to explicitly cite the first two co-first authors
 
 ENTRY
   { address
@@ -1651,28 +1652,98 @@ FUNCTION {chop.word}
     's
   if$
 }
-FUNCTION {format.lab.names}
-{ 's :=
-  "" 't :=
-  s #1 "{vv~}{ll}" format.name$
-  s num.names$ duplicate$
-  #2 >
-    { pop$
-      " " * bbl.etal *
-    }
-    { #2 <
-        'skip$
-        { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-            {
-              " " * bbl.etal *
-            }
-            { bbl.and space.word * s #2 "{vv~}{ll}" format.name$
-              * }
-          if$
-        }
-      if$
-    }
+FUNCTION {string.length.manual}
+{ 
+  's :=           % save input string in variable s
+  #0              % initialize counter to 0
+  {               % begin loop
+    s empty$      % check if s is empty string
+    not           % continue if NOT empty
+  }
+  {               % while true:
+    s #2 global.max$ substring$ 's :=    % remove first character from s
+    #1 +          % increment counter by 1
+  }
+  while$
+}
+STRINGS{check.if.starred.name}
+INTEGERS{check.if.starred.namelength}
+FUNCTION {check.if.starred}
+{
+  'check.if.starred.name :=
+  check.if.starred.name string.length.manual 'check.if.starred.namelength :=
+  
+  check.if.starred.namelength #3 <
+  { check.if.starred.name "$^*$" = }
+  { 
+      check.if.starred.name check.if.starred.namelength #3 - check.if.starred.namelength substring$
+      "$^*$" = 
+  }
   if$
+}
+FUNCTION {strip.star}
+{
+  'check.if.starred.name :=
+  check.if.starred.name string.length.manual 'check.if.starred.namelength :=
+
+  check.if.starred.name check.if.starred
+  {check.if.starred.name #1 check.if.starred.namelength #4 - substring$}
+  {check.if.starred.name}
+  if$
+}
+STRINGS{firstauthor.formattedname}
+STRINGS{secondauthor.formattedname}
+STRINGS{secondauthor.fullname}
+INTEGERS{numauthors}
+FUNCTION {format.lab.names}
+{
+    % Save authors
+    's :=
+    s #1 "{vv~}{ll}" format.name$ 'firstauthor.formattedname :=
+    s num.names$ 'numauthors :=
+    numauthors #2 <
+    {skip$}
+    {
+        s #2 "{vv~}{ll}" format.name$ 'secondauthor.formattedname :=
+        s #2 "{ff }{vv }{ll}{ jj}" format.name$ 'secondauthor.fullname := 
+    }
+    if$
+
+    % Add first author name to stack for printing
+    firstauthor.formattedname strip.star
+
+    % If more than two authors
+    numauthors #2 >
+    {
+        firstauthor.formattedname check.if.starred
+        {
+            ", " *
+            secondauthor.formattedname strip.star *
+            "," *
+        }
+        { 
+            skip$
+        }
+        if$
+        " " * bbl.etal * 
+    }
+    {
+        numauthors #2 <
+        { skip$ }
+        {
+            secondauthor.fullname "others" =
+            {
+                " " * bbl.etal *
+            }
+            { 
+                bbl.and space.word *
+                secondauthor.formattedname strip.star * 
+            }
+            if$
+        }
+        if$
+    }
+    if$
 }
 
 FUNCTION {author.key.label}
