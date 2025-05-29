@@ -1666,29 +1666,29 @@ FUNCTION {string.length.manual}
   }
   while$
 }
-STRINGS{mynametest}
-INTEGERS{mynamelength}
+STRINGS{check.if.starred.name}
+INTEGERS{check.if.starred.namelength}
 FUNCTION {check.if.starred}
 {
-  'mynametest :=
-  mynametest string.length.manual 'mynamelength :=
+  'check.if.starred.name :=
+  check.if.starred.name string.length.manual 'check.if.starred.namelength :=
   
-  mynamelength #3 <
-  { mynametest "$^*$" = }
+  check.if.starred.namelength #3 <
+  { check.if.starred.name "$^*$" = }
   { 
-      mynametest mynamelength #3 - mynamelength substring$
+      check.if.starred.name check.if.starred.namelength #3 - check.if.starred.namelength substring$
       "$^*$" = 
   }
   if$
 }
 FUNCTION {strip.star}
 {
-  'mynametest :=
-  mynametest string.length.manual 'mynamelength :=
+  'check.if.starred.name :=
+  check.if.starred.name string.length.manual 'check.if.starred.namelength :=
 
-  mynametest check.if.starred
-  {mynametest #1 mynamelength #4 - substring$}
-  {mynametest}
+  check.if.starred.name check.if.starred
+  {check.if.starred.name #1 check.if.starred.namelength #4 - substring$}
+  {check.if.starred.name}
   if$
 }
 STRINGS{firstauthor.formattedname}
