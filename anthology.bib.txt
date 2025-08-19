@@ -1,8 +1,15 @@
-% Please download the latest anthology.bib from the following URL:
-%
-%     http://aclanthology.org/anthology.bib
-%
-% From the command line, this can be done with curl or wget. 
-%
-% If you are using Overleaf, go to "New File -> From External URL".
-% You will then be able to use it directly, and to periodically update it by clicking Overleaf's convenient "refresh" button.
+Please download the latest anthology.bib from the following URL:
+
+    http://aclanthology.org/anthology.bib
+
+From the command line, this can be done with curl or wget. 
+
+If you are using Overleaf, there is an issue in that the consolidated file is over its
+50 MB limit. To address this, we have split the Anthology bib files into multiple chunks.
+Currently, there are two: 
+- https://aclanthology.org/anthology-overleaf-1.bib (2024 and before)
+- https://aclanthology.org/anthology-overleaf-2.bib (2025 and afterwards)
+You can download these directly from Overleaf from New File -> From External URL,
+and then adding them to the \bibliography line in acl_latex.tex:
+
+    \bibliography{custom,anthology-overleaf-1,anthology-overleaf-2}
