@@ -1,7 +1,6 @@
 # *ACL Paper Styles
 
-This directory contains the latest LaTeX and Word templates for *ACL
-conferences.
+This directory contains the latest LaTeX templates for *ACL conferences.
 
 ## Instructions for authors
 
@@ -11,12 +10,10 @@ templates.
 The LaTeX style files are available
 
 - as an [Overleaf template](https://www.overleaf.com/latex/templates/association-for-computational-linguistics-acl-conference/jvxskxpnznfj)
-- in this repository, in the [`latex`](https://github.com/acl-org/acl-style-files/blob/master/latex) subdirectory
+- in this repository
 - as a [.zip file](https://github.com/acl-org/acl-style-files/archive/refs/heads/master.zip)
 
 Please see [`latex/acl_latex.tex`](https://github.com/acl-org/acl-style-files/blob/master/latex/acl_latex.tex) for an example.
-
-The Microsoft Word template is available in this repository at [`word/acl.docx`](https://github.com/acl-org/acl-style-files/blob/master/word/acl.docx).
 
 Please follow the paper formatting guidelines general to *ACL
 conferences:
