@@ -1,3 +1,5 @@
 .DS_STORE
 
 .venv
+
+/data/bi_grams/*
