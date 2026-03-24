@@ -33,11 +33,14 @@
 
 % If the title and author information does not fit in the area allocated, uncomment the following
 %
-%\setlength\titlebox{<dim>}
+\setlength\titlebox{9cm}
 %
 % and set <dim> to something 5cm or larger.
 
-\title{Instructions for *ACL Proceedings}
+\title{
+  \includegraphics[width=0.36\textwidth]{THA_FCS_Logo_S_Red_CMYK.jpg}\\[0.8cm]
+  Instructions for *ACL Proceedings
+}
 
 % Author information can be set in various styles:
 % For several authors from the same institution:
@@ -107,14 +110,14 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-This document is a supplement to the general instructions for *ACL authors. It contains instructions for using the \LaTeX{} style files for ACL conferences.
+This document is a supplement hahah jkkhdsakfto the general instructions for *ACL authors. It contains instructions for using the \LaTeX{} style files for ACL conferences.
 The document itself conforms to its own specifications, and is therefore an example of what your manuscript should look like.
 These instructions should be used both for papers submitted for review and for final versions of accepted papers.
 \end{abstract}
 
 \section{Introduction}
 
-These instructions are for authors submitting papers to *ACL conferences using \LaTeX. They are not self-contained. All authors must follow the general instructions for *ACL proceedings,\footnote{\url{http://acl-org.github.io/ACLPUB/formatting.html}} and this document contains additional instructions for the \LaTeX{} style files.
+These instructions are for authors submitting papers to *ACL conferences using \LaTeX. They are not self-contained. All authors must follow the general instructions for *ACL proceedings\footnote{Formatting guidelines: \url{https://acl-org.github.io/ACLPUB/formatting.html}.}, and this document contains additional instructions for the \LaTeX{} style files.
 
 The templates include the \LaTeX{} source of this document (\texttt{acl\_latex.tex}),
 the \LaTeX{} style file used to format it (\texttt{acl.sty}),
@@ -165,7 +168,7 @@ To use Times Roman, put the following in the preamble:
 
 Please see the \LaTeX{} source of this document for comments on other packages that may be useful.
 
-Set the title and author using \verb|\title| and \verb|\author|. Within the author list, format multiple authors using \verb|\and| and \verb|\And| and \verb|\AND|; please see the \LaTeX{} source for examples.
+Set the title and author using \verb|\title| and \verb|\author|. Within the author list, use \verb|\and|, \verb|\And|, and \verb|\AND| to format multiple authors. Please see the \LaTeX{} source for examples.
 
 By default, the box containing the title and author names is set to the minimum of 5 cm. If you need more space, include the following in the preamble:
 \begin{quote}
@@ -220,12 +223,12 @@ See Table~\ref{tab:accents} for an example of a table and its caption.
 As much as possible, fonts in figures should conform
 to the document fonts. See Figure~\ref{fig:experiments} for an example of a figure and its caption.
 
-Using the \verb|graphicx| package graphics files can be included within figure
-environment at an appropriate point within the text.
-The \verb|graphicx| package supports various optional arguments to control the
-appearance of the figure.
-You must include it explicitly in the \LaTeX{} preamble (after the
-\verb|\documentclass| declaration and before \verb|\begin{document}|) using
+Using the \verb|graphicx| package, you can include graphics in a figure
+environment at an appropriate point in the text.
+The package supports optional arguments that control the figure's
+appearance.
+Include it explicitly in the \LaTeX{} preamble, after the
+\verb|\documentclass| declaration and before \verb|\begin{document}|, with
 \verb|\usepackage{graphicx}|.
 
 \begin{figure}[t]
@@ -259,11 +262,11 @@ This happens when pdf\LaTeX{} is used and a citation splits across a page bounda
     \hline
     \textbf{Output}           & \textbf{natbib command} & \textbf{ACL only command} \\
     \hline
-    \citep{Gusfield:97}       & \verb|\citep|           &                           \\
-    \citealp{Gusfield:97}     & \verb|\citealp|         &                           \\
-    \citet{Gusfield:97}       & \verb|\citet|           &                           \\
-    \citeyearpar{Gusfield:97} & \verb|\citeyearpar|     &                           \\
-    \citeposs{Gusfield:97}    &                         & \verb|\citeposs|          \\
+    \citep{barker2003guideline}       & \verb|\citep|           &                           \\
+    \citealp{barker2003guideline}     & \verb|\citealp|         &                           \\
+    \citet{barker2003guideline}       & \verb|\citet|           &                           \\
+    \citeyearpar{barker2003guideline} & \verb|\citeyearpar|     &                           \\
+    \citeposs{barker2003guideline}    &                         & \verb|\citeposs|          \\
     \hline
   \end{tabular}
   \caption{\label{citation-guide}
@@ -275,9 +278,9 @@ This happens when pdf\LaTeX{} is used and a citation splits across a page bounda
 
 Table~\ref{citation-guide} shows the syntax supported by the style files.
 We encourage you to use the natbib styles.
-You can use the command \verb|\citet| (cite in text) to get ``author (year)'' citations, like this citation to a paper by \citet{Gusfield:97}.
-You can use the command \verb|\citep| (cite in parentheses) to get ``(author, year)'' citations \citep{Gusfield:97}.
-You can use the command \verb|\citealp| (alternative cite without parentheses) to get ``author, year'' citations, which is useful for using citations within parentheses (e.g. \citealp{Gusfield:97}).
+You can use the command \verb|\citet| (cite in text) to get ``author (year)'' citations, like this citation to a paper by \citet{barker2003guideline}.
+You can use the command \verb|\citep| (cite in parentheses) to get ``(author, year)'' citations \citep{barker2003guideline}.
+You can use the command \verb|\citealp| (alternative cite without parentheses) to get ``author, year'' citations, which is useful for using citations within parentheses (e.g. \citealp{barker2003guideline}).
 
 A possessive citation can be made with the command \verb|\citeposs|.
 This is not a standard natbib command, so it is generally not compatible
@@ -285,7 +288,7 @@ with other style files.
 
 \subsection{References}
 
-\nocite{Ando2005,andrew2007scalable,rasooli-tetrault-2015}
+\nocite{*}
 
 The \LaTeX{} and Bib\TeX{} style files provided roughly follow the American Psychological Association format.
 If your own bib file is named \texttt{custom.bib}, then placing the following before any appendices in your \LaTeX{} file will generate the references section for you:
@@ -303,7 +306,7 @@ To include both the Anthology and your own .bib file, use the following instead 
 \end{verbatim}
 \end{quote}
 
-Please see Section~\ref{sec:bibtex} for information on preparing Bib\TeX{} files.
+Please see Section for information on preparing Bib\TeX{} files.
 
 \subsection{Equations}
 
@@ -317,7 +320,7 @@ Labels for equation numbers, sections, subsections, figures and tables
 are all defined with the \verb|\label{label}| command and cross references
 to them are made with the \verb|\ref{label}| command.
 
-This an example cross-reference to Equation~\ref{eq:example}.
+This an example cross-reference to Equation.
 
 \subsection{Appendices}
 

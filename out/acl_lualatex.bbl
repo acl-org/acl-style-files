@@ -1,0 +1,11 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Barker(2003)}]{barker2003guideline}
+W~C Barker. 2003.
+\newblock \href {https://doi.org/10.6028/NIST.SP.800-59} {Guideline for
+  identifying an information system as a national security system}.
+\newblock Technical Report NIST SP 800-59, {National Institute of Standards and
+  Technology}, Gaithersburg, MD.
+
+\end{thebibliography}
