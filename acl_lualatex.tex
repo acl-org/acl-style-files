@@ -4,7 +4,7 @@
 
 % Change "review" to "final" to generate the final (sometimes called camera-ready) version.
 % Change to "preprint" to generate a non-anonymous version with page numbers.
-\usepackage[review]{acl}
+\usepackage[final]{acl}
 \usepackage[mathlines]{lineno}
 % This is not strictly necessary, and may be commented out,
 % but it will improve the layout of the manuscript,
@@ -46,7 +46,7 @@
 \usepackage{hyperref}
 \usepackage{float}
 
-\title{Kelvi: A “Pedagogical” Morphological Parser to Support Tamil Literacy}
+\title{Kelvi: A Morphological Parser to Support Tamil Literacy}
 
 % Author information can be set in various styles:
 % For several authors from the same institution:
@@ -79,7 +79,7 @@
 
 \maketitle
 \begin{abstract}
-In this paper we discuss the development of Kelvi\footnote{url redacted for anonymity}, an open source web-based dictionary and morphological parser designed to aid Tamil learners in developing their literacy skills. 
+In this paper we discuss the development of \href{kelvi.ca}{kelvi.ca}\footnote{Github repositories for the front-end and back-end are accessible at \href{https://github.com/saltyseadawg/kelvi-frontend}{https://github.com/saltyseadawg/kelvi-frontend} and \href{https://github.com/saltyseadawg/kelvi-backend}{https://github.com/saltyseadawg/kelvi-backend} respectively.}, an open source web-based dictionary and morphological parser designed to aid Tamil learners in developing their literacy skills. 
 Tamil is an agglutinative language and heavily suffixal. Existing Tamil dictionaries only carry stems, not conjugated or inflected forms, and for a beginner learner of the language, isolating the stem in an unfamiliar word can be very challenging. 
 Kelvi provides 1) the stem of any input word alongside its definition, and 2) non-technical descriptions of any suffixes that are part of this input, so that learners will gradually start to recognize these suffixes and be able to understand and produce new Tamil words themselves. 
 In detailing our process of collaborative research, user interviews, suffix database creation, and error analysis, we also hope to show that Kelvi can be adapted for other languages and has the potential to be a useful pedagogical aid for learner literacy development, especially for agglutinative and/or polysynthetic languages which tend to be otherwise underserved in the mainstream.
@@ -95,7 +95,7 @@ See Figure \ref{fig:kelvi-example}, where a complete utterance is expressed as o
 \begin{figure}[t]
   \center
   \fbox{\includegraphics[width=0.9\columnwidth]{kelvi-example.png}}
-  \caption{Tamil word as it appears in Kelvi}
+  \caption{Tamil word as it appears in Kelvi that translates to the question "with the elders/adults/ancestors?"}
   \label{fig:kelvi-example}
   \vspace{-4em}
 \end{figure}
@@ -502,7 +502,10 @@ resources that could be dedicated to the project.
 
 \section{Ethics}
 We discuss here the ethical considerations of this project on the axes of access, 
-equitable representation of language variation, and data privacy and consent. 
+equitable representation of language variation, and data privacy and consent. First, however, we present the positionality of the authors.
+
+One co-author (Srikanth) is a heritage Tamil speaker, and through their experience as a learner and teacher of the language, experienced both the challenge of developing their literacy skills and the lack of adequate resources online to help with this. Another co-author (Yu), is a heritage speaker of Cantonese and Mandarin and therefore also familiar with the challenges of heritage language learning. Additionally, both Srikanth and Yu have experience contributing to community-led projects to build digital tools for Indigenous language learning. These professional and lived experiences are what motived the authors to create an online resource that could support learners of minoritized and low-resource languages. 
+
 
 \subsection{Access}
 Kelvi was intentionally designed to be open-source and free to use because the 
@@ -510,8 +513,7 @@ motivation behind it was to develop a framework for a language learning tool tha
 could be used by other low resource, minoritized languages. The intention was not 
 to contribute to the history of extraction, exploitation, and gatekeeping of 
 language resources in the field of linguistics \citep{leonard_toward_2021} by 
-using language data and putting it behind a pay-wall, especially given one of the 
-authors is a member of the language community the tool was built for. 
+using language data and putting it behind a pay-wall, especially given that co-author Srikanth is a member of the language community the tool was built for. 
 Open access to language data was deemed appropriate in this case, as Tamil enjoys 
 majority language status in numerous jurisdictions (Tamil Nadu, Sri Lanka, Singapore), 
 and so it wouldn’t be considered sensitive information. In future collaborations with 
@@ -559,6 +561,9 @@ consulted for the purposes of improving the tool, and would not be shared with a
 Additional feedback solicited once the MVP was built was encouraged to be submitted through the 
 anonymized feedback forms on the Kelvi website. 
 Some individuals contacted the authors directly; regardless, all feedback is kept anonymized here and in any future publications.
+
+\section{Acknowledgements}
+This project was made possible with support from the Audrey Wearn Language Prize and the Future Design School. We would also like to thank Vasumathi Srikanth, Srikanth Mangalam, Aidan Pine, Patrick Littell, Sowmya Vajjala, Roland Kuhn, and the Indigenous Languages Technology project team at the National Research Council of Canada. Finally, thank you to the anonymous reviewers for their feedback.
 
 
 % Please see the general instructions
