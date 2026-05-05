@@ -223,15 +223,15 @@ the definitions provided by the tool were clearer than Google Translate.
 \section{User Requirements}
 Based on the results of the exploratory interviews, we established the 
 following user requirements to guide the design of the website. 
-We also drew inspiration from the Kawennon:nis verb conjugator for 
-Kanyen'keha \citep{kazantseva_kawennonnis_2018} and its aim to 
-assist users in acquiring morphology patterns rather than 
-rote memorization of word definitions. 
 \begin{enumerate}
   \item Intuitively understand the morphological breakdown even as an L2 learner.
   \item Not overwhelm a beginner learner. 
   \item Is accessible on the phone. 
 \end{enumerate}
+We also drew inspiration from the Kawennon:nis verb conjugator for 
+Kanyen'keha \citep{kazantseva_kawennonnis_2018} and its aim to 
+assist users in acquiring morphology patterns rather than 
+rote memorization of word definitions. 
 
 \section{Systems Design} \label{sec:systems-design}
 \begin{figure*}[t]
@@ -254,7 +254,7 @@ We used two open source datasets for the Tamil dictionary component, specificall
 \citet{ylonen_wiktextract_2022} and \citet{vasuki_dharma_nodate}.
 
 \subsection{Suffix Database Generation} \label{sec:suffix-db-gen}
-The suffix database queried by the system was created using Gramble, a tabular programming language designed for linguistic parsing and generation (documentation for Gramble can be found \href{https://nrc-cnrc.github.io/gramble/}{here}). We used Gramble to aid us in generating a JSON file\footnote{Found here: \href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble "tiers".
+The suffix database queried by the system was created using Gramble, a tabular programming language designed for linguistic parsing and generation (documentation for Gramble can be found \href{https://nrc-cnrc.github.io/gramble/}{here}\footnote{https://nrc-cnrc.github.io/gramble/}). We used Gramble to aid us in generating a JSON file\footnote{Found here: \href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble "tiers".
 In this section we limit discussion to what tiers (that are then converted into JSON attributes) 
 we created for suffix generation and why.
 
@@ -460,6 +460,8 @@ providing the definition of the input word in its entirety
 feature of romanization input following this feedback, and are 
 evaluating the feasibility of incorporating the other requested features; for instance, incorporating TTS \citep{MAHAGANAPATHY2025100171}.
 
+As discussed further in Section \ref{sec:limitations}, due to lack of time we were not able to conduct a systematic user-feedback study post creation of the MVP. This would certainly ideally be part of a future study. Informally, co-author Srikanth has been able to use the tool as part of her regular Tamil teaching to positive effect. The major drawbacks currently are the low language coverage of the tool, especially when the input is in romanization. However, in the cases where the target words are present in Kelvi, learners found the provided definitions to be useful in understanding both the meaning of a word in its entirety and of its parts.
+
 \section{Discussion}
 Our current bottlenecks and proposed improvements to the software can be summarized as follows:
 \begin{enumerate}
@@ -467,7 +469,7 @@ Our current bottlenecks and proposed improvements to the software can be summari
   \item The lemmatizer that we use fails on some inputs; as discussed in (\ref{sec:suffix-matching}), we are compensating for these gaps using Gramble, which we will continue to do. 
   \item Some morphemes are homophonous; for example, the suffix -um on a verb means “it will”, but on a noun means “and”. Currently we return both definitions, but if we are able to acquire reliable part-of-speech data, we can refine the output returned to the user. 
   \item Users are able to input using both the Tamil script and romanization, but the romanization input is significantly underperforming. This is because there is no romanization standard consistently followed by Tamil speakers, and so the mapping we currently employ cannot account for all possible spellings of a given Tamil word. The romanization practices of Tamil speakers are too irregular to be adequately captured by any one-to-many mapping\footnote{In fact, it is impossible. This is because the letter “n” can be mapped to \foreignlanguage{tamil}{ண}, \foreignlanguage{tamil}{ந}, or \foreignlanguage{tamil}{ன}. \foreignlanguage{tamil}{ண} is pronounced differently from \foreignlanguage{tamil}{ந} and \foreignlanguage{tamil}{ன} and so can be mapped to a distinct romanized character like “N”, but \foreignlanguage{tamil}{ந} and \foreignlanguage{tamil}{ன} are pronounced the same. They can’t usefully be mapped to distinct romanized characters because even though they appear in complementary phonological environments 90\% of the time, the remaining 10\% the distinction is lexically determined, i.e. unpredictable from just the pronunciation, and therefore not something a user who can’t read the Tamil script would be able to know.}, no matter how nuanced, and so this feature can only be improved if we are able to train a model on Tamil romanization input and/or implement an approximate search algorithm (\citealp{pine-etal-2025-zero}, \citealp{littell_waldayu_2017}).
-  \item Since Kelvi was primarily designed to capture written forms, words in the spoken/informal register are underrepresented. As these words vary widely across a range of dialects, collaboration with speakers from across this span of variation would greatly enhance the coverage of our tool.
+  \item Since Kelvi was primarily designed to capture written forms, words in the spoken/informal register are underrepresented. As these words vary widely across a range of dialects, collaboration with speakers from across this span of variation would greatly enhance the coverage of our tool. Currently, Kelvi is only designed to be useful in decoding the meaning of Tamil words inputted in the written/formal register, not for defining words expressed in the spoken/informal register or for converting spoken/informal forms into their written/formal equivalents.
 \end{enumerate}
 Future work in this area may benefit from the use of LLMs (e.g. \citealp{srinivasan-etal-2025-vidai}) to address some of these challenges; models trained on datasets that include romanized Tamil and informal Tamil, in particular, have the potential to be extremely helpful.
 
