@@ -4,7 +4,7 @@
 
 % Change "review" to "final" to generate the final (sometimes called camera-ready) version.
 % Change to "preprint" to generate a non-anonymous version with page numbers.
-\usepackage[review]{acl}
+\usepackage[final]{acl}
 \usepackage[mathlines]{lineno}
 % This is not strictly necessary, and may be commented out,
 % but it will improve the layout of the manuscript,
@@ -46,7 +46,7 @@
 \usepackage{hyperref}
 \usepackage{float}
 
-\title{Kelvi: A “Pedagogical” Morphological Parser to Support Tamil Literacy}
+\title{Kelvi: A Morphological Parser to Support Tamil Literacy}
 
 % Author information can be set in various styles:
 % For several authors from the same institution:
@@ -63,13 +63,11 @@
 %         \AND
 %         Author 2 \\ Address line \\ ... \\ Address line \And
 %         Author 3 \\ Address line \\ ... \\ Address line}
-
 \author{
  \textbf{Shankhalika Srikanth\textsuperscript{1}},
  \textbf{Sabrina Yu\textsuperscript{1}},
  \textbf{Sophia Chan\textsuperscript{1}},
- \textbf{Madeline Solis de Ovando \textsuperscript{1}},
- \textbf{Fizza Ahmed \textsuperscript{1}}
+ \textbf{Madeline Solis de Ovando \textsuperscript{1}}
  \\
  \textsuperscript{1}Independent Researcher
  \\
@@ -79,7 +77,7 @@
 
 \maketitle
 \begin{abstract}
-In this paper we discuss the development of Kelvi\footnote{url redacted for anonymity}, an open source web-based dictionary and morphological parser designed to aid Tamil learners in developing their literacy skills. 
+In this paper we discuss the development of \href{kelvi.ca}{kelvi.ca}\footnote{Github repositories for the front-end and back-end are accessible at \href{https://github.com/saltyseadawg/kelvi-frontend}{https://github.com/saltyseadawg/kelvi-frontend} and \href{https://github.com/saltyseadawg/kelvi-backend}{https://github.com/saltyseadawg/kelvi-backend} respectively.}, an open source web-based dictionary and morphological parser designed to aid Tamil learners in developing their literacy skills. 
 Tamil is an agglutinative language and heavily suffixal. Existing Tamil dictionaries only carry stems, not conjugated or inflected forms, and for a beginner learner of the language, isolating the stem in an unfamiliar word can be very challenging. 
 Kelvi provides 1) the stem of any input word alongside its definition, and 2) non-technical descriptions of any suffixes that are part of this input, so that learners will gradually start to recognize these suffixes and be able to understand and produce new Tamil words themselves. 
 In detailing our process of collaborative research, user interviews, suffix database creation, and error analysis, we also hope to show that Kelvi can be adapted for other languages and has the potential to be a useful pedagogical aid for learner literacy development, especially for agglutinative and/or polysynthetic languages which tend to be otherwise underserved in the mainstream.
@@ -95,7 +93,7 @@ See Figure \ref{fig:kelvi-example}, where a complete utterance is expressed as o
 \begin{figure}[t]
   \center
   \fbox{\includegraphics[width=0.9\columnwidth]{kelvi-example.png}}
-  \caption{Tamil word as it appears in Kelvi}
+  \caption{Tamil word as it appears in Kelvi that translates to the question "with the elders/adults/ancestors?"}
   \label{fig:kelvi-example}
   \vspace{-4em}
 \end{figure}
@@ -110,7 +108,7 @@ only their lemmas do (consider how “go” can be found in an English dictionar
 Learners then face the “dictionary problem”; to summarize \citet{littell_waldayu_2017}, 
 dictionaries are intended to be a tool for language learners, but paradoxically require knowledge of the language to use; 
 in this case, knowledge of what the “dictionary form” or lemma of an unfamiliar word is. 
-To address this issue we built, Kelvi, a web-based dictionary and morphological parser that helps a learner who comes 
+To address this issue we built Kelvi, a web-based dictionary and morphological parser that helps a learner who comes 
 across an intimidatingly long Tamil word see how the word is broken down, and what each “part” (morpheme) means 
 in layman terms. The hope is that they come away with a fuller understanding of the word while also starting to 
 recognize Tamil morphological patterns themselves.
@@ -122,7 +120,7 @@ digital Wendat Dictionary \citep{lukaniec_modern_2023}.
 More broadly speaking, there are several open-source technologies that have been developed to 
 support language revitalization and maintenance efforts \citep{brinklow_indigenous_nodate}, 
 such as the dictionary-builder Mother Tongues \citep{littell_waldayu_2017} and the 
-morphological generator Gramble \citep{littell_gramble_2024} that was used in a pedagogical context for Oneida \citep{lu-etal-2024-empowering}. 
+morphological generator Gramble \citep{littell_gramble_2024} that was used in a pedagogical context for Oneida \citep{lu-etal-2024-empowering}. Effective morphological analysers using FSTs have also been built for similarily agglutinative languages like Turkish \citep{yildiz-etal-2019-open}.
 For Tamil specifically there exist tools such as a lemmatizer \citep{qi2020stanza}, 
 a morphological analyser \citep{sarveswaran_thamizhimorph_2021},  and a stemmer \citep{rajalingam_rdamodharantamil-stemmer_2025}, as well as some 
 pedagogical resources like a dictionary of Tamil verbs \citep{schiffman_english_2009} and a few 
@@ -223,15 +221,15 @@ the definitions provided by the tool were clearer than Google Translate.
 \section{User Requirements}
 Based on the results of the exploratory interviews, we established the 
 following user requirements to guide the design of the website. 
-We also drew inspiration from the Kawennon:nis verb conjugator for 
-Kanyen'keha \citep{kazantseva_kawennonnis_2018} and its aim to 
-assist users in acquiring morphology patterns rather than 
-rote memorization of word definitions. 
 \begin{enumerate}
   \item Intuitively understand the morphological breakdown even as an L2 learner.
   \item Not overwhelm a beginner learner. 
   \item Is accessible on the phone. 
 \end{enumerate}
+We also drew inspiration from the Kawennon:nis verb conjugator for 
+Kanyen'keha \citep{kazantseva_kawennonnis_2018} and its aim to 
+assist users in acquiring morphology patterns rather than 
+rote memorization of word definitions. 
 
 \section{Systems Design} \label{sec:systems-design}
 \begin{figure*}[t]
@@ -254,7 +252,8 @@ We used two open source datasets for the Tamil dictionary component, specificall
 \citet{ylonen_wiktextract_2022} and \citet{vasuki_dharma_nodate}.
 
 \subsection{Suffix Database Generation} \label{sec:suffix-db-gen}
-The suffix database queried by the system was created using Gramble (documentation for Gramble can be found \href{https://nrc-cnrc.github.io/gramble/}{here}). 
+The suffix database queried by the system was created using Gramble\footnote{\href{https://nrc-cnrc.github.io/gramble/}{https://nrc-cnrc.github.io/gramble/}}, a tabular programming language designed for linguistic parsing and generation. 
+We used Gramble to aid us in generating a JSON file\footnote{\href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble\_tamil\_output.json}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble “tiers".
 In this section we limit discussion to what tiers (that are then converted into JSON attributes) 
 we created for suffix generation and why.
 
@@ -290,8 +289,8 @@ the valid lemma \foreignlanguage{tamil}{பூதம்} \textit{bootham} (‘gh
 Users can input using the Tamil script or romanization (i.e., \foreignlanguage{tamil}{கேள்வி} or \textit{kelvi}). 
 All of the dictionary and morphological data is stored in the Tamil script, 
 so if a user inputs using romanization, their input is first converted into 
-the Tamil script using a romanization-to-Tamil mapping written using 
-G2P \citep{pine_gi2pi_2022} before being processed. 
+the Tamil script using a custom romanization-to-Tamil mapping that we wrote using 
+G2P, an open-source grapheme-to-phoneme transducer\footnote{\href{https://github.com/NRC-ILT/g2p}{https://github.com/NRC-ILT/g2p}}, \citep{pine_gi2pi_2022} before being processed. 
 Since there is no universal romanization standard followed by Tamil speakers, 
 our mapping simply attempts to capture the most commonly used spelling patterns. 
 After processing, the output is then returned to the user in both the 
@@ -460,6 +459,8 @@ providing the definition of the input word in its entirety
 feature of romanization input following this feedback, and are 
 evaluating the feasibility of incorporating the other requested features; for instance, incorporating TTS \citep{MAHAGANAPATHY2025100171}.
 
+As discussed further in Section \ref{sec:limitations}, due to lack of time we were not able to conduct a systematic user-feedback study post creation of the MVP. This would certainly ideally be part of a future study. Informally, co-author Srikanth has been able to use the tool as part of her regular Tamil teaching to positive effect. The major drawbacks currently are the low language coverage of the tool, especially when the input is in romanization. However, in the cases where the target words are present in Kelvi, learners found the provided definitions to be useful in understanding both the meaning of a word in its entirety and of its parts.
+
 \section{Discussion}
 Our current bottlenecks and proposed improvements to the software can be summarized as follows:
 \begin{enumerate}
@@ -467,7 +468,7 @@ Our current bottlenecks and proposed improvements to the software can be summari
   \item The lemmatizer that we use fails on some inputs; as discussed in (\ref{sec:suffix-matching}), we are compensating for these gaps using Gramble, which we will continue to do. 
   \item Some morphemes are homophonous; for example, the suffix -um on a verb means “it will”, but on a noun means “and”. Currently we return both definitions, but if we are able to acquire reliable part-of-speech data, we can refine the output returned to the user. 
   \item Users are able to input using both the Tamil script and romanization, but the romanization input is significantly underperforming. This is because there is no romanization standard consistently followed by Tamil speakers, and so the mapping we currently employ cannot account for all possible spellings of a given Tamil word. The romanization practices of Tamil speakers are too irregular to be adequately captured by any one-to-many mapping\footnote{In fact, it is impossible. This is because the letter “n” can be mapped to \foreignlanguage{tamil}{ண}, \foreignlanguage{tamil}{ந}, or \foreignlanguage{tamil}{ன}. \foreignlanguage{tamil}{ண} is pronounced differently from \foreignlanguage{tamil}{ந} and \foreignlanguage{tamil}{ன} and so can be mapped to a distinct romanized character like “N”, but \foreignlanguage{tamil}{ந} and \foreignlanguage{tamil}{ன} are pronounced the same. They can’t usefully be mapped to distinct romanized characters because even though they appear in complementary phonological environments 90\% of the time, the remaining 10\% the distinction is lexically determined, i.e. unpredictable from just the pronunciation, and therefore not something a user who can’t read the Tamil script would be able to know.}, no matter how nuanced, and so this feature can only be improved if we are able to train a model on Tamil romanization input and/or implement an approximate search algorithm (\citealp{pine-etal-2025-zero}, \citealp{littell_waldayu_2017}).
-  \item Since Kelvi was primarily designed to capture written forms, words in the spoken/informal register are underrepresented. As these words vary widely across a range of dialects, collaboration with speakers from across this span of variation would greatly enhance the coverage of our tool.
+  \item Since Kelvi was primarily designed to capture written forms, words in the spoken/informal register are underrepresented. As these words vary widely across a range of dialects, collaboration with speakers from across this span of variation would greatly enhance the coverage of our tool. Currently, Kelvi is only designed to be useful in decoding the meaning of Tamil words inputted in the written/formal register, not for defining words expressed in the spoken/informal register or for converting spoken/informal forms into their written/formal equivalents.
 \end{enumerate}
 Future work in this area may benefit from the use of LLMs (e.g. \citealp{srinivasan-etal-2025-vidai}) to address some of these challenges; models trained on datasets that include romanized Tamil and informal Tamil, in particular, have the potential to be extremely helpful.
 
@@ -502,7 +503,10 @@ resources that could be dedicated to the project.
 
 \section{Ethics}
 We discuss here the ethical considerations of this project on the axes of access, 
-equitable representation of language variation, and data privacy and consent. 
+equitable representation of language variation, and data privacy and consent. First, however, we present the positionality of the authors.
+
+One co-author (Srikanth) is a heritage Tamil speaker, and through their experience as a learner and teacher of the language, experienced both the challenge of developing their literacy skills and the lack of adequate resources online to help with this. Another co-author (Yu), is a heritage speaker of Cantonese and Mandarin and therefore also familiar with the challenges of heritage language learning. Additionally, both Srikanth and Yu have experience contributing to community-led projects to build digital tools for Indigenous language learning. These professional and lived experiences are what motived the authors to create an online resource that could support learners of minoritized and low-resource languages. 
+
 
 \subsection{Access}
 Kelvi was intentionally designed to be open-source and free to use because the 
@@ -510,8 +514,7 @@ motivation behind it was to develop a framework for a language learning tool tha
 could be used by other low resource, minoritized languages. The intention was not 
 to contribute to the history of extraction, exploitation, and gatekeeping of 
 language resources in the field of linguistics \citep{leonard_toward_2021} by 
-using language data and putting it behind a pay-wall, especially given one of the 
-authors is a member of the language community the tool was built for. 
+using language data and putting it behind a pay-wall, especially given that co-author Srikanth is a member of the language community the tool was built for. 
 Open access to language data was deemed appropriate in this case, as Tamil enjoys 
 majority language status in numerous jurisdictions (Tamil Nadu, Sri Lanka, Singapore), 
 and so it wouldn’t be considered sensitive information. In future collaborations with 
@@ -559,6 +562,9 @@ consulted for the purposes of improving the tool, and would not be shared with a
 Additional feedback solicited once the MVP was built was encouraged to be submitted through the 
 anonymized feedback forms on the Kelvi website. 
 Some individuals contacted the authors directly; regardless, all feedback is kept anonymized here and in any future publications.
+
+\section{Acknowledgements}
+This project was made possible with support from the Audrey Wearn Language Prize and the Future Design School. We would also like to thank Fizza Ahmed, Vasumathi Srikanth, Srikanth Mangalam, Aidan Pine, Patrick Littell, Sowmya Vajjala, Roland Kuhn, and the Indigenous Languages Technology project team at the National Research Council of Canada. Finally, thank you to the anonymous reviewers for their feedback.
 
 
 % Please see the general instructions
