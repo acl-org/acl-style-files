@@ -108,7 +108,7 @@ only their lemmas do (consider how “go” can be found in an English dictionar
 Learners then face the “dictionary problem”; to summarize \citet{littell_waldayu_2017}, 
 dictionaries are intended to be a tool for language learners, but paradoxically require knowledge of the language to use; 
 in this case, knowledge of what the “dictionary form” or lemma of an unfamiliar word is. 
-To address this issue we built, Kelvi, a web-based dictionary and morphological parser that helps a learner who comes 
+To address this issue we built Kelvi, a web-based dictionary and morphological parser that helps a learner who comes 
 across an intimidatingly long Tamil word see how the word is broken down, and what each “part” (morpheme) means 
 in layman terms. The hope is that they come away with a fuller understanding of the word while also starting to 
 recognize Tamil morphological patterns themselves.
@@ -253,7 +253,7 @@ We used two open source datasets for the Tamil dictionary component, specificall
 
 \subsection{Suffix Database Generation} \label{sec:suffix-db-gen}
 The suffix database queried by the system was created using Gramble\footnote{\href{https://nrc-cnrc.github.io/gramble/}{https://nrc-cnrc.github.io/gramble/}}, a tabular programming language designed for linguistic parsing and generation. 
-We used Gramble to aid us in generating a JSON file\footnote{\href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble\_tamil\_output.json}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble "tiers".
+We used Gramble to aid us in generating a JSON file\footnote{\href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble\_tamil\_output.json}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble “tiers".
 In this section we limit discussion to what tiers (that are then converted into JSON attributes) 
 we created for suffix generation and why.
 
