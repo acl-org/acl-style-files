@@ -254,7 +254,8 @@ We used two open source datasets for the Tamil dictionary component, specificall
 \citet{ylonen_wiktextract_2022} and \citet{vasuki_dharma_nodate}.
 
 \subsection{Suffix Database Generation} \label{sec:suffix-db-gen}
-The suffix database queried by the system was created using Gramble, a tabular programming language designed for linguistic parsing and generation (documentation for Gramble can be found \href{https://nrc-cnrc.github.io/gramble/}{here}\footnote{https://nrc-cnrc.github.io/gramble/}). We used Gramble to aid us in generating a JSON file\footnote{Found here: \href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble "tiers".
+The suffix database queried by the system was created using Gramble\footnote{\href{https://nrc-cnrc.github.io/gramble/}{https://nrc-cnrc.github.io/gramble/}}, a tabular programming language designed for linguistic parsing and generation. 
+We used Gramble to aid us in generating a JSON file\footnote{\href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble\_tamil\_output.json}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble "tiers".
 In this section we limit discussion to what tiers (that are then converted into JSON attributes) 
 we created for suffix generation and why.
 
@@ -291,7 +292,7 @@ Users can input using the Tamil script or romanization (i.e., \foreignlanguage{t
 All of the dictionary and morphological data is stored in the Tamil script, 
 so if a user inputs using romanization, their input is first converted into 
 the Tamil script using a custom romanization-to-Tamil mapping that we wrote using 
-G2P, an open-source grapheme-to-phoneme transducer\footnote{found here: \href{https://github.com/NRC-ILT/g2p}{https://github.com/NRC-ILT/g2p}}, \citep{pine_gi2pi_2022} before being processed. 
+G2P, an open-source grapheme-to-phoneme transducer\footnote{\href{https://github.com/NRC-ILT/g2p}{https://github.com/NRC-ILT/g2p}}, \citep{pine_gi2pi_2022} before being processed. 
 Since there is no universal romanization standard followed by Tamil speakers, 
 our mapping simply attempts to capture the most commonly used spelling patterns. 
 After processing, the output is then returned to the user in both the 
