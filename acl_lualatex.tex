@@ -194,7 +194,7 @@ adopt new technologies compared to older individuals.\\
   \includegraphics[width=\columnwidth]{graph-lookup}
   \caption{Graph of participants' methods for looking up Tamil words. Google Translate is the most common at 8 votes, while the five other remaining choices have 3 votes or less.}
   \label{fig:graph-lookup}
-  \vspace{-0.5em}
+  \vspace{-4em}
 \end{figure}
 
 \begin{figure}[ht]
@@ -251,7 +251,7 @@ In this section we discuss the different components of Kelvi and how they intera
 
 \subsection{Datasets}
 We used two open source datasets for the Tamil dictionary component, specifically 
-\citet{ylonen_wiktextract_2022} and \citet{vasuki_dharma_nodate}.
+Tamil Wiktionary data \citet{ylonen_wiktextract_2022} and dictionaries provided by\citet{vasuki_dharma_nodate}.
 
 \subsection{Suffix Database Generation} \label{sec:suffix-db-gen}
 The suffix database queried by the system was created using Gramble\footnote{\href{https://nrc-cnrc.github.io/gramble/}{https://nrc-cnrc.github.io/gramble/}}, a tabular programming language designed for linguistic parsing and generation. 
@@ -284,7 +284,7 @@ the valid lemma \foreignlanguage{tamil}{பூதம்} \textit{bootham} (‘gh
   \caption{Kelvi UI when given \foreignlanguage{tamil}{பூதங்கள்} \textit{boothangaL} as input.}
   \label{fig:ui-puthamkal}
   % \vspace{-1.4em}
-  % \vspace{-4em}
+  \vspace{-4em}
 \end{figure}
 
 \subsection{Romanized/Tamil Input} \label{sec:romanization}
@@ -397,7 +397,9 @@ and accurate lemmatization and suffix identification (shown in Table \ref{tab:co
   \end{tabular}
   \caption{Kelvi performance on inputs with affixes}
   \label{tab:conjugated}
+  \vspace{-1.4em}
 \end{table}
+
 For inputs that produced a “word not found” error, we isolated which were 
 failing because the lemma itself was not present in our dictionary data, 
 and which were failing because our tool was not able to lemmatize the word, 
@@ -416,8 +418,9 @@ as shown in Table \ref{tab:no-result}.
   \end{tabular}
   \caption{Cause for "word not found" errors on inputs with affixes}
   \label{tab:no-result}
-  \vspace{-4em}
+  % \vspace{-4em}
 \end{table}
+
 This delineation will help us isolate which types of 
 structures need to be added to our suffix database. 
 A major category of words that are currently missing is lexical compounds. 
@@ -594,7 +597,7 @@ Sociolinguistic questions used for the exploratory interview:
   \item How would you describe your fluency in Tamil? What situations do you tend to use Tamil in? Speaking? Reading? Writing?
   \item Where did you go to school? 
 \end{itemize}
-Below are the tasks given to the participants to complete with the prototype. Note that the Tamil words were presented in text; no romanization was given and facilitators did not read out the words.\\
+The following tasks were given to the participants to complete using the prototype. Note that the Tamil words were presented in text; no romanization was given and facilitators did not read out the words.\\
 \begin{enumerate}
   \item Find the meaning of \foreignlanguage{tamil}{பெரியவர்களுக்கு} using the prototype interface. Try entering the word using Tanglish\footnote{Colloquial term used to refer to the code-mixing of Tamil and English in casual speech.} / English letters.
   \item Find the meaning of \newline \foreignlanguage{tamil}{அறிந்துகொண்டேன்} but type the word in Tamil.
