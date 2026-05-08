@@ -63,14 +63,16 @@
 %         \AND
 %         Author 2 \\ Address line \\ ... \\ Address line \And
 %         Author 3 \\ Address line \\ ... \\ Address line}
-\author{
- \textbf{Shankhalika Srikanth\textsuperscript{1}},
- \textbf{Sabrina Yu\textsuperscript{1}},
- \textbf{Sophia Chan\textsuperscript{1}},
- \textbf{Madeline Solis de Ovando \textsuperscript{1}}
- \\
- \textsuperscript{1}Independent Researcher
- \\
+
+\author{Shankhalika Srikanth\textsuperscript{1} \\ \texttt{shankhalika.srikanth@alumni.utoronto.ca} 
+   \And \textbf{Sabrina Yu\textsuperscript{1}} \\ \texttt{sab.yu@alumni.utoronto.ca}
+   \AND 
+   \textbf{Sophia Chan\textsuperscript{1}} \\ \texttt{ceasings@gmail.com}
+   \And \textbf{Madeline Solis de Ovando\textsuperscript{1}} \\ \texttt{madelinesdeo@gmail.com}
+   \AND
+   \\
+   \textsuperscript{1}Independent Researcher
+   \\
 }
 
 \begin{document}
@@ -140,10 +142,10 @@ of a word when presented with the morphological breakdown; (b) users found the m
 
 \subsection{Participants}
 To determine our design requirements, we interviewed 10 Tamil adult speakers over the age of 20
-who were asked to self describe Tamil language abilities in terms of oral fluency and literacy. 
-Of our participants, three were native speakers, six were heritage speakers, and one was an L2 learner 
-with no Tamil background. Importantly, oral fluency and literacy were not correlated for our speakers. 
-In other words, speakers that were fluent in Tamil were not necessarily strong readers. 
+who were asked to self describe their Tamil language abilities in terms of oral fluency and literacy. 
+Of our participants, three were native speakers, six were heritage speakers, and one was a beginner L2 learner 
+with no Tamil background who had only recently begun learning Tamil. Importantly, oral fluency and literacy were not correlated for our speakers. 
+In other words, speakers that were fluent in Tamil were not necessarily strong readers, such as in the case of SM who was a fluent, native speaker of Tamil with weak literacy skills. 
 As shown in Figure \ref{fig:tamil-fluency-literacy}, most of the participants had stronger oral abilities compared to reading and writing. 
 
 \begin{figure*}[t]
@@ -192,7 +194,7 @@ adopt new technologies compared to older individuals.\\
   \includegraphics[width=\columnwidth]{graph-lookup}
   \caption{Graph of participants' methods for looking up Tamil words. Google Translate is the most common at 8 votes, while the five other remaining choices have 3 votes or less.}
   \label{fig:graph-lookup}
-  \vspace{-0.5em}
+  \vspace{-4em}
 \end{figure}
 
 \begin{figure}[ht]
@@ -206,7 +208,7 @@ SM, who is fluent with weak literacy skills, stated they would not use the tool.
 TB, who is a beginner heritage speaker that cannot read, stated the reason behind 
 their “maybe” response was because they felt that their level of Tamil was 
 too low to use the tool, but would use it if it included more conversational words. 
-IP, who is fluent and native, felt the tool was unnecessary and that the 
+IP, who is fluent with high literacy skills, felt the tool was unnecessary and that the 
 interface made it hard to correlate meaning with the word parts.
 
 Conversely, the other participants felt that the tool was quite useful. 
@@ -249,7 +251,7 @@ In this section we discuss the different components of Kelvi and how they intera
 
 \subsection{Datasets}
 We used two open source datasets for the Tamil dictionary component, specifically 
-\citet{ylonen_wiktextract_2022} and \citet{vasuki_dharma_nodate}.
+Tamil Wiktionary data \citet{ylonen_wiktextract_2022} and dictionaries provided by\citet{vasuki_dharma_nodate}.
 
 \subsection{Suffix Database Generation} \label{sec:suffix-db-gen}
 The suffix database queried by the system was created using Gramble\footnote{\href{https://nrc-cnrc.github.io/gramble/}{https://nrc-cnrc.github.io/gramble/}}, a tabular programming language designed for linguistic parsing and generation. 
@@ -282,7 +284,7 @@ the valid lemma \foreignlanguage{tamil}{பூதம்} \textit{bootham} (‘gh
   \caption{Kelvi UI when given \foreignlanguage{tamil}{பூதங்கள்} \textit{boothangaL} as input.}
   \label{fig:ui-puthamkal}
   % \vspace{-1.4em}
-  % \vspace{-4em}
+  \vspace{-4em}
 \end{figure}
 
 \subsection{Romanized/Tamil Input} \label{sec:romanization}
@@ -302,7 +304,7 @@ spelling conventions and IPA.
 \subsection{Lemmatization}
 Where possible, lemmatization of the Tamil input is performed using 
 Stanza \citep{qi2020stanza}. The output lemma is then checked 
-against the dictionary data to see if it is an existing headword. 
+against the dictionary data to see if it has an existing dictionary entry. 
 If no valid dictionary entry is found, other strategies are 
 employed to identify the lemma, such as suffix matching.
 
@@ -315,8 +317,8 @@ selected. If a valid lemma was found using the lemmatization process
 described previously, we return both the lemma and the suffix that 
 we identified. If a valid lemma wasn’t found, we create a new potential 
 lemma by removing the text of the matched suffix from the input word. 
-If the potential lemma is now a valid lemma, (i.e., exists in the 
-dictionary data as a headword), we return this alongside the suffix 
+If the potential lemma is now a valid lemma, (i.e., exists as a valid 
+entry in the dictionary data), we return this alongside the suffix 
 as the output to the user. If the potential lemma is still not a valid 
 lemma, we check if the suffix that we found in the Gramble JSON has any 
 material in its \textit{add-back} field: this field contains phonological 
@@ -395,7 +397,9 @@ and accurate lemmatization and suffix identification (shown in Table \ref{tab:co
   \end{tabular}
   \caption{Kelvi performance on inputs with affixes}
   \label{tab:conjugated}
+  \vspace{-1.4em}
 \end{table}
+
 For inputs that produced a “word not found” error, we isolated which were 
 failing because the lemma itself was not present in our dictionary data, 
 and which were failing because our tool was not able to lemmatize the word, 
@@ -414,8 +418,9 @@ as shown in Table \ref{tab:no-result}.
   \end{tabular}
   \caption{Cause for "word not found" errors on inputs with affixes}
   \label{tab:no-result}
-  \vspace{-4em}
+  % \vspace{-4em}
 \end{table}
+
 This delineation will help us isolate which types of 
 structures need to be added to our suffix database. 
 A major category of words that are currently missing is lexical compounds. 
@@ -470,7 +475,10 @@ Our current bottlenecks and proposed improvements to the software can be summari
   \item Users are able to input using both the Tamil script and romanization, but the romanization input is significantly underperforming. This is because there is no romanization standard consistently followed by Tamil speakers, and so the mapping we currently employ cannot account for all possible spellings of a given Tamil word. The romanization practices of Tamil speakers are too irregular to be adequately captured by any one-to-many mapping\footnote{In fact, it is impossible. This is because the letter “n” can be mapped to \foreignlanguage{tamil}{ண}, \foreignlanguage{tamil}{ந}, or \foreignlanguage{tamil}{ன}. \foreignlanguage{tamil}{ண} is pronounced differently from \foreignlanguage{tamil}{ந} and \foreignlanguage{tamil}{ன} and so can be mapped to a distinct romanized character like “N”, but \foreignlanguage{tamil}{ந} and \foreignlanguage{tamil}{ன} are pronounced the same. They can’t usefully be mapped to distinct romanized characters because even though they appear in complementary phonological environments 90\% of the time, the remaining 10\% the distinction is lexically determined, i.e. unpredictable from just the pronunciation, and therefore not something a user who can’t read the Tamil script would be able to know.}, no matter how nuanced, and so this feature can only be improved if we are able to train a model on Tamil romanization input and/or implement an approximate search algorithm (\citealp{pine-etal-2025-zero}, \citealp{littell_waldayu_2017}).
   \item Since Kelvi was primarily designed to capture written forms, words in the spoken/informal register are underrepresented. As these words vary widely across a range of dialects, collaboration with speakers from across this span of variation would greatly enhance the coverage of our tool. Currently, Kelvi is only designed to be useful in decoding the meaning of Tamil words inputted in the written/formal register, not for defining words expressed in the spoken/informal register or for converting spoken/informal forms into their written/formal equivalents.
 \end{enumerate}
-Future work in this area may benefit from the use of LLMs (e.g. \citealp{srinivasan-etal-2025-vidai}) to address some of these challenges; models trained on datasets that include romanized Tamil and informal Tamil, in particular, have the potential to be extremely helpful.
+Future work in this area may benefit from the use of machine learning techniques to address some of these challenges. 
+As one example, we can potentially address the variation in romanization input by incorporating transliteration models, 
+such as the one developed by \citealp{madhani-etal-2023-aksharantar}, to convert between romanization and the Tamil script. 
+Due to time constraints however, we were unable to properly investigate this approach. 
 
 \section{Conclusion}
 Although Tamil has a relatively large speaker population, it is still considered a 
@@ -589,7 +597,7 @@ Sociolinguistic questions used for the exploratory interview:
   \item How would you describe your fluency in Tamil? What situations do you tend to use Tamil in? Speaking? Reading? Writing?
   \item Where did you go to school? 
 \end{itemize}
-Below are the tasks given to the participants to complete with the prototype. Note that the Tamil words were presented in text; no romanization was given and facilitators did not read out the words.\\
+The following tasks were given to the participants to complete using the prototype. Note that the Tamil words were presented in text; no romanization was given and facilitators did not read out the words.\\
 \begin{enumerate}
   \item Find the meaning of \foreignlanguage{tamil}{பெரியவர்களுக்கு} using the prototype interface. Try entering the word using Tanglish\footnote{Colloquial term used to refer to the code-mixing of Tamil and English in casual speech.} / English letters.
   \item Find the meaning of \newline \foreignlanguage{tamil}{அறிந்துகொண்டேன்} but type the word in Tamil.
