@@ -140,10 +140,10 @@ of a word when presented with the morphological breakdown; (b) users found the m
 
 \subsection{Participants}
 To determine our design requirements, we interviewed 10 Tamil adult speakers over the age of 20
-who were asked to self describe Tamil language abilities in terms of oral fluency and literacy. 
-Of our participants, three were native speakers, six were heritage speakers, and one was an L2 learner 
-with no Tamil background. Importantly, oral fluency and literacy were not correlated for our speakers. 
-In other words, speakers that were fluent in Tamil were not necessarily strong readers. 
+who were asked to self describe their Tamil language abilities in terms of oral fluency and literacy. 
+Of our participants, three were native speakers, six were heritage speakers, and one was a beginner L2 learner 
+with no Tamil background who had only recently begun learning Tamil. Importantly, oral fluency and literacy were not correlated for our speakers. 
+In other words, speakers that were fluent in Tamil were not necessarily strong readers, such as in the case of SM who was a fluent, native speaker of Tamil with weak literacy skills. 
 As shown in Figure \ref{fig:tamil-fluency-literacy}, most of the participants had stronger oral abilities compared to reading and writing. 
 
 \begin{figure*}[t]
@@ -206,7 +206,7 @@ SM, who is fluent with weak literacy skills, stated they would not use the tool.
 TB, who is a beginner heritage speaker that cannot read, stated the reason behind 
 their “maybe” response was because they felt that their level of Tamil was 
 too low to use the tool, but would use it if it included more conversational words. 
-IP, who is fluent and native, felt the tool was unnecessary and that the 
+IP, who is fluent with high literacy skills, felt the tool was unnecessary and that the 
 interface made it hard to correlate meaning with the word parts.
 
 Conversely, the other participants felt that the tool was quite useful. 
@@ -302,7 +302,7 @@ spelling conventions and IPA.
 \subsection{Lemmatization}
 Where possible, lemmatization of the Tamil input is performed using 
 Stanza \citep{qi2020stanza}. The output lemma is then checked 
-against the dictionary data to see if it is an existing headword. 
+against the dictionary data to see if it has an existing dictionary entry. 
 If no valid dictionary entry is found, other strategies are 
 employed to identify the lemma, such as suffix matching.
 
@@ -315,8 +315,8 @@ selected. If a valid lemma was found using the lemmatization process
 described previously, we return both the lemma and the suffix that 
 we identified. If a valid lemma wasn’t found, we create a new potential 
 lemma by removing the text of the matched suffix from the input word. 
-If the potential lemma is now a valid lemma, (i.e., exists in the 
-dictionary data as a headword), we return this alongside the suffix 
+If the potential lemma is now a valid lemma, (i.e., exists as a valid 
+entry in the dictionary data), we return this alongside the suffix 
 as the output to the user. If the potential lemma is still not a valid 
 lemma, we check if the suffix that we found in the Gramble JSON has any 
 material in its \textit{add-back} field: this field contains phonological 
@@ -470,7 +470,10 @@ Our current bottlenecks and proposed improvements to the software can be summari
   \item Users are able to input using both the Tamil script and romanization, but the romanization input is significantly underperforming. This is because there is no romanization standard consistently followed by Tamil speakers, and so the mapping we currently employ cannot account for all possible spellings of a given Tamil word. The romanization practices of Tamil speakers are too irregular to be adequately captured by any one-to-many mapping\footnote{In fact, it is impossible. This is because the letter “n” can be mapped to \foreignlanguage{tamil}{ண}, \foreignlanguage{tamil}{ந}, or \foreignlanguage{tamil}{ன}. \foreignlanguage{tamil}{ண} is pronounced differently from \foreignlanguage{tamil}{ந} and \foreignlanguage{tamil}{ன} and so can be mapped to a distinct romanized character like “N”, but \foreignlanguage{tamil}{ந} and \foreignlanguage{tamil}{ன} are pronounced the same. They can’t usefully be mapped to distinct romanized characters because even though they appear in complementary phonological environments 90\% of the time, the remaining 10\% the distinction is lexically determined, i.e. unpredictable from just the pronunciation, and therefore not something a user who can’t read the Tamil script would be able to know.}, no matter how nuanced, and so this feature can only be improved if we are able to train a model on Tamil romanization input and/or implement an approximate search algorithm (\citealp{pine-etal-2025-zero}, \citealp{littell_waldayu_2017}).
   \item Since Kelvi was primarily designed to capture written forms, words in the spoken/informal register are underrepresented. As these words vary widely across a range of dialects, collaboration with speakers from across this span of variation would greatly enhance the coverage of our tool. Currently, Kelvi is only designed to be useful in decoding the meaning of Tamil words inputted in the written/formal register, not for defining words expressed in the spoken/informal register or for converting spoken/informal forms into their written/formal equivalents.
 \end{enumerate}
-Future work in this area may benefit from the use of LLMs (e.g. \citealp{srinivasan-etal-2025-vidai}) to address some of these challenges; models trained on datasets that include romanized Tamil and informal Tamil, in particular, have the potential to be extremely helpful.
+Future work in this area may benefit from the use of machine learning techniques to address some of these challenges. 
+As one example, we can potentially address the variation in romanization input by incorporating transliteration models, 
+such as the one developed by \citealp{madhani-etal-2023-aksharantar}, to convert between romanization and the Tamil script. 
+Due to time constraints however, we were unable to properly investigate this approach. 
 
 \section{Conclusion}
 Although Tamil has a relatively large speaker population, it is still considered a 
