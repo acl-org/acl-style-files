@@ -29,15 +29,21 @@
 % \babelfont[*arabic]{rm}{Noto Sans Arabic}
 \babelprovide[import]{tamil}
 \babelfont[tamil]{rm}{Noto Serif Tamil}
+% going to use danish as a substitute for sencoten
+\babelprovide[import]{danish}
+\babelfont[danish]{rm}{Noto Serif}
 % for making windows fonts available to luafont
 % https://tex.stackexchange.com/questions/539831/can-i-permanently-instruct-xelatex-in-wsl-to-use-fonts-in-c-windows-fonts-if-y
 % jk i had to install fonts onto unix since using Latex Workshop via VS Code in WSL
 
 
 % \usepackage{polyglossia}
+% \usepackage{fontspec}
 % \setdefaultlanguage{english}
 % \setotherlanguages{tamil}
 % \newfontfamily\tamilfont{Noto Sans Tamil}
+% \setotherlanguages{sencoten}
+% \newfontfamily\sencotenfont{CMU Serif}
 
 %%%%%
 \usepackage{graphicx}
@@ -87,7 +93,7 @@ In detailing our process of collaborative research, user interviews, suffix data
 
 
 \section{Introduction}
-Tamil is a Dravidian language spoken in south and southeast Asia. It has official language status in Sri Lanka (4.2 million speakers), Singapore (688.6 thousand), and some southern Indian states (73.4 million), and is also widely spoken in Malaysia (4.8 million) and South Africa (600 thousand). In addition, there are significant diaspora populations in Europe, North America, and Australia; Tamil speakers globally number well over 80 million \citep{noauthor_tamil_pop}. 
+Tamil is a Dravidian language spoken in South and Southeast Asia. With its largest speaker population in southern India (73.4 million speakers), it has official language status in the state of Tamil Nadu and the union territory of Puducherry, as well as in Sri Lanka (4.2 million), and Singapore (688.6 thousand). Tamil is also widely spoken in Malaysia (4.8 million) and South Africa (600 thousand). In addition, there are significant diaspora populations in Europe, North America, and Australia; Tamil speakers globally number well over 80 million \citep{noauthor_tamil_pop}. 
 The diaspora population in Canada largely consists of heritage speakers - that is to say, people who grow up hearing their family speak Tamil, but aren’t necessarily entirely fluent themselves \citep{polinsky_heritage_2007}. 
 Two of the main complicating features of Tamil literacy are the language’s heavily diglossic nature and its agglutinative properties. 
 Tamil is heavily suffixal, with most grammatical information expressed either as nominal or verbal suffixes. 
@@ -122,7 +128,7 @@ digital Wendat Dictionary \citep{lukaniec_modern_2023}.
 More broadly speaking, there are several open-source technologies that have been developed to 
 support language revitalization and maintenance efforts \citep{brinklow_indigenous_nodate}, 
 such as the dictionary-builder Mother Tongues \citep{littell_waldayu_2017} and the 
-morphological generator Gramble \citep{littell_gramble_2024} that was used in a pedagogical context for Oneida \citep{lu-etal-2024-empowering}. Effective morphological analysers using FSTs have also been built for similarily agglutinative languages like Turkish \citep{yildiz-etal-2019-open}.
+morphological generator Gramble \citep{littell_gramble_2024} that was used in pedagogical contexts for Oneida \citep{lu-etal-2024-empowering}, SEN\'CO\foreignlanguage{danish}{Ŧ}EN (Saanich), and n\^ehiyaw\^ewin (Plains Cree) \citep{pine_speech_2025}. Effective morphological analysers using FSTs have also been built for similarily agglutinative languages like Turkish \citep{yildiz-etal-2019-open}.
 For Tamil specifically there exist tools such as a lemmatizer \citep{qi2020stanza}, 
 a morphological analyser \citep{sarveswaran_thamizhimorph_2021},  and a stemmer \citep{rajalingam_rdamodharantamil-stemmer_2025}, as well as some 
 pedagogical resources like a dictionary of Tamil verbs \citep{schiffman_english_2009} and a few 
@@ -132,7 +138,7 @@ but to the authors' knowledge there is no other free-to-use pedagogical resource
 \section{Methods}
 In accordance with principles behind collaborative community based research \citep{bucholtz_community-centered_2021} and user-centered design methods \citep{wallisch_overcoming_2019}, 
 we involved target users early on in our explorations of the problem space to ensure we were solving a real issue faced by Tamil learners and providing a solution that learners would want to adopt. 
-We wanted to understand what bottlenecks users were currently facing when searching for Tamil word definitions as well as existing paint points they were experiencing. 
+We wanted to understand what bottlenecks users were currently facing when searching for Tamil word definitions as well as existing pain points they were experiencing. 
 
 \subsection{Prototype Design}
 We built a medium fidelity prototype in Figma, an interface design tool, to test our design (accessible \href{https://www.figma.com/proto/1tpcdO49QkVfDOQYSrZ5YH/Tamil-Dict-Design-updated?node-id=5-288&starting-point-node-id=5%3A288&t=XY9IO1vT16vxJg0e-1}{here}). 
@@ -228,8 +234,8 @@ following user requirements to guide the design of the website.
   \item Not overwhelm a beginner learner. 
   \item Is accessible on the phone. 
 \end{enumerate}
-We also drew inspiration from the Kawennon:nis verb conjugator for 
-Kanyen'keha \citep{kazantseva_kawennonnis_2018} and its aim to 
+We also drew inspiration from the Kawenn\'on:nis verb conjugator for 
+Kanyen'k\'eha \citep{kazantseva_kawennonnis_2018}, (which itself was part of the inspiration for Gramble, discussed in Section \ref{sec:suffix-db-gen}), and its aim to 
 assist users in acquiring morphology patterns rather than 
 rote memorization of word definitions. 
 
@@ -251,7 +257,7 @@ In this section we discuss the different components of Kelvi and how they intera
 
 \subsection{Datasets}
 We used two open source datasets for the Tamil dictionary component, specifically 
-Tamil Wiktionary data \citet{ylonen_wiktextract_2022} and dictionaries provided by\citet{vasuki_dharma_nodate}.
+Tamil Wiktionary data \citet{ylonen_wiktextract_2022} and dictionaries provided by \citet{vasuki_dharma_nodate}.
 
 \subsection{Suffix Database Generation} \label{sec:suffix-db-gen}
 The suffix database queried by the system was created using Gramble\footnote{\href{https://nrc-cnrc.github.io/gramble/}{https://nrc-cnrc.github.io/gramble/}}, a tabular programming language designed for linguistic parsing and generation. 
@@ -453,7 +459,7 @@ the accuracy and quantity of suffixes identified, as well as to assist
 in the lemmatization process. Thus this is where the focus of our future work lies.
 
 \subsection{User Feedback}
-We conducted a workshop for the launch of the MVP for Kelvi to 
+We conducted a workshop for the launch of the MVP (minmum viable product) for Kelvi to 
 gather user feedback. We also elicited feedback through word-of-mouth, 
 and online through Reddit forums such as r/Tamil and r/LearningTamil. 
 
@@ -513,7 +519,7 @@ resources that could be dedicated to the project.
 We discuss here the ethical considerations of this project on the axes of access, 
 equitable representation of language variation, and data privacy and consent. First, however, we present the positionality of the authors.
 
-One co-author (Srikanth) is a heritage Tamil speaker, and through their experience as a learner and teacher of the language, experienced both the challenge of developing their literacy skills and the lack of adequate resources online to help with this. Another co-author (Yu), is a heritage speaker of Cantonese and Mandarin and therefore also familiar with the challenges of heritage language learning. Additionally, both Srikanth and Yu have experience contributing to community-led projects to build digital tools for Indigenous language learning. These professional and lived experiences are what motived the authors to create an online resource that could support learners of minoritized and low-resource languages. 
+One co-author (Srikanth) is a heritage Tamil speaker, and through their experience as a learner and teacher of the language, experienced both the challenge of developing their literacy skills and the lack of adequate resources online to help with this. Another co-author (Yu), is a heritage speaker of Cantonese and Mandarin and therefore also familiar with the challenges of heritage language learning. Additionally, both Srikanth and Yu have experience contributing to community-led projects to build digital tools for Indigenous language learning. These professional and lived experiences are what motivated the authors to create an online resource that could support learners of minoritized and low-resource languages. 
 
 
 \subsection{Access}
