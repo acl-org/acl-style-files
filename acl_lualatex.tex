@@ -29,6 +29,9 @@
 % \babelfont[*arabic]{rm}{Noto Sans Arabic}
 \babelprovide[import]{tamil}
 \babelfont[tamil]{rm}{Noto Serif Tamil}
+% going to use danish as a substitute for sencoten
+\babelprovide[import]{danish}
+\babelfont[danish]{rm}{Noto Serif}
 % for making windows fonts available to luafont
 % https://tex.stackexchange.com/questions/539831/can-i-permanently-instruct-xelatex-in-wsl-to-use-fonts-in-c-windows-fonts-if-y
 % jk i had to install fonts onto unix since using Latex Workshop via VS Code in WSL
@@ -125,7 +128,7 @@ digital Wendat Dictionary \citep{lukaniec_modern_2023}.
 More broadly speaking, there are several open-source technologies that have been developed to 
 support language revitalization and maintenance efforts \citep{brinklow_indigenous_nodate}, 
 such as the dictionary-builder Mother Tongues \citep{littell_waldayu_2017} and the 
-morphological generator Gramble \citep{littell_gramble_2024} that was used in pedagogical contexts for Oneida \citep{lu-etal-2024-empowering}, SEN\'CO\foreignlanguage{sencoten}{Ŧ}EN (Saanich), and n\^ehiyaw\^ewin (Plains Cree) \citep{pine_speech_2025}. Effective morphological analysers using FSTs have also been built for similarily agglutinative languages like Turkish \citep{yildiz-etal-2019-open}.
+morphological generator Gramble \citep{littell_gramble_2024} that was used in pedagogical contexts for Oneida \citep{lu-etal-2024-empowering}, SEN\'CO\foreignlanguage{danish}{Ŧ}EN (Saanich), and n\^ehiyaw\^ewin (Plains Cree) \citep{pine_speech_2025}. Effective morphological analysers using FSTs have also been built for similarily agglutinative languages like Turkish \citep{yildiz-etal-2019-open}.
 For Tamil specifically there exist tools such as a lemmatizer \citep{qi2020stanza}, 
 a morphological analyser \citep{sarveswaran_thamizhimorph_2021},  and a stemmer \citep{rajalingam_rdamodharantamil-stemmer_2025}, as well as some 
 pedagogical resources like a dictionary of Tamil verbs \citep{schiffman_english_2009} and a few 
