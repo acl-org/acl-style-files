@@ -261,7 +261,7 @@ Tamil Wiktionary data \citet{ylonen_wiktextract_2022} and dictionaries provided 
 
 \subsection{Suffix Database Generation} \label{sec:suffix-db-gen}
 The suffix database queried by the system was created using Gramble\footnote{\href{https://nrc-cnrc.github.io/gramble/}{https://nrc-cnrc.github.io/gramble/}}, a tabular programming language designed for linguistic parsing and generation. 
-We used Gramble to aid us in generating a JSON file\footnote{\href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble\_tamil\_output.json}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble “tiers".
+We used Gramble to aid us in generating a JSON file\footnote{File can be found \href{https://github.com/saltyseadawg/kelvi-backend/blob/main/app/morphology/glosser/gramble_tamil_output.json}{here}.} consisting of Tamil suffixes, their meanings, and other useful (meta)linguistic information that are all stored in Gramble “tiers".
 In this section we limit discussion to what tiers (that are then converted into JSON attributes) 
 we created for suffix generation and why.
 
@@ -369,7 +369,7 @@ tool’s performance on this test set is shown in Table \ref{tab:1}.
   \end{tabular}
   \caption{Performance of Kelvi on test input words}
   \label{tab:1}
-  % \vspace{-4em}
+  \vspace{-1em}
 \end{table}
 
 We primarily tested for presence of lemmas in our dictionary data (shown in Table \ref{tab:unconjugated}), 
@@ -403,7 +403,7 @@ and accurate lemmatization and suffix identification (shown in Table \ref{tab:co
   \end{tabular}
   \caption{Kelvi performance on inputs with affixes}
   \label{tab:conjugated}
-  \vspace{-1.4em}
+  \vspace{-4em}
 \end{table}
 
 For inputs that produced a “word not found” error, we isolated which were 
