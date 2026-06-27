@@ -550,7 +550,7 @@ FUNCTION {bibinfo.warn}
     }
   if$
 }
-INTEGERS { nameptr namesleft numnames }
+INTEGERS { nameptr namesleft numnames truncated }
 
 
 STRINGS  { bibinfo}
@@ -561,6 +561,7 @@ FUNCTION {format.names}
   's :=
   "" 't :=
   #1 'nameptr :=
+  #0 'truncated :=
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
@@ -576,7 +577,8 @@ FUNCTION {format.names}
           numnames #20	% if there are more than 20 names
           > and
             { "others" 't :=
-              #1 'namesleft := }
+              #1 'namesleft :=
+              #1 'truncated := }
             'skip$
           if$		% end truncation of long list of names
           namesleft #1 >
@@ -592,9 +594,18 @@ FUNCTION {format.names}
               if$
               t "others" =
                 {
-		  %%                 " " * bbl.etal *
-		  % compute the number of remaining authors
-		  " and " * numnames nameptr - #1 + int.to.str$ * " others" *
+		  truncated #0 >
+		    {
+		      % Author list was truncated (>20 authors): report the
+		      % number of remaining authors that were dropped.
+		      " and " * numnames nameptr - #1 + int.to.str$ * " others" *
+		    }
+		    {
+		      % The author field literally ended with "and others";
+		      % there is no meaningful count, so render "et al."
+		      " " * bbl.etal *
+		    }
+		  if$
                 }
                 {
                   bbl.and
