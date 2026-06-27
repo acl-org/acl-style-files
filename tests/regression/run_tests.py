@@ -173,6 +173,16 @@ def run_bibtex(cases, workdir):
         stderr=subprocess.STDOUT,
         text=True,
     )
+    # bibtex returns 0 on success, and a non-zero status for warnings (1),
+    # errors (2), or fatal problems (3). The test entries are deliberately
+    # minimal and should never produce warnings, so treat any non-zero exit
+    # as a hard failure and surface bibtex's own output for debugging rather
+    # than silently parsing a possibly-incomplete .bbl.
+    if proc.returncode != 0:
+        sys.stderr.write(proc.stdout)
+        raise SystemExit(
+            f"bibtex exited with status {proc.returncode}; see output above"
+        )
     bbl_path = os.path.join(workdir, "test.bbl")
     if not os.path.exists(bbl_path):
         sys.stderr.write(proc.stdout)
