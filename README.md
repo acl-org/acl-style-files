@@ -13,7 +13,7 @@ The LaTeX style files are available
 - in this repository
 - as a [.zip file](https://github.com/acl-org/acl-style-files/archive/refs/heads/master.zip)
 
-Please see [`acl_latex.tex`](https://github.com/acl-org/acl-style-files/blob/master/acl_latex.tex) for an example.
+Please see [`acl_latex.tex`](https://github.com/acl-org/acl-style-files/blob/master/acl_latex.tex) for detailed instructions on using the LaTeX style.  This file also serves as a template document for use with LaTeX and pdfLaTeX.  The file  [`acl_lualatex.tex`](https://github.com/acl-org/acl-style-files/blob/master/acl_lualatex.tex) serves as a template document for use with both XeLaTeX and LuaLaTeX. 
 
 Please follow the paper formatting guidelines general to *ACL
 conferences:
