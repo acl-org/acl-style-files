@@ -576,7 +576,7 @@ FUNCTION {format.names}
           #1 + =
           numnames #20	% if there are more than 20 names
           > and
-            { "others" 't :=
+            {
               #1 'namesleft :=
               #1 'truncated := }
             'skip$
@@ -584,7 +584,7 @@ FUNCTION {format.names}
           namesleft #1 >
             { ", " * t * }
             {
-              s nameptr "{ll}" format.name$ duplicate$ "others" =
+              s numnames "{ll}" format.name$ duplicate$ "others" =
                 { 't := }
                 { pop$ }
               if$
@@ -594,6 +594,11 @@ FUNCTION {format.names}
               if$
               t "others" =
                 {
+		  % The author field literally ended with "and others";
+		  % there is no meaningful count, so render "et al."
+		  " " * bbl.etal *
+		}
+		{
 		  truncated #0 >
 		    {
 		      % Author list was truncated (>20 authors): report the
@@ -601,15 +606,10 @@ FUNCTION {format.names}
 		      " and " * numnames nameptr - #1 + int.to.str$ * " others" *
 		    }
 		    {
-		      % The author field literally ended with "and others";
-		      % there is no meaningful count, so render "et al."
-		      " " * bbl.etal *
+                      bbl.and
+                      space.word * t *
 		    }
 		  if$
-                }
-                {
-                  bbl.and
-                  space.word * t *
                 }
               if$
             }

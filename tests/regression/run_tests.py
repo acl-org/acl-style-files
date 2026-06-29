@@ -64,7 +64,10 @@ def expected_render(display, has_others):
     if numnames > 20:
         shown = display[:19]
         dropped = numnames - 19
-        return ", ".join(shown) + f", and {dropped} others"
+        if has_others:
+            return ", ".join(shown) + f", et al"
+        else:
+            return ", ".join(shown) + f", and {dropped} others"
 
     # 2. Literal "and others" -> et al. (no count).
     if has_others:
